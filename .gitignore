@@ -1,0 +1,6 @@
+__pycache__/
+media/
+slides/
+*.aux
+*.out
+*.log

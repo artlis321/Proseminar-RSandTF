@@ -1,0 +1,698 @@
+\input{childdoc.def}
+\childdocmain{}
+
+%{\def\ignore{\usepackage{ws-procs9x6}}}%disable hyper at arxiv
+{\def\ignore{\pdfoutput=1}}%use pdflatex at arxiv
+
+\documentclass[11pt,a4paper,openany]{book}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Page layout 
+\usepackage[a4paper,text={160mm,247mm},centering]{geometry}
+% setspace does proper distances between lines, but leaves footnotes etc. intact
+\usepackage{setspace}
+\usepackage{rotating}
+\usepackage{mathfixs}
+\setstretch{1.1}
+
+%% Fonts and languages
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[icelandic,english]{babel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Fancy headers, if desired
+%\usepackage{fancyhdr, dsfont}
+%\renewcommand{\headrulewidth}{0.4pt}
+%\renewcommand{\footrulewidth}{0.4pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Several Packages: Math, Graphics
+\usepackage{amsmath, amssymb, amsfonts, geometry}
+\usepackage{amsthm}
+
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{braket}
+
+\usepackage{lipsum}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%  METAPOST / Colors / Graphics
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[compile=false,fonts]{mpostinl}
+%\usepackage{graphbox}
+%\pdfminorversion=5
+%\pdfcompresslevel=9
+%\pdfobjcompresslevel=3
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%  Define some nice colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{xcolor}
+\usepackage[usenames,dvipsnames,table]{xcolor}
+\definecolor{mygreen}{rgb}{0,0.4,0}
+\definecolor{myblue}{rgb}{0,0.0,0.4}
+\definecolor{refrcolor}{rgb}{0,0.4,0}
+\definecolor{cgreen}{rgb}{0,0.7,0}
+\definecolor{ecolor}{rgb}{.52,.03,.06}
+\definecolor{bgcolor}{rgb}{.96,.95,.80}
+\definecolor{bgcolordark}{rgb}{.80,.80,.67}
+\definecolor{faint}{rgb}{.80,.80,.80}
+\definecolor{myred}{rgb}{0.55,0.0,0.05}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%  Define some nice colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%  Enumitem
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{enumitem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%  Hacks for particular reports.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%added for report A1 to work
+\usepackage[framemethod=default]{mdframed}
+\newmdtheoremenv[backgroundcolor=black!10,linewidth=0pt]{definition}{Definition}[chapter]
+\newmdtheoremenv[backgroundcolor=black!10,linewidth=0pt]{theorem}{Theorem}[chapter]
+\newmdtheoremenv[backgroundcolor=black!10,linewidth=0pt]{lemma}{Lemma}[chapter]
+%\newtheorem{definition}{Definition}
+%\newtheorem{theorem}{Theorem}
+%added for report A3 to work
+\DeclareMathOperator{\I}{I}
+
+%added for report B2 to work
+\usepackage{wrapfig}
+%added for report B3 to work
+\usepackage{amsthm}
+%added for report B3 to work
+\usepackage{relsize}
+%added for report D2 to work
+\usepackage{mathtools}
+\usepackage{listings}
+
+%added for report E3 to work
+%\usepackage{standalone}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%  Include the METAPOST drawing setup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\input{drinfeldmp}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The package "shuffle" is using old pi-type fonts which are not 
+% properly treated in several modern text-processing systems. In 
+% particular publishing with IOP (JPhysA) causes serious trouble. 
+% The following tex-code provides a reasonable shuffle symbol. 
+% \usepackage{shuffle}
+
+\makeatletter
+\providecommand*{\shuffle}{%
+  \mathbin{\mathpalette\shuffle@{}}%
+}
+\newcommand*{\shuffle@}[2]{%
+  % #1: math style
+  % #2: unused
+  \sbox0{$#1\vcenter{}$}%
+  \kern .15\ht0 % side bearing
+  \rlap{\vrule height .25\ht0 depth 0pt width 2.5\ht0}%
+  \raise.1\ht0\hbox to 2.5\ht0{%
+    \vrule height 1.75\ht0 depth -.1\ht0 width .17\ht0 %
+    \hfill
+    \vrule height 1.75\ht0 depth -.1\ht0 width .17\ht0 %
+    \hfill
+    \vrule height 1.75\ht0 depth -.1\ht0 width .17\ht0 %
+  }%
+  \kern .15\ht0 % side bearing
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% automatic bold math in headlines
+\makeatletter
+\g@addto@macro\bfseries{\boldmath}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% change appearance of the table of contents
+\usepackage{tocloft}
+\setlength{\cftchapnumwidth}{2.4em}
+\setlength{\cftsecindent}{2.5em}
+\setlength{\cftsecnumwidth}{1.8em}
+\setlength{\cftsubsecindent}{4.3em}
+\setlength{\cftsubsecnumwidth}{2.7em}
+
+\addto\captionsenglish{\renewcommand{\chaptername}{Report}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% format for equation numbers
+\numberwithin{equation}{chapter}
+\renewcommand{\theequation}{\thechapter\hspace{0.1em}|\arabic{equation}}
+\numberwithin{definition}{chapter}
+\numberwithin{theorem}{chapter}
+\numberwithin{lemma}{chapter}
+%\renewcommand{\thedefinition}{\thechapter\hspace{0.1em}|\arabic{definition}}
+%\renewcommand{\thetheorem}{\thechapter\hspace{0.1em}|\arabic{theorem}}
+\renewcommand{\thedefinition}{\arabic{definition}}
+\renewcommand{\thetheorem}{\arabic{theorem}}
+\renewcommand{\thelemma}{\arabic{lemma}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% macros for objects with two-line labels 
+
+\usepackage{xparse}
+
+% nice function for \omwb
+\ExplSyntaxOn
+\NewDocumentCommand{\Gtargz}{m m}
+{
+ \Gt\left(\begin{smallmatrix}
+ \Gtargz_print:n {#1} \\
+ \Gtargz_print:n {#2}
+ \end{smallmatrix};z\right)
+}
+\seq_new:N \l_Gtargz_list_seq
+\cs_new_protected:Npn \Gtargz_print:n #1
+{
+  \seq_set_split:Nnn \l_Gtargz_list_seq { , } { #1 }
+  \seq_use:Nn \l_Gtargz_list_seq { , & }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\Gtargzt}{m m}
+{
+ \Gt\left(\begin{smallmatrix}
+ \Gtargzt_print:n {#1} \\
+ \Gtargzt_print:n {#2}
+ \end{smallmatrix};z,\tau\right)
+}
+\seq_new:N \l_Gtargzt_list_seq
+\cs_new_protected:Npn \Gtargzt_print:n #1
+{
+  \seq_set_split:Nnn \l_Gtargzt_list_seq { , } { #1 }
+  \seq_use:Nn \l_Gtargzt_list_seq { , & }
+}
+\ExplSyntaxOff
+\newcommand{\SI}[1]{\Sel[#1]}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\SIE}{m m}
+{
+\SelE\!\Big[\begin{smallmatrix}
+ \SI_print:n {#1} \\
+ \SI_print:n {#2}
+ \end{smallmatrix}\Big]
+}
+\seq_new:N \l_SI_list_seq
+\cs_new_protected:Npn \SI_print:n #1
+{
+  \seq_set_split:Nnn \l_SI_list_seq { , } { #1 }
+  \seq_use:Nn \l_SI_list_seq { , & }
+}
+\ExplSyntaxOff
+
+\usepackage[pdfencoding=auto,bookmarks=true,hyperfigures=true]{hyperref}%
+\PassOptionsToPackage{unicode}{hyperref}
+
+\usepackage{url}
+%\PassOptionsToPackage{naturalnames}{hyperref}
+%\usepackage{graphicx}% uncomment for latex-use
+\usepackage{graphbox}
+\usepackage{float}
+% Collect successive citations appropriately
+\usepackage[nosort]{cite}
+% \usepackage[bulletsep]{collref}
+% \usepackage{booktabs}
+\usepackage{lmodern}
+% \renewcommand{\ttdefault}{lmtt}
+% \usepackage{bm}
+\usepackage{amsbsy}
+
+%\usepackage[arrow, matrix, curve]{xy}
+\usepackage[font=small,labelfont=bf]{caption}
+
+
+\setcounter{MaxMatrixCols}{20}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% box with a diagonal line for the upper left cell in a table
+% \usepackage{diagbox}
+% \usepackage{array}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% tiny showkeys
+%\usepackage[notcite,notref]{showkeys}
+%\def\showkeyslabelformat#1{{\usefont\encodingdefault\familydefault\seriesdefault
+%\shapedefault
+%\normalfont\tiny\ttfamily#1}}
+%\def\showkeysrefformat#1{{\normalfont\tiny\ttfamily#1}}
+%\makeatletter
+%\def\SK@@ref#1>#2\SK@{%
+% {\@inlabelfalse\leavevmode\vbox to\z@{%
+% \vss\SK@refcolor\rlap{\vrule\raise .75em%
+%  \hbox{\showkeysrefformat{#2}}}}}}
+%\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% equations, sections, figures, tables and appendices
+\newcommand{\eqn}[1]{eq.~\eqref{#1}}
+\newcommand{\Eqn}[1]{Equation~\eqref{{#1}}}
+\newcommand{\eqns}[2]{eqs.~\eqref{#1} and~\eqref{#2}}
+\newcommand{\Eqns}[2]{Eqs.~\eqref{#1} and~\eqref{#2}}
+
+% nice references
+\newcommand{\rcite}[1]{ref.~\cite{#1}}
+\newcommand{\rcites}[1]{refs.~\cite{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%arxiv links
+\providecommand{\href}[2]{#2}
+\newcommand{\arxivlink}[1]{\href{http://arxiv.org/abs/#1}{arxiv:#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% starting times
+\newcommand{\teight}{7\textsuperscript{\,\underline{45}}\,am}
+\newcommand{\tnine}{9\textsuperscript{\,\underline{00}}\,am}
+\newcommand{\tten}{10\textsuperscript{\,\underline{15}}\,am}
+
+\newcommand{\tss}{\textsuperscript}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% references
+\makeatletter
+\def\mr@ignsp#1 {\ifx\:#1\@empty\else #1\expandafter\mr@ignsp\fi}%
+\newcommand{\multiref}[1]{\begingroup%\let\protect\string%
+\xdef\mr@no@sparg{\expandafter\mr@ignsp#1 \: }%
+\def\mr@comma{}%
+\@for\mr@refs:=\mr@no@sparg\do{\mr@comma\def\mr@comma{,}\ref{\mr@refs}}%
+\endgroup}
+\renewcommand{\eqref}[1]{(\multiref{#1})}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%pdf setup
+\providecommand{\hypersetup}[1]{}
+\providecommand{\texorpdfstring}[2]{#1}
+
+\hypersetup{plainpages=false}
+\hypersetup{pdfpagemode=UseNone}
+%\hypersetup{pdfpagemode=UseOutlines}
+%\hypersetup{pdfpagelabels=true}
+\hypersetup{bookmarksnumbered=true}
+\hypersetup{pdfstartview=FitH}
+\hypersetup{colorlinks=false}
+%\hypersetup{citebordercolor={.5 1 .5}}
+%\hypersetup{citebordercolor={0 .9 .0}}
+\hypersetup{citebordercolor={0.7 0.7 1}}
+%\hypersetup{urlbordercolor={.5 1 1}}
+\hypersetup{urlbordercolor={.4 .8 1}}
+%\hypersetup{linkbordercolor={1 .7 .7}}
+\hypersetup{linkbordercolor={1 .8 .6}}
+%\hypersetup{pdfborder={0 0 1 [3]}}
+\hypersetup{colorlinks=true, urlcolor=[rgb]{0.13,0.30,0.45}, linkcolor=[rgb]{0.13,0.30,0.45}, citecolor=[rgb]{0.55,0.0,0.05}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%title data
+\makeatletter
+\let\@keywords\@empty
+\let\@subject\@empty
+\providecommand{\keywords}[1]{\gdef\@keywords{#1}}
+\providecommand{\subject}[1]{\gdef\@subject{#1}}
+\def\thetitle{\@title}
+\def\theauthor{\@author}
+\def\thesubject{\@subject}
+\def\thedate{\@date}
+\def\thekeywords{\@keywords}
+\makeatother
+\AtBeginDocument{
+\hypersetup{pdftitle={\thetitle}}%
+\hypersetup{pdfauthor={\theauthor}}%
+\hypersetup{pdfsubject={\thesubject}}%
+\hypersetup{pdfkeywords={\thekeywords}}%
+}
+
+\usepackage{chapterbib}
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\chapter*}{\section*}{}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Notes
+%\newif\ifnote 
+%\notetrue
+%\newcommand{\jbnote}[1]{{\ifnote\textcolor{MidnightBlue}{\normalfont\scriptsize\sffamily
+%\hspace{.1cm}JB: #1\hspace{.1cm}}\fi}} 
+
+\allowdisplaybreaks
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vectors and matrices
+\newcommand{\colvec}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\mat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\detmat}[1]{\begin{vmatrix}#1\end{vmatrix}}
+\newcommand{\smat}[1]{\Big(\!\begin{smallmatrix}#1\end{smallmatrix}\!\Big)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% relax the previous definition and define a new mathoperator. 
+\let\Re\relax\DeclareMathOperator{\Re}{Re}
+\let\Im\relax\DeclareMathOperator{\Im}{Im}
+
+% quod erat demonstrandum
+% this command is defined in amsthm
+%\newcommand{\qed}
+%{\begin{flushright}\ensuremath{\Box}\end{flushright}}
+
+\newcommand{\pd}{\partial}
+\newcommand{\vph}{\varphi}
+\newcommand{\vth}{\vartheta}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\na}{\vec{\nabla}}
+\newcommand{\kb}{k_{B}}
+\newcommand{\hb}{\hbar}
+\newcommand{\al}{\alpha}
+\newcommand{\be}{\beta}
+\newcommand{\ga}{\gamma}
+\newcommand{\de}{\delta}
+\newcommand{\eps}{\epsilon}
+\newcommand{\ze}{\zeta}
+\newcommand{\io}{\iota}
+\newcommand{\si}{\sigma}
+\newcommand{\la}{\lambda}
+\newcommand{\ka}{\kappa}
+\newcommand{\om}{\omega}
+\newcommand{\Ga}{\Gamma}
+\newcommand{\De}{\Delta}
+\newcommand{\Si}{\Sigma}
+\newcommand{\La}{\Lambda}
+\newcommand{\Om}{\Omega}
+\newcommand{\Th}{\Theta}
+\newcommand{\te}{\textrm}
+\newcommand{\half}{\tfrac{1}{2}}
+\newcommand{\ap}{\alpha'}
+\newcommand{\Tr}{\textrm{Tr}}
+\newcommand{\tdz}{\widetilde{z}}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ee}{\mathrm{e}}
+
+% Zahlenmengen
+\newcommand{\ZC}{\mathbb C}
+\newcommand{\ZE}{\mathbb E}
+\newcommand{\ZG}{\mathbb G}
+\newcommand{\ZH}{\mathbb H}
+\newcommand{\ZL}{\mathbb L} %freie Lie algebra
+\newcommand{\ZN}{\mathbb N}
+\newcommand{\ZP}{\mathbb P}
+\newcommand{\ZQ}{\mathbb Q}
+\newcommand{\ZR}{\mathbb R}
+\newcommand{\ZZ}{\mathbb Z}
+
+% calligraphic letters 
+\newcommand{\CA}{\mathcal{A}}       
+\newcommand{\CB}{\mathcal{B}}       
+\newcommand{\CC}{\mathcal{C}}       
+\newcommand{\CD}{\mathcal{D}}       
+\newcommand{\CE}{\mathcal{E}}       
+\newcommand{\CF}{\mathcal{F}}       
+\newcommand{\CG}{\mathcal{G}} 
+\newcommand{\CH}{\mathcal{H}}
+\newcommand{\CI}{\mathcal{I}}
+\newcommand{\CJ}{\mathcal{J}}       
+\newcommand{\CK}{\mathcal{K}}
+\newcommand{\CL}{\mathcal{L}}       
+\newcommand{\CN}{\mathcal{N}}      
+\newcommand{\CM}{\mathcal{M}}      
+\newcommand{\CO}{\mathcal{O}}      
+\newcommand{\CP}{\mathcal{P}}       
+\newcommand{\CQ}{\mathcal{Q}}       
+\newcommand{\CR}{\mathcal{R}}
+\newcommand{\CS}{\mathcal{S}}
+\newcommand{\CT}{\mathcal{T}}
+\newcommand{\CU}{\mathcal{U}}       
+\newcommand{\CV}{\mathcal{V}}
+\newcommand{\CW}{\mathcal{W}}
+\newcommand{\CX}{\mathcal{X}}
+\newcommand{\CY}{\mathcal{Y}}       
+\newcommand{\CZ}{\mathcal{Z}}       
+
+% Parameters for amplitudes
+\def\tree{\text{tree}}
+\def\oneloop{\text{1-loop}}
+\def\mmin{\text{min}}
+\def\mmax{\text{max}}
+\def\onel{{(1)}}
+\def\twol{{(2)}}
+\def\threl{{(3)}}
+\def\fourl{{(4)}}
+\def\MHV{\textrm{MHV}}
+\def\MHVbar{$\overline{\hbox{MHV}}$}
+\def\NMHVbar{$\overline{\hbox{NMHV}}$}
+\def\QCD{\textrm{QCD}}
+\def\sYM{\textrm{sYM}}
+\def\YM{\textrm{YM}}
+\def\SUGRA{\textrm{SUGRA}}
+\def\open{\textrm{open}}
+\def\closed{\textrm{closed}}
+\def\reg{\text{reg}}
+\def\unreg{\text{unreg}}
+
+\newcommand{\sv}{\ensuremath{\text{sv}}}
+\newcommand{\esv}{\ensuremath{\text{esv}}}
+
+\newcommand{\binomial}{\binom}
+
+\newcommand\mand{\qquad\textrm{and}\qquad}
+\newcommand{\nn}{\nonumber}
+\newcommand{\nnl}{\nonumber\\}
+
+% Limits, sums and Integrals
+\newcommand{\limninf}{\lim\limits_{n\to\infty}}
+\newcommand{\limxzero}{\lim\limits_{x\to0}}
+\newcommand{\limxone}{\lim\limits_{x\to1}}
+\newcommand{\limxinf}{\lim\limits_{x\to\infty}}
+\newcommand{\limxpi}{\lim\limits_{x\to\pi}}
+\newcommand{\limxxzero}{\lim\limits_{x\to x_0}}
+\newcommand{\limhzero}{\lim\limits_{h\to 0}}
+
+\newcommand{\sumninf}{\sum\limits_{n=0}^\infty}
+\newcommand{\sumnoneinf}{\sum\limits_{n=1}^\infty}
+\newcommand{\suml}{\sum\limits}
+
+\newcommand{\intab}{\int\limits_a^b}
+\newcommand{\intl}{\int\limits}
+\newcommand{\intC}{\int\limits_\SC}
+\newcommand{\intinf}{\int\limits_{-\infty}^{\infty}}
+\newcommand{\liml}{\lim\limits}
+\DeclareMathOperator{\const}{const}
+
+\DeclareMathOperator{\TL}{T}
+\DeclareMathOperator{\TRE}{T^\textit{R}_\ve}
+\DeclareMathOperator{\TTRE}{\tilde{T}^\textit{R}_\ve}
+\DeclareMathOperator{\hF}{{\hat F}}
+\DeclareMathOperator{\bhF}{{\bf{\hat F}}}
+\DeclareMathOperator{\Rr}{\mathrm{Reg}}
+\DeclareMathOperator{\GL}{\Gamma}
+\DeclareMathOperator{\Gt}{\tilde{\Gamma}}
+\DeclareMathOperator{\KN}{KN}
+\DeclareMathOperator{\KNE}{KN^E}
+\DeclareMathOperator{\Sel}{S}
+\DeclareMathOperator{\SelE}{S^E}
+\DeclareMathOperator{\Selbld}{\mathbf{S}}
+\DeclareMathOperator{\SelbldE}{\mathbf{S}^E}
+\DeclareMathOperator{\SelbldEw}{\mathbf{S}^E_{\mathit{w}}}
+\DeclareMathOperator{\ELi}{ELi}
+\DeclareMathOperator{\bC}{\mathbf{C}}
+\DeclareMathOperator{\gm}{\gamma}
+\DeclareMathOperator{\gmz}{\gamma_0}
+\DeclareMathOperator{\ce}{\CE}
+\DeclareMathOperator{\cez}{\CE_0}
+\DeclareMathOperator{\zm}{\zeta}
+\DeclareMathOperator{\zms}{\zeta^{\shuffle}}
+\DeclareMathOperator{\omm}{\omega}
+\DeclareMathOperator{\ommz}{\omm_0}
+\DeclareMathOperator{\dlog}{\mathrm{dlog}}
+\DeclareMathOperator{\sgn}{sgn}
+
+\newcommand{\wmax}{{w_\text{max}}}
+\newcommand{\El}{\text{E}}
+\newcommand{\nol}{N}
+\newcommand{\snol}{L}
+\newcommand{\DAlg}{\mathfrak{u}}
+
+\DeclareMathOperator{\GGs}{G}
+\newcommand{\GGz}[1]{\GGs^0_{#1}}
+\newcommand{\GG}[1]{\GGs_{#1}}
+
+% some group theory shortcuts
+\newcommand{\gSL}{\text{SL}}
+
+% Propagator
+\newcommand{\PP}{P}
+
+% don't know what this command is for
+\newcommand{\BB}{B}
+
+\DeclareMathOperator{\EEs}{E}
+\newcommand{\EEz}[1]{\EEs^0_{#1}}
+\newcommand{\EE}[1]{\EEs_{#1}}
+
+% Iterated elliptic integrals
+\newcommand{\GLargz}[2]{\GL\left(\begin{smallmatrix}#1\\#2\end{smallmatrix};z\right)}
+\newcommand{\GLarg}[3]{\GL\left(\begin{smallmatrix}#1\\#2\end{smallmatrix};#3\right)}
+\newcommand{\GGG}[3]{\CG\left[\begin{smallmatrix}#1\\#2\end{smallmatrix};#3\right]}
+\newcommand{\EMZVDatamine}{\texttt{https://tools.aei.mpg.de/emzv}}
+
+% nice fractions
+\usepackage{nicefrac}
+\newcommand{\tauh}{\nicefrac{\tau}{2}}
+\newcommand{\oneh}{\nicefrac{1}{2}}
+\newcommand{\oned}{\nicefrac{1}{3}}
+\newcommand{\onezd}{\nicefrac{2}{3}}
+\newcommand{\taud}{\nicefrac{\tau}{3}}
+\newcommand{\tauv}{\nicefrac{\tau}{4}}
+\newcommand{\tauf}{\nicefrac{\tau}{5}}
+\newcommand{\tauzf}{\nicefrac{2\tau}{5}}
+
+% nice bar for dividing argument and the \tau variable
+\newcommand{\db}{\hspace{1pt}|\hspace{1pt}}
+
+%new math operators introduced by AK
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Div}{Div}
+\DeclareMathOperator{\RR}{R}
+\DeclareMathOperator{\DD}{D}
+\DeclareMathOperator{\DE}{\DD^E}
+\DeclareMathOperator{\JJ}{J}
+\DeclareMathOperator{\E}{E}
+\DeclareMathOperator{\Li}{Li}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Vol}{Vol}
+\DeclareMathOperator{\LL}{L}
+\DeclareMathOperator{\FF}{F}
+\newcommand{\pc}[2]{\left[#1\!:#2\!:1\right]} 
+\DeclareMathOperator{\bL}{\boldsymbol{\mathrm{L}}}
+\DeclareMathOperator{\bF}{\boldsymbol{\mathrm{F}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+% either have the word subsection etc. be part of the link
+\newcommand{\namedref}[2]{\hyperref[#2]{#1~\ref*{#2}}}
+% or rather not
+%\newcommand{\namedref}[2]{#1~\hyperref[#2]{\ref*{#2}}}
+\newcommand{\secref}{\@ifstar{\namedref{Section}}{\namedref{section}}}
+\newcommand{\subsecref}{\@ifstar{\namedref{Subsection}}{\namedref{subsection}}}
+\newcommand{\appref}{\@ifstar{\namedref{Appendix}}{\namedref{appendix}}}
+\newcommand{\tabref}{\@ifstar{\namedref{Table}}{\namedref{table}}}
+\newcommand{\figref}{\@ifstar{\namedref{Figure}}{\namedref{figure}}}
+\newcommand{\talkref}{\@ifstar{\namedref{Talk}}{\namedref{talk}}}
+\newcommand{\repref}{\@ifstar{\namedref{Report}}{\namedref{report}}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Setup for showing mathematical and conceptual difficulties as well as reading effort with using progressbar. 
+\usepackage[roundnessr=0.2,subdivisions=5,width=2.42cm]{progressbar}
+%
+\newcommand{\triplebar}[3]{
+\begin{minipage}[b]{1.6cm}
+	math:\\[-1pt]
+	concept: \\[-1pt]
+	reading: 
+\end{minipage}
+\begin{minipage}[b]{2.4cm}
+	\progressbar[filledcolor=RoyalBlue]{#1}\\[-1pt]
+	\progressbar[filledcolor=Orange]{#2}\\[-1pt]
+	\progressbar[filledcolor=OliveGreen]{#3}
+\end{minipage}
+}
+
+\newcommand{\studenttutordate}[3]{
+\begin{minipage}[b]{2cm}
+   \textbf{Speaker:} \\[-1pt]
+   \textbf{Tutor:  } \\[-1pt]
+   \textbf{Date:   }    
+\end{minipage}
+\begin{minipage}[b]{8cm}
+   #1\\[-1pt]
+   #2\\[-1pt]
+   #3
+\end{minipage}
+}
+
+\newcommand{\speaker}[1]{\textbf{\Large{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+\renewcommand*{\thesection}{\Alph{section}}
+\renewcommand*{\thepart}{\Alph{part}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\pagestyle{plain}
+%
+\include{head}
+\include{preliminaries}
+\include{outline}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\numberwithin{chapter}{part}
+\renewcommand*{\thesection}{\arabic{section}}
+%
+% \include{reportX1}
+% \include{reportX2}
+% %
+% Please, uncomment the line for your report here! 
+% \include{reportA1}
+% \include{reportA2}
+% \include{reportA3}
+% \include{reportA4}
+% \include{reportA5}
+% \include{reportA6}
+% \include{reportA7}
+% \include{reportA8}
+% \include{reportA9}
+% 
+% \include{reportB1}
+% \include{reportB2}
+% \include{reportB3}
+% \include{reportB4}
+% \include{reportB5}
+% \include{reportB6}
+% \include{reportB7}
+% \include{reportB8}
+% \include{reportB9}
+% \include{reportB10}
+% \include{reportB11}
+\include{reportB12}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+

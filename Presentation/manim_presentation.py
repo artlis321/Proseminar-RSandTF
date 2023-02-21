@@ -1,9 +1,9 @@
 from manim import *
-from manim_slides import Slide
+from manim_slides import Slide,ThreeDSlide
 import numpy as np
 from scipy.spatial.transform import Rotation as R
 
-class TestSlide(Slide):
+class TestSlide(ThreeDSlide):
     def torus_func(self,u,v,rot):
         p = np.array(
             [
@@ -16,14 +16,18 @@ class TestSlide(Slide):
         r = R.from_rotvec(rot)
         r = np.array(r.as_matrix())
 
-        return np.matmul(r,p)
+        out = np.matmul(r,p)
+        #print(out)
+
+        return out
      
 
     def construct(self):
+        axes = ThreeDAxes(x_range=[-4,4], x_length=8)
         rot = np.pi/2*np.array([1,1,1])
 
         surface = Surface(
-            lambda u,v : self.torus_func(u,v,rot),
+            lambda u,v : axes.c2p(*self.torus_func(u,v,rot)),
             u_range=[-PI,PI],
             v_range=[-PI,PI],
             resolution=16
@@ -31,19 +35,14 @@ class TestSlide(Slide):
         self.play( Create(surface) )
         self.pause()
 
-        rot = np.pi/2*np.array([0,0,0])
-        surface_rotated = Surface(
-            lambda u,v : self.torus_func(u,v,rot),
-            u_range=[-PI,PI],
-            v_range=[-PI,PI],
-            resolution=16
-        )
+        text = Text("THE TORUS WORKS :)")
+        self.add_fixed_in_frame_mobjects(text)
+        self.remove(text)
 
-        self.play( Transform(surface,surface_rotated) )
+        self.move_camera(phi=PI/2,theta=PI/2,run_time=2)
         self.pause()
 
-        text = Text("THE TORUS DOESN'T WORK :(")
-        self.play( Write(text) )
+        self.play( Write(text,run_time=1) )
 
         self.pause()
         

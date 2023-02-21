@@ -4,7 +4,7 @@ import numpy as np
 from scipy.spatial.transform import Rotation as R
 
 class TestSlide(Slide):
-    def torus_func(self,u,v):
+    def torus_func(self,u,v,rot):
         p = np.array(
             [
                 (3+np.sin(v))*np.cos(u),
@@ -13,18 +13,37 @@ class TestSlide(Slide):
             ]
         )
 
-        r = R.from_rotvec(np.pi/2 * np.array([1, 1, 1]))
+        r = R.from_rotvec(rot)
         r = np.array(r.as_matrix())
 
         return np.matmul(r,p)
      
 
     def construct(self):
+        rot = np.pi/2*np.array([1,1,1])
+
         surface = Surface(
-            lambda u,v : self.torus_func(u,v),
+            lambda u,v : self.torus_func(u,v,rot),
             u_range=[-PI,PI],
             v_range=[-PI,PI],
             resolution=16
         )
         self.play( Create(surface) )
         self.pause()
+
+        rot = np.pi/2*np.array([0,0,0])
+        surface_rotated = Surface(
+            lambda u,v : self.torus_func(u,v,rot),
+            u_range=[-PI,PI],
+            v_range=[-PI,PI],
+            resolution=16
+        )
+
+        self.play( Transform(surface,surface_rotated) )
+        self.pause()
+
+        text = Text("THE TORUS DOESN'T WORK :(")
+        self.play( Write(text) )
+
+        self.pause()
+        

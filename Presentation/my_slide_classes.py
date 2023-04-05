@@ -1,7 +1,7 @@
 from manim import *
 from manim_slides import Slide,ThreeDSlide
 
-class MySlide(Slide):
+class TitleTextSlide(Slide):
     def __init__(self):
         Slide.__init__(self)
         self.last_text = None
@@ -48,7 +48,7 @@ class MySlide(Slide):
             self.play( FadeIn(text_object) )
             self.last_text = text_object
 
-class My3DSlide(ThreeDSlide):
+class TitleText3DSlide(ThreeDSlide):
     def set_slide_count(self,current,total):
         self.current_slide = current
         self.total_slides = total

@@ -1,9 +1,10 @@
 from manim import *
 from manim_slides import Slide,ThreeDSlide
+from my_slide_classes import TitleTextSlide,TitleText3DSlide
 import numpy as np
 from scipy.spatial.transform import Rotation as R
 
-class TestSlide(ThreeDSlide):
+class TestSlide(TitleText3DSlide):
     def torus_func(self,u,v,rot):
         p = np.array(
             [
@@ -23,6 +24,8 @@ class TestSlide(ThreeDSlide):
      
 
     def construct(self):
+        self.camera.background_color="#bbbbbb"
+
         axes = ThreeDAxes(x_range=[-4,4], x_length=8)
         rot = np.pi/2*np.array([0,0,0])
 
@@ -113,7 +116,7 @@ class TestSlide(ThreeDSlide):
         self.pause()
 
         
-class GenusNTorus(ThreeDScene):
+class GenusNTorus(TitleText3DSlide):
     def construct(self):
         #####
         GENUS = 3

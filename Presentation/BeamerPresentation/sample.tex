@@ -1,0 +1,267 @@
+%Please use LuaLaTeX or XeLaTeX
+\documentclass[11pt,aspectratio=169]{beamer}
+
+\title{The presentation title goes here}
+\date[ABC 2021]{Date or event}
+\author{Author}
+\institute{Organizational Unit\\can spread over 2 lines}
+
+\usetheme{eth}
+
+\colorlet{titlefgcolor}{ETHBlue}
+\colorlet{accentcolor}{ETHRed}
+
+\begin{document}
+
+%\def\titlefigure{elements/title-page-image}		% Default image
+%\def\titlefigure{elements/title-page-image-43}	% Use this for 4:3 presentations
+
+\titleframe
+
+\colorlet{titlefgcolor}{ETHPurple}
+\def\titlefigure{elements/title-page-image-alt}
+\title{Different background}
+\titleframe
+
+\colorlet{titlebgcolor}{ETHGreen}
+\def\titlefigure{}
+\setlength{\titleboxwidth}{0.75\textwidth}			% Change box width
+\title{Or even a plain color, especially if your title is very long and leaves no space for what's behind the colored box}
+\titleframe
+
+\tocframe
+
+\section{Layout}
+
+\begin{frame}[fragile]{Title page}
+
+	The cover image can be changed by using the command \verb+\def\titlefigure{...}+ before \verb+\titleframe+, as long as the figure as a 2:1 aspect ratio.
+	
+	For example:
+	\begin{verbatim}
+		\def\titlefigure{elements/title-page-image-alt}
+	\end{verbatim}
+	
+	\medskip
+	
+	If you want a solid color, use \verb+\def\titlefigure{}+
+	
+	\medskip
+
+	The command	
+	\begin{verbatim}
+		\setlength{\titleboxwidth}{0.65\textwidth}
+	\end{verbatim}
+	changes the width of the titlebox if you need more space.
+
+\end{frame}
+
+\begin{frame}[fragile]{Aspect ratio}
+
+	The official ETH template only comes in 16:9.
+	
+	You can obtain 4:3 slides by passing the option \verb+aspectratio=43+
+	\begin{verbatim}
+		\documentclass[11pt,aspectratio=43]{beamer}	
+	\end{verbatim}
+		
+	\bigskip
+	
+	In this case, you probably want to use the cover image \verb+\def\titlefigure{elements/title-page-image-43}+
+	or any other image in 14:10 aspect ratio, for example \verb+\def\titlefigure{elements/title-page-image-alt-43}+
+	
+	
+\end{frame}
+
+\section{Text and colors}
+
+\begin{frame}[fragile]{Font size}
+
+	The font sizes match the official ETH template quite accurately when the default option \verb+11pt+ is used.
+	
+	\bigskip
+	
+	You can get slightly smaller or larger text by passing the options \verb+10pt+ or \verb+12pt+, respectively.
+	\begin{verbatim}
+		\documentclass[10pt,aspectratio=169]{beamer}
+		\documentclass[11pt,aspectratio=169]{beamer}		% default
+		\documentclass[12pt,aspectratio=169]{beamer}
+	\end{verbatim}	
+	
+	\bigskip
+	You can also fine-tune the font sizes by modifying the \verb+beamerfontthemeeth.sty+ file.
+
+\end{frame}
+
+\begin{frame}[fragile]{Colors}
+
+	You need to pick these colors
+	\begin{itemize}
+		\item \texttt{accentcolor} (alert text, blocks)
+		\item \texttt{titlefgcolor} (the box on the title page)
+		\item \texttt{titlebgcolor} (the background on the title page, in case you don't use an image)
+	\end{itemize}
+	Use these commands at the beginning of the document
+	\begin{verbatim}
+		\colorlet{titlefgcolor}{ETHGreen}
+		\colorlet{titlebgcolor}{ETHGreen}
+		\colorlet{accentcolor}{ETHRed}
+	\end{verbatim}
+
+	\medskip
+
+	\begin{tabular}{ll}
+	\textcolor{ETHBlue}{\rule{4mm}{3mm}} ETH Blue &
+	\textcolor{ETHGreen}{\rule{4mm}{3mm}} ETH Green \\
+	\textcolor{ETHPurple}{\rule{4mm}{3mm}} ETH Purple &
+	\textcolor{ETHGray}{\rule{4mm}{3mm}} ETH Gray \\
+	\textcolor{ETHRed}{\rule{4mm}{3mm}} ETH Red &
+	\textcolor{ETHPetrol}{\rule{4mm}{3mm}} ETH Petrol \\
+	\textcolor{ETHBronze}{\rule{4mm}{3mm}} ETH Bronze
+	\end{tabular}
+	
+\end{frame}
+
+\begin{frame}
+
+	\frametitle{Title}
+	\framesubtitle{Subtitle}
+	
+	Text and some \alert{alert text}
+	
+	\[
+	m_a^\top h(\cdot)
+	\]
+	
+	
+	\begin{itemize}
+	\item list one
+	\item list another one
+		\begin{itemize}
+		\item test 1
+		\item test 2
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\section{Blocks and boxes}
+
+\begin{frame}{Title with no subtitle}
+
+	\begin{block}{Large box}
+	Notice that blocks are a bit larger than the text, that's intended.
+	\end{block}
+	
+	Column environments also eat some margins. Use the option \texttt{[onlytextwidth]} if you want to align columns to the wide blocks.
+	
+	\begin{columns}[onlytextwidth]
+	\begin{column}{0.45\textwidth}
+		\begin{block}{Small box}
+		With some more text
+		\end{block}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		Think outside the box!
+	\end{column}
+	\end{columns}
+
+\end{frame}
+
+\section{Figures and tables}
+
+\begin{frame}{And, of course, figures!}
+
+	\begin{columns}
+		\begin{column}{0.33\textwidth}
+			\includegraphics[width=\columnwidth]{example-image-a}
+		\end{column}
+		\begin{column}{0.33\textwidth}
+			\includegraphics[width=\columnwidth]{example-image-b}
+		\end{column}
+		\begin{column}{0.33\textwidth}
+			\includegraphics[width=\columnwidth]{example-image-c}
+		\end{column}
+	\end{columns}
+
+\end{frame}
+
+\begin{frame}
+
+	\frametitle{Tables}
+	\framesubtitle{Don't use vanilla \LaTeX{}  tables please}
+	
+		\begin{center}
+			\begin{tabular}{@{}llr@{}}
+				\toprule\multicolumn{2}{c}{Item} \\
+				\cmidrule(r){1-2}Animal & Description & Price (\$)\\
+				\midrule
+				Gnat  & per gram  & 13.65 \\
+				& each      & 0.01 \\
+				Gnu   & stuffed   & 92.50 \\
+				Emu   & stuffed   & 33.33 \\
+				Armadillo & frozen & 8.99 \\
+				\bottomrule
+			\end{tabular}
+		\end{center}
+
+\end{frame}
+
+\section{URLs and links}
+
+\begin{frame}{Clickable links}
+
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+	Ut enim ad minim veniam, quis nostrud exercitation...
+	
+	\medskip
+
+	\url{http://control.ee.ethz.ch}
+	
+	\href{http://control.ee.ethz.ch}{Automatic Control Laboratory}
+	
+	\email{name@ethz.ch}
+
+\end{frame}
+
+\begin{closingframe}
+
+Professor John Doe\\
+Role of person giving presentation\\
+\email{beat.muster@abcd.ethz.ch}
+
+\medskip
+
+ETH Zurich\\
+Organisational unit\\
+Building Room\\
+Street House number\\
+0000 Town, Country\\
+\url{http://www.abcd.ethz.ch}
+
+\end{closingframe}
+
+
+\begin{closingframe}
+
+	You can edit the content of the \texttt{closingframe} environment to design your own closing frame. Example:
+	
+	\vspace{15mm}
+
+	\begin{columns}
+		\begin{column}{0.55\textwidth}
+			\raggedleft
+			\includegraphics[width=45mm]{elements/IFA_logo_ENG_colours_horizontal} 
+		\end{column}
+		\begin{column}{0.45\textwidth}
+			\textbf{Author name}\\
+			\email{name@ethz.ch}	
+		\end{column}
+	\end{columns}
+
+	\vspace{20mm}
+			
+\end{closingframe}
+
+
+\end{document}

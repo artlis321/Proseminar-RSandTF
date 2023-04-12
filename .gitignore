@@ -4,3 +4,5 @@ slides/
 *.aux
 *.out
 *.log
+*.bbl
+*.xml

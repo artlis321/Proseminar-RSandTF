@@ -32,9 +32,9 @@
 
 % Find better title image?
 \def\titlefigure{elements/title-page-image}
-\titleframe
+\titleframe{}
 
-\tocframe
+\tocframe{}
 
 \section{Abel's map}
 
@@ -57,7 +57,7 @@
             \[ \int_{b_i} \omega_j = \tau_{ij} \]
         \end{column}
         \begin{column}{0.45\textwidth}
-            \center
+            \center{}
             \includegraphics[width=0.8\columnwidth]{assets/HarmonicDifferential.png}
             
             \tiny Regions used to define harmonic differentials
@@ -91,7 +91,7 @@
             \[\mathbf{u}(z) = \int_0^z \omega = z\]
         \end{column}
         \begin{column}{0.45\textwidth}
-            \center
+            \center{}
             \includegraphics[width=0.7\columnwidth]{example-image-a}
 
             \tiny Fundamental domain and continuation at genus 1
@@ -156,11 +156,11 @@
             \[\theta(z+\tau)=\theta(z)\]
         \end{column}
         \begin{column}{0.45\textwidth}
-            \center
+            \center{}
             \includegraphics[width=0.7\columnwidth]{assets/genus1theta.png}
 
             \tiny Theta function for $\tau = 0.7+0.6i$
-
+            
             \cite{Cha22}
         \end{column}
     \end{columns}
@@ -177,8 +177,14 @@
     }
 \end{frame}
 
-\begin{frame}{(Application) Decomposing meromorphic functions}
-    meromorphic
+\begin{frame}{(Application) Decomposing meromorphic functions and differentials}
+    Rough outline of how to reproduce a function with divisor $(f) = \sum n_i P_i$
+    \[ \begin{bmatrix}\text{Find function }t(z) \\ \text{such that }t(0)=0\end{bmatrix} \rightarrow \begin{bmatrix} g(z)=\prod t(P-P_i)^{n_i} \\ \text{respecting possible periodicity}\end{bmatrix} \rightarrow \left(\frac{f}{g}\right) = \emptyset \rightarrow \frac{f}{g} = \text{const.} \]
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            At Genus 0:
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \section{Kronecker function}

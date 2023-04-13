@@ -68,13 +68,25 @@
 \end{frame}
 
 \begin{frame}{Abel's map}
-    \begin{block}{Formal definition of Abel's map}
-        For a particular choice of a point $P_0$ on the fundamental domain $\mathcal L$, using the normalized harmonic differentials $\omega_i$, we have Abel's map
-        \begin{align*}
-            \mathbf{u} : \mathcal L & \mapsto \mathbb{C}^g & \\
-            P & \mapsto \begin{pmatrix} \int_{P_0}^P \omega_1 \\ \vdots \\ \int_{P_0}^P \omega_g \end{pmatrix} &
-        \end{align*}
-    \end{block}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+            \begin{block}{Formal definition of Abel's map}
+                For a particular choice of a point $P_0$ on the fundamental domain $\mathcal L$, using the normalized harmonic differentials $\omega_i$, we have Abel's map
+                \begin{align*}
+                    \mathbf{u} : \mathcal L & \mapsto \mathbb{C}^g , \quad P & \mapsto \begin{pmatrix} \int_{P_0}^P \omega_1 \\ \vdots \\ \int_{P_0}^P \omega_g \end{pmatrix} &
+                \end{align*}
+            \end{block}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \center
+
+            \includegraphics[width=0.7\columnwidth]{example-image-a}
+
+            \tiny Fundamental domain
+
+            \cite{ImageSource}
+        \end{column}
+    \end{columns}
 
     \emph{Analytic continuation beyond the fundamental domain:}
     \[\mathbf{u}(P+a_i) = \mathbf{u}(P) + \begin{pmatrix} \int_{a_i} \omega_1 \\ \vdots \end{pmatrix} = \mathbf{u}(P) + \begin{pmatrix} \delta_{i1} \\ \vdots \end{pmatrix}\]
@@ -177,7 +189,7 @@
     }
 \end{frame}
 
-\begin{frame}{(Application) Decomposing meromorphic functions and differentials}
+\begin{frame}{(Application) Decomposing meromorphic functions}
     Rough outline of how to reproduce a function with divisor $(f) = \sum n_i P_i$
     \[ \begin{bmatrix}\text{Find function }t(z) \\ \text{such that }t(0)=0\end{bmatrix} \rightarrow \begin{bmatrix} g(z)=\prod t(P-P_i)^{n_i} \\ \text{respecting possible periodicity}\end{bmatrix} \rightarrow \left(\frac{f}{g}\right) = \emptyset \rightarrow \frac{f}{g} = \text{const.} \]
     \begin{columns}

@@ -25,6 +25,15 @@
         Kronecker Function Using Schottky Covers},
         Year = {2022}
     }
+
+    @article{BL13,
+      title={Multiple Elliptic Polylogarithms}, 
+      author={Francis C. S. Brown and Andrey Levin},
+      year={2013},
+      eprint={1110.6917},
+      archivePrefix={arXiv},
+      primaryClass={math.NT}
+    }
 \end{filecontents}
 \usepackage[backend=bibtex,style=authoryear, defernumbers=true]{biblatex}
 \addbibresource{\jobname.bib}
@@ -67,7 +76,7 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{Abel's map}
+\begin{frame}{Abel's map}{\tiny \cite{Ber06} Section 4.2}
     \begin{columns}
         \begin{column}{0.55\textwidth}
             \begin{block}{Formal definition of Abel's map}
@@ -128,7 +137,7 @@
 
 \section{Theta functions}
 
-\begin{frame}{Theta functions}
+\begin{frame}{Theta functions}{\tiny \cite{Ber06} Section 5.1}
     \begin{block}{Definition of the Theta function}
         Given a symmetric matrix $\tau$ with positive definite imaginary part, the Theta function is
         \[\Theta(\vec z, \tau) := \sum_{\vec n \in \mathbb Z^g} \exp \left(2 \pi i \left[ \frac{1}{2} \vec n^T \tau \vec n + \vec n^T \vec z \right]\right)\]
@@ -143,7 +152,7 @@
     \[\Theta(\vec z + \tau \vec \lambda) = \begin{bmatrix} \text{shift } \vec n \\ \text{use }\tau\text{ symmetry}\end{bmatrix} = \exp\left(2\pi i\left[- \frac{1}{2}\vec \lambda^T \tau \lambda-\vec \lambda^T \vec z\right]\right)\Theta(\vec z)\]
 \end{frame}
 
-\begin{frame}{Theta function on a compact Riemann surface}
+\begin{frame}{Theta function on a compact Riemann surface}{\tiny \cite{Ber06} Section 5.2}
     \begin{block}{Definition of Theta function on a compact Riemann surface}
         For a compact Riemann surface $\mathcal M$ of genus $g$, with period matrix $\tau$ and Abel's map $\mathbf{u}$, we can identify
         \begin{align*}
@@ -189,7 +198,7 @@
     }
 \end{frame}
 
-\begin{frame}{Theta function with characteristics}
+\begin{frame}{Theta function with characteristics}{\tiny \cite{Ber06} Section 5.1}
     \begin{block}{Definition of Theta function with characteristics}
         Consider vectors $ \epsilon ,  \epsilon' \in \mathbb R^g$.
         We can then define the Theta function with characteristics $ \epsilon$, $ \epsilon'$ as
@@ -199,7 +208,7 @@
     \end{block}
     \pause
     \emph{Properties:}
-    
+
     \[\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z + \vec \alpha + \tau \vec \beta) =
     \exp\left(2 \pi i \left[\frac{1}{2}(\epsilon^T \vec \alpha - \vec \beta^T \epsilon') - \frac{1}{2} \beta^T \tau \beta - \vec \beta \vec z\right]\right)
     \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z)\]
@@ -211,37 +220,107 @@
 \end{frame}
 
 \begin{frame}{Odd theta functions and zeros}
+    \begin{columns}[onlytextwidth]
+        \begin{column}{0.55\textwidth}
+            \begin{align*}
+                & \epsilon,\epsilon' \in \mathbb Z^g , \quad \epsilon^T \epsilon'\text{ is odd} \\
+                & \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(-\vec z) = \exp(\pi i \epsilon^T \epsilon') \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z)
+                \\
+                & \implies \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) = \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(-\vec z)
+                \\
+                & \implies \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(0) = \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec \lambda' + \tau \vec \lambda) = 0
+                \\
+                & \implies \Theta(\frac{\epsilon'}{2}+\frac{\tau\epsilon}{2}) = 0
+            \end{align*}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \center{}
+            \includegraphics[width=0.7\columnwidth]{assets/genus1theta.png}
 
+            \tiny Theta function for $\tau = 0.7+0.6i$
+            
+            \cite{Cha22}
+        \end{column}
+    \end{columns}
+
+    {
+        % \setbeamercolor{block body}
+        \setbeamercolor{block title}{bg=ETHBlue}
+        \setbeamercolor{block body}{bg=ETHBlue!25!white}
+        \begin{block}{What about higher genus?}
+            \begin{itemize}
+                \item Which of the zeros located by odd characteristics are actually reached by Abel's map on compact Riemann surfaces of higher genus?
+            \end{itemize}
+        \end{block}
+    }
 \end{frame}
 
-\begin{frame}{(Application) Decomposing meromorphic functions}
+\begin{frame}{(Application) Decomposing meromorphic functions}{\tiny \cite{Cha22} Section 3.4 \& \cite{Ber06} Chapter 6}
     Rough outline of how to reproduce a function with divisor $(f) = \sum n_i P_i$
     \[ \begin{bmatrix}\text{Find function }t(z) \\ \text{such that }t(0)=0\end{bmatrix} \rightarrow \begin{bmatrix} g(z)=\prod t(P-P_i)^{n_i} \\ \text{respecting possible periodicity}\end{bmatrix} \rightarrow \left(\frac{f}{g}\right) = \emptyset \rightarrow \frac{f}{g} = \text{const.} \]
-    \begin{columns}
+    Recall that $\deg((f)) = \sum n_i = 0$ for meromorphic functions.
+    \pause
+    \vspace{+1em}
+    \begin{columns}[t]
         \begin{column}{0.3\textwidth}
-            At genus 0:
+            Genus 0:
+            \begin{itemize}
+                \item $f(z) = C \prod (z-z_i)^{n_i}$
+            \end{itemize}
         \end{column}
 
         \begin{column}{0.3\textwidth}
-            At genus 1
+            Genus $>0$:
+            \begin{itemize}
+                \item $\Theta(\xi) = 0$
+                \item $g_{P'} : P \mapsto \Theta(\mathbf{u}(P)-\mathbf{u}(P')+\xi)$
+                \item $f(P) = C \prod \left(g_{P_i}(P)\right)^{n_i}$
+            \end{itemize}
         \end{column}
 
-        \begin{column}{0.3\textwidth}
-            At higher genus:
+        \begin{column}{0.35\textwidth}
+            Genus 1:
+            \begin{itemize}
+                \item Decompose $z_i = \frac{b_i}{2} + \tau \frac{a_i}{2}$
+                \item $f(z) = C \prod \left(\theta\begin{bmatrix}a_i \\ b_i\end{bmatrix}(z)\right)^{n_i}$
+            \end{itemize}
         \end{column}
     \end{columns}
 \end{frame}
 
 \section{Kronecker function}
 
-\begin{frame}
-    kronecker
+\begin{frame}{Kronecker function}{\tiny \cite{BL13} Section 3.4}
+    \begin{block}{Definitions of the Kronecker function}
+        The Kronecker function $F(\xi,\eta,\tau)$ has equivalent definitions
+        \begin{enumerate}
+            \item In terms of the odd theta function
+            \[\frac{\theta_1'(0)\theta_1(\xi+\eta)}{\theta_1(\xi)\theta_1(\eta)} \quad , \quad \theta_1(z) = -\theta\begin{bmatrix}1 \\ 1\end{bmatrix}\]
+            \item In terms of a sum over exponentials
+            \[-2\pi i \left(\frac{z}{1-z} + \frac{1}{1-w} + \sum_{m,n > 0} (z^m w^n - z^{-m} w^{-n}) q^{mn}\right) \quad , \quad \begin{pmatrix} z \\ w \\ q \end{pmatrix} = \exp 2\pi i \begin{pmatrix}\xi \\ \eta \\ \tau\end{pmatrix}\]
+            \item In terms of a sum over Eisenstain functions and series
+            \[\frac{1}{\eta} \exp\left(-\sum_{j > 0} \frac{(-\eta)^j}{j} (E_j(\xi,\tau) - e_j(\tau))\right)\]
+        \end{enumerate}
+    \end{block}
 \end{frame}
 
 \section{Striving for higher genus}
 
-\begin{frame}
-    motivation
+\begin{frame}{Questions gathered so far}
+    {
+        % \setbeamercolor{block body}
+        \setbeamercolor{block title}{bg=ETHBlue}
+        \setbeamercolor{block body}{bg=ETHBlue!25!white}
+        \begin{block}{What about higher genus?}
+            \begin{itemize}
+                \item How do we represent the fundamental domain?
+                \item What choice of differentials can we make?
+                \item What consequences does this have for Abel's map?
+                \item What does the Theta function look like at higher genus?
+                \item Which of the zeros located by odd characteristics are actually reached by Abel's map on compact Riemann surfaces of higher genus?
+            \end{itemize}
+        \end{block}
+    }
 \end{frame}
 
 \begin{frame}{References}

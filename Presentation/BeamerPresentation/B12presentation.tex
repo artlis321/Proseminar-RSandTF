@@ -133,13 +133,13 @@
         Given a symmetric matrix $\tau$ with positive definite imaginary part, the Theta function is
         \[\Theta(\vec z, \tau) := \sum_{\vec n \in \mathbb Z^g} \exp \left(2 \pi i \left[ \frac{1}{2} \vec n^T \tau \vec n + \vec n^T \vec z \right]\right)\]
     \end{block}
-
+    \pause
     \emph{Properties:} For $\vec \lambda \in \mathbb Z^g$
 
     \[\Theta(-\vec z) \overset{\vec n \mapsto -\vec n}{=} \Theta(\vec z)\]
-
+    \pause
     \[\Theta(\vec z + \vec \lambda) = \sum_{\vec n \in \mathbb Z^g} \cancelto{1}{\exp(2\pi i \vec n^T \vec \lambda)} \exp(\ldots) = \Theta(\vec z)\]
-
+    \pause
     \[\Theta(\vec z + \tau \vec \lambda) = \begin{bmatrix} \text{shift } \vec n \\ \text{use }\tau\text{ symmetry}\end{bmatrix} = \exp\left(2\pi i\left[- \frac{1}{2}\vec \lambda^T \tau \lambda-\vec \lambda^T \vec z\right]\right)\Theta(\vec z)\]
 \end{frame}
 
@@ -189,12 +189,45 @@
     }
 \end{frame}
 
+\begin{frame}{Theta function with characteristics}
+    \begin{block}{Definition of Theta function with characteristics}
+        Consider vectors $ \epsilon ,  \epsilon' \in \mathbb R^g$.
+        We can then define the Theta function with characteristics $ \epsilon$, $ \epsilon'$ as
+        \[\Theta\begin{bmatrix} \epsilon \\  \epsilon'\end{bmatrix}(\vec z) := 
+        \exp\left(2\pi i \left[\frac{1}{8}\epsilon^T \tau \epsilon + \frac{1}{2}\epsilon^T \vec z + \frac{1}{4}\epsilon^T  \epsilon'\right]\right)
+        \Theta(\vec z + \frac{\epsilon'}{2}+\frac{\tau\epsilon}{2})\]
+    \end{block}
+    \pause
+    \emph{Properties:}
+    
+    \[\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z + \vec \alpha + \tau \vec \beta) =
+    \exp\left(2 \pi i \left[\frac{1}{2}(\epsilon^T \vec \alpha - \vec \beta^T \epsilon') - \frac{1}{2} \beta^T \tau \beta - \vec \beta \vec z\right]\right)
+    \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z)\]
+    \pause
+    \[\Theta\begin{bmatrix}\epsilon + 2\eta \\ \epsilon' + 2\eta' \end{bmatrix}(\vec z) = \exp(\pi i \epsilon^T \eta')
+    \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) \quad , \quad \eta,\eta' \in \mathbb Z^g\]
+    \pause
+    \[\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(-\vec z) = \exp(\pi i \epsilon^T \epsilon') \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) \quad , \quad \epsilon,\epsilon' \in \mathbb Z^g\]
+\end{frame}
+
+\begin{frame}{Odd theta functions and zeros}
+
+\end{frame}
+
 \begin{frame}{(Application) Decomposing meromorphic functions}
     Rough outline of how to reproduce a function with divisor $(f) = \sum n_i P_i$
     \[ \begin{bmatrix}\text{Find function }t(z) \\ \text{such that }t(0)=0\end{bmatrix} \rightarrow \begin{bmatrix} g(z)=\prod t(P-P_i)^{n_i} \\ \text{respecting possible periodicity}\end{bmatrix} \rightarrow \left(\frac{f}{g}\right) = \emptyset \rightarrow \frac{f}{g} = \text{const.} \]
     \begin{columns}
-        \begin{column}{0.5\textwidth}
-            At Genus 0:
+        \begin{column}{0.3\textwidth}
+            At genus 0:
+        \end{column}
+
+        \begin{column}{0.3\textwidth}
+            At genus 1
+        \end{column}
+
+        \begin{column}{0.3\textwidth}
+            At higher genus:
         \end{column}
     \end{columns}
 \end{frame}

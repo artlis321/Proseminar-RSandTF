@@ -143,13 +143,13 @@
         Given a symmetric matrix $\tau$ with positive definite imaginary part, the Theta function is
         \[\Theta(\vec z, \tau) := \sum_{\vec n \in \mathbb Z^g} \ee \left( \frac{1}{2} \vec n^T \tau \vec n + \vec n^T \vec z \right) \quad , \quad \ee(z) = \exp(2\pi i z)\]
     \end{block}
-    \pause
+    % \pause
     \emph{Properties:} For $\vec \lambda \in \mathbb Z^g$
 
     \[\Theta(-\vec z) \overset{\vec n \mapsto -\vec n}{=} \Theta(\vec z)\]
-    \pause
+    % \pause
     \[\Theta(\vec z + \vec \lambda) = \sum_{\vec n \in \mathbb Z^g} \cancelto{1}{\ee ( \vec n^T \vec \lambda)} \ee(\ldots) = \Theta(\vec z)\]
-    \pause
+    % \pause
     \[\Theta(\vec z + \tau \vec \lambda) = \begin{bmatrix} \text{shift } \vec n \\ \text{use }\tau\text{ symmetry}\end{bmatrix} = \ee \left(- \frac{1}{2}\vec \lambda^T \tau \lambda-\vec \lambda^T \vec z\right)\Theta(\vec z)\]
 \end{frame}
 
@@ -207,16 +207,16 @@
         \ee\left(\frac{1}{8}\epsilon^T \tau \epsilon + \frac{1}{2}\epsilon^T \vec z + \frac{1}{4}\epsilon^T  \epsilon'\right)
         \Theta(\vec z + \frac{\epsilon'}{2}+\frac{\tau\epsilon}{2})\]
     \end{block}
-    \pause
+    % \pause
     \emph{Properties:}
 
     \[\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z + \vec \alpha + \tau \vec \beta) =
     \ee\left(\frac{1}{2}(\epsilon^T \vec \alpha - \vec \beta^T \epsilon') - \frac{1}{2} \beta^T \tau \beta - \vec \beta \vec z\right)
     \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z)\]
-    \pause
+    % \pause
     \[\Theta\begin{bmatrix}\epsilon + 2\eta \\ \epsilon' + 2\eta' \end{bmatrix}(\vec z) = \exp(\pi i \epsilon^T \eta')
     \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) \quad , \quad \eta,\eta' \in \mathbb Z^g\]
-    \pause
+    % \pause
     \[\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(-\vec z) = \exp(\pi i \epsilon^T \epsilon') \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) \quad , \quad \epsilon,\epsilon' \in \mathbb Z^g\]
 \end{frame}
 
@@ -260,7 +260,7 @@
     Rough outline of how to reproduce a function with divisor $(f) = \sum n_i P_i$
     \[ \begin{bmatrix}\text{Find function }t(z) \\ \text{such that }t(0)=0\end{bmatrix} \rightarrow \begin{bmatrix} g(z)=\prod t(P-P_i)^{n_i} \\ \text{respecting possible periodicity}\end{bmatrix} \rightarrow \left(\frac{f}{g}\right) = \emptyset \rightarrow \frac{f}{g} = \text{const.} \]
     Recall that $\deg((f)) = \sum n_i = 0$ for meromorphic functions.
-    \pause
+    % \pause
     \vspace{+1em}
     \begin{columns}[t]
         \begin{column}{0.3\textwidth}
@@ -308,9 +308,9 @@
 \begin{frame}{Properties of the Kronecker function}{\tiny \cite{BL13} Section 3.4}
     \emph{Properties:}
     \[F(\xi+1,\eta) = \frac{\theta_1'(0)\theta_1(\xi+\eta+1)}{\theta_1(\xi+1)\theta_1(\eta)} = F(\xi,\eta)\]
-    \pause
+    % \pause
     \[F(\xi+\tau,\eta) = \frac{\theta_1'(0)\theta_1(\xi+\eta+\tau)}{\theta_1(\xi+\tau)\theta_1(\eta)} = \frac{\ee(-\xi-\eta)}{\ee(-\xi)} F(\xi,\eta)\]
-    \pause
+    % \pause
     \[FAY RELATION\]
 \end{frame}
 
@@ -319,7 +319,7 @@
 \end{frame}
 
 \begin{frame}{Differentials from the Kronecker function}
-
+    showing how the expansion is done
 \end{frame}
 
 \begin{frame}{Examples of differentials}
@@ -327,15 +327,17 @@
 \end{frame}
 
 \begin{frame}{Independence of the differentials}
-
+    Brown and Levin
+    (probably needs to be several slides)
 \end{frame}
 
 \begin{frame}{Fay relation for differentials}
-
+    one line derivation
+    one line statement
 \end{frame}
 
 \begin{frame}{Application of properties}
-    Calculation of integrals
+    big picture view of when these come into string theory
 \end{frame}
 
 \section{Striving for higher genus}

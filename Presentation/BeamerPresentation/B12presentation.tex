@@ -13,6 +13,8 @@
 
 \usepackage{cancel}
 
+\newcommand{\ee}[0]{\mathbf{e}}
+
 \begin{filecontents}{\jobname.bib}
     @book{Ber06,
         Author = {Marco Bertola},
@@ -139,16 +141,16 @@
 \begin{frame}{Theta functions}{\tiny \cite{Ber06} Section 5.1}
     \begin{block}{Definition of the Theta function}
         Given a symmetric matrix $\tau$ with positive definite imaginary part, the Theta function is
-        \[\Theta(\vec z, \tau) := \sum_{\vec n \in \mathbb Z^g} \exp \left(2 \pi i \left[ \frac{1}{2} \vec n^T \tau \vec n + \vec n^T \vec z \right]\right)\]
+        \[\Theta(\vec z, \tau) := \sum_{\vec n \in \mathbb Z^g} \ee \left( \frac{1}{2} \vec n^T \tau \vec n + \vec n^T \vec z \right) \quad , \quad \ee(z) = \exp(2\pi i z)\]
     \end{block}
     \pause
     \emph{Properties:} For $\vec \lambda \in \mathbb Z^g$
 
     \[\Theta(-\vec z) \overset{\vec n \mapsto -\vec n}{=} \Theta(\vec z)\]
     \pause
-    \[\Theta(\vec z + \vec \lambda) = \sum_{\vec n \in \mathbb Z^g} \cancelto{1}{\exp(2\pi i \vec n^T \vec \lambda)} \exp(\ldots) = \Theta(\vec z)\]
+    \[\Theta(\vec z + \vec \lambda) = \sum_{\vec n \in \mathbb Z^g} \cancelto{1}{\ee ( \vec n^T \vec \lambda)} \ee(\ldots) = \Theta(\vec z)\]
     \pause
-    \[\Theta(\vec z + \tau \vec \lambda) = \begin{bmatrix} \text{shift } \vec n \\ \text{use }\tau\text{ symmetry}\end{bmatrix} = \exp\left(2\pi i\left[- \frac{1}{2}\vec \lambda^T \tau \lambda-\vec \lambda^T \vec z\right]\right)\Theta(\vec z)\]
+    \[\Theta(\vec z + \tau \vec \lambda) = \begin{bmatrix} \text{shift } \vec n \\ \text{use }\tau\text{ symmetry}\end{bmatrix} = \ee \left(- \frac{1}{2}\vec \lambda^T \tau \lambda-\vec \lambda^T \vec z\right)\Theta(\vec z)\]
 \end{frame}
 
 \begin{frame}{Theta function on a compact Riemann surface}{\tiny \cite{Ber06} Section 5.2}
@@ -163,17 +165,17 @@
     \emph{Properties:}
     \[ \theta(P + a_i) = \theta(P) \]
 
-    \[ \theta(P + b_i) = \exp\left(2\pi i\left[- \frac{1}{2} \tau_{ii} - \mathbf{u}_i(P) \right]\right)\theta(P) \]
+    \[ \theta(P + b_i) = \ee\left(- \frac{1}{2} \tau_{ii} - \mathbf{u}_i(P)\right)\theta(P) \]
 \end{frame}
 
 \begin{frame}{Theta function at genus 1}
     \begin{columns}[onlytextwidth]
         \begin{column}{0.55\textwidth}
-            \[\theta(z) = \sum_{n \in \mathbb Z} \exp(2\pi i[\frac{1}{2}n^2 \tau + n z])\]
+            \[\theta(z) = \sum_{n \in \mathbb Z} \ee(\frac{1}{2}n^2 \tau + n z)\]
 
             \[\theta(z)=\theta(-z)\]
             \[\theta(z+1)=\theta(z)\]
-            \[\theta(z+\tau)=\theta(z)\]
+            \[\theta(z+\tau)=\ee(-\frac{1}{2}\tau-\xi)\theta(z)\]
         \end{column}
         \begin{column}{0.45\textwidth}
             \center{}
@@ -202,14 +204,14 @@
         Consider vectors $ \epsilon ,  \epsilon' \in \mathbb R^g$.
         We can then define the Theta function with characteristics $ \epsilon$, $ \epsilon'$ as
         \[\Theta\begin{bmatrix} \epsilon \\  \epsilon'\end{bmatrix}(\vec z) := 
-        \exp\left(2\pi i \left[\frac{1}{8}\epsilon^T \tau \epsilon + \frac{1}{2}\epsilon^T \vec z + \frac{1}{4}\epsilon^T  \epsilon'\right]\right)
+        \ee\left(\frac{1}{8}\epsilon^T \tau \epsilon + \frac{1}{2}\epsilon^T \vec z + \frac{1}{4}\epsilon^T  \epsilon'\right)
         \Theta(\vec z + \frac{\epsilon'}{2}+\frac{\tau\epsilon}{2})\]
     \end{block}
     \pause
     \emph{Properties:}
 
     \[\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z + \vec \alpha + \tau \vec \beta) =
-    \exp\left(2 \pi i \left[\frac{1}{2}(\epsilon^T \vec \alpha - \vec \beta^T \epsilon') - \frac{1}{2} \beta^T \tau \beta - \vec \beta \vec z\right]\right)
+    \ee\left(\frac{1}{2}(\epsilon^T \vec \alpha - \vec \beta^T \epsilon') - \frac{1}{2} \beta^T \tau \beta - \vec \beta \vec z\right)
     \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z)\]
     \pause
     \[\Theta\begin{bmatrix}\epsilon + 2\eta \\ \epsilon' + 2\eta' \end{bmatrix}(\vec z) = \exp(\pi i \epsilon^T \eta')
@@ -296,14 +298,51 @@
             \item In terms of the odd theta function
             \[\frac{\theta_1'(0)\theta_1(\xi+\eta)}{\theta_1(\xi)\theta_1(\eta)} \quad , \quad \theta_1(z) = -\theta\begin{bmatrix}1 \\ 1\end{bmatrix}\]
             \item In terms of a sum over exponentials
-            \[-2\pi i \left(\frac{z}{1-z} + \frac{1}{1-w} + \sum_{m,n > 0} (z^m w^n - z^{-m} w^{-n}) q^{mn}\right) \quad , \quad \begin{pmatrix} z \\ w \\ q \end{pmatrix} = \exp 2\pi i \begin{pmatrix}\xi \\ \eta \\ \tau\end{pmatrix}\]
-            \item In terms of a sum over Eisenstain functions and series
+            \[-2\pi i \left(\frac{z}{1-z} + \frac{1}{1-w} + \sum_{m,n > 0} (z^m w^n - z^{-m} w^{-n}) q^{mn}\right) \quad , \quad \begin{pmatrix} z \\ w \\ q \end{pmatrix} = \ee \begin{pmatrix}\xi \\ \eta \\ \tau\end{pmatrix}\]
+            \item In terms of a sum over Eisenstein functions and series
             \[\frac{1}{\eta} \exp\left(-\sum_{j > 0} \frac{(-\eta)^j}{j} (E_j(\xi,\tau) - e_j(\tau))\right)\]
         \end{enumerate}
     \end{block}
 \end{frame}
 
+\begin{frame}{Properties of the Kronecker function}{\tiny \cite{BL13} Section 3.4}
+    \emph{Properties:}
+    \[F(\xi+1,\eta) = \frac{\theta_1'(0)\theta_1(\xi+\eta+1)}{\theta_1(\xi+1)\theta_1(\eta)} = F(\xi,\eta)\]
+    \pause
+    \[F(\xi+\tau,\eta) = \frac{\theta_1'(0)\theta_1(\xi+\eta+\tau)}{\theta_1(\xi+\tau)\theta_1(\eta)} = \frac{\ee(-\xi-\eta)}{\ee(-\xi)} F(\xi,\eta)\]
+    \pause
+    \[FAY RELATION\]
+\end{frame}
+
+\begin{frame}{Abridged derivation of the Fay relation}
+
+\end{frame}
+
+\begin{frame}{Differentials from the Kronecker function}
+
+\end{frame}
+
+\begin{frame}{Examples of differentials}
+    [1412.5535] eqn 3.31 etc.
+\end{frame}
+
+\begin{frame}{Independence of the differentials}
+
+\end{frame}
+
+\begin{frame}{Fay relation for differentials}
+
+\end{frame}
+
+\begin{frame}{Application of properties}
+    Calculation of integrals
+\end{frame}
+
 \section{Striving for higher genus}
+
+\begin{frame}{Why we care about higher genus}
+    Connection to string theory
+\end{frame}
 
 \begin{frame}{Questions gathered so far}
     {
@@ -320,6 +359,26 @@
             \end{itemize}
         \end{block}
     }
+\end{frame}
+
+\begin{frame}{Schottky cover definition}
+
+\end{frame}
+
+\begin{frame}{Schottky group example}
+
+\end{frame}
+
+\begin{frame}{Differentials and theta functions}
+
+\end{frame}
+
+\begin{frame}{Attempt at a Kronecker function}{\tiny \cite{Cha22}}
+
+\end{frame}
+
+\begin{frame}{Open questions}
+
 \end{frame}
 
 \begin{frame}{References}

@@ -256,6 +256,19 @@
     }
 \end{frame}
 
+\begin{frame}{Odd theta function at genus 1}
+    \begin{block}{Odd theta function at genus 1}
+        We define
+        \[\theta_1(z) = -\theta \begin{bmatrix} 1 \\ 1 \end{bmatrix}(z)\]
+        It has equivalent definition
+        \[\theta_1(z) = 2iq^{1/8} \sin(\pi z) \prod_j (1-q^j) (1-\ee(z)q^j)(1-\ee(-z)q^j)\]
+    \end{block}
+    \emph{Abridged derivation of equivalence:}
+    % https://en.wikipedia.org/wiki/Jacobi_triple_product
+    % https://en.wikipedia.org/wiki/Theta_function
+    % Why do the terms have q^2m instead of q^(2m-1) ??
+\end{frame}
+
 \begin{frame}{(Application) Decomposing meromorphic functions}{\tiny \cite{Cha22} Section 3.4 \& \cite{Ber06} Chapter 6}
     Rough outline of how to reproduce a function with divisor $(f) = \sum n_i P_i$
     \[ \begin{bmatrix}\text{Find function }t(z) \\ \text{such that }t(0)=0\end{bmatrix} \rightarrow \begin{bmatrix} g(z)=\prod t(P-P_i)^{n_i} \\ \text{respecting possible periodicity}\end{bmatrix} \rightarrow \left(\frac{f}{g}\right) = \emptyset \rightarrow \frac{f}{g} = \text{const.} \]
@@ -296,7 +309,7 @@
         The Kronecker function $F(\xi,\eta,\tau)$ has equivalent definitions
         \begin{enumerate}
             \item In terms of the odd theta function
-            \[\frac{\theta_1'(0)\theta_1(\xi+\eta)}{\theta_1(\xi)\theta_1(\eta)} \quad , \quad \theta_1(z) = -\theta\begin{bmatrix}1 \\ 1\end{bmatrix}\]
+            \[\frac{\theta_1'(0)\theta_1(\xi+\eta)}{\theta_1(\xi)\theta_1(\eta)}\]
             \item In terms of a sum over exponentials
             \[-2\pi i \left(\frac{z}{1-z} + \frac{1}{1-w} + \sum_{m,n > 0} (z^m w^n - z^{-m} w^{-n}) q^{mn}\right) \quad , \quad \begin{pmatrix} z \\ w \\ q \end{pmatrix} = \ee \begin{pmatrix}\xi \\ \eta \\ \tau\end{pmatrix}\]
             \item In terms of a sum over Eisenstein functions and series

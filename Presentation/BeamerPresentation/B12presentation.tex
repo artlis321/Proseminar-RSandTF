@@ -261,12 +261,34 @@
         We define
         \[\theta_1(z) = -\theta \begin{bmatrix} 1 \\ 1 \end{bmatrix}(z)\]
         It has equivalent definition
-        \[\theta_1(z) = 2iq^{1/8} \sin(\pi z) \prod_j (1-q^j) (1-\ee(z)q^j)(1-\ee(-z)q^j)\]
+        \[\theta_1(z) = 2iq^{1/8} \sin(\pi z) \prod_j (1-q^j) (1-wq^j)(1-w^{-1}q^j) \quad , \quad q=\ee(\tau)\]
     \end{block}
-    \emph{Abridged derivation of equivalence:}
+    \emph{Jacobi Triple Product:}
     % https://en.wikipedia.org/wiki/Jacobi_triple_product
     % https://en.wikipedia.org/wiki/Theta_function
-    % Why do the terms have q^2m instead of q^(2m-1) ??
+    \[f(x,y) = \prod_{j>0} (1-x^{2m})(1+x^{2m-1}y^2)(1+x^{2m-1}y^{-2})\]
+    \[f(x,xy) = \prod_{j>0} (1-x^{2m})(1+x^{2m+1}y^2)(1+x^{2m-3}y^{-2}) = \frac{1+x^{-1}y^{-2}}{(1+xy^2)}f(x,y) = x^{-1}y^{-2}f(x,y)\]
+\end{frame}
+
+\begin{frame}{Odd theta function at genus 1}
+    \[f(x,y) = \prod_{j>0} (1-x^{2m})(1+x^{2m-1}y^2)(1+x^{2m-1}y^{-2})\]
+    \[f(x,xy) = \prod_{j>0} (1-x^{2m})(1+x^{2m+1}y^2)(1+x^{2m-3}y^{-2}) = \frac{1+x^{-1}y^{-2}}{(1+xy^2)}f(x,y) = x^{-1}y^{-2}f(x,y)\]
+    % \pause
+    \[f(x,y) = \sum_{n=-\infty}^\infty c_n(x) y^{2n} \implies f(x,y) = xy^2 f(x,xy) = \sum_n c_n(x) x^{2n+1}y^{2n+2}\]
+    \[\implies c_{n+1}(x) = x^{2n+1}c_n(x) \implies c_{n}(x) = c_0(x) x^{n^2} \implies f(x,y) = c_0(x) \sum_n x^{n^2} y^{2n}\]
+
+    This relates the two forms of the theta function : $\prod_j (1-q^j) (1-wq^j)(1-w^{-1}q^j) \simeq \sum_n \ee(\tau)^{n^2} \ee{z}^{n}$
+
+    {
+        % \setbeamercolor{block body}
+        \setbeamercolor{block title}{bg=ETHBlue}
+        \setbeamercolor{block body}{bg=ETHBlue!25!white}
+        \begin{block}{What about higher genus?}
+            \begin{itemize}
+                \item Are there similar formulas for higher genus theta functions that make them easier to work with in some cases?
+            \end{itemize}
+        \end{block}
+    }
 \end{frame}
 
 \begin{frame}{(Application) Decomposing meromorphic functions}{\tiny \cite{Cha22} Section 3.4 \& \cite{Ber06} Chapter 6}

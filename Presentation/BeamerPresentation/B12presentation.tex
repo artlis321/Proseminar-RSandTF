@@ -49,8 +49,10 @@
 \section{Abel's map}
 
 \begin{frame}{Holomorphic Differentials}
-    \begin{block}{Existence of holomorphic differentials}
-        The dimension of the space of holomorphic differentials is $\dim \mathcal H^1 = g$, the genus of the compact Riemann surface.
+    \begin{block}{Definition and existence of holomorphic differentials}
+        \vspace{-1em}
+        \[\text{Definition: } \omega = f_\alpha dz_\alpha = f_\beta dz_\beta \quad , \quad f \text{ holomorphic}\]
+        \[\text{Existence: } \dim \mathcal H^1 = g \text{ (genus of compact Riemann surface)}\]
     \end{block}
 
     \begin{columns}[onlytextwidth]
@@ -205,7 +207,7 @@
         We can then define the Theta function with characteristics $ \epsilon$, $ \epsilon'$ as
         \[\Theta\begin{bmatrix} \epsilon \\  \epsilon'\end{bmatrix}(\vec z) := 
         \ee\left(\frac{1}{8}\epsilon^T \tau \epsilon + \frac{1}{2}\epsilon^T \vec z + \frac{1}{4}\epsilon^T  \epsilon'\right)
-        \Theta(\vec z + \frac{\epsilon'}{2}+\frac{\tau\epsilon}{2})\]
+        \Theta\left(\vec z + \frac{\epsilon'}{2}+\frac{\tau\epsilon}{2}\right)\]
     \end{block}
     % \pause
     \emph{Properties:}
@@ -227,11 +229,11 @@
                 & \epsilon,\epsilon' \in \mathbb Z^g , \quad \epsilon^T \epsilon'\text{ is odd} \\
                 & \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(-\vec z) = \exp(\pi i \epsilon^T \epsilon') \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z)
                 \\
-                & \implies \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) = \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(-\vec z)
+                & \implies \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) = -\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(-\vec z)
                 \\
-                & \implies \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(0) = \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec \lambda' + \tau \vec \lambda) = 0
+                & \implies \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(0) = \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec \alpha + \tau \vec \beta) = 0
                 \\
-                & \implies \Theta(\frac{\epsilon'}{2}+\frac{\tau\epsilon}{2}) = 0
+                & \implies \Theta\left(\frac{\epsilon'}{2}+\frac{\tau\epsilon}{2}\right) = 0
             \end{align*}
         \end{column}
         \begin{column}{0.45\textwidth}
@@ -261,13 +263,13 @@
         We define
         \[\theta_1(z) = -\theta \begin{bmatrix} 1 \\ 1 \end{bmatrix}(z)\]
         It has equivalent definition
-        \[\theta_1(z) = 2iq^{1/8} \sin(\pi z) \prod_j (1-q^j) (1-wq^j)(1-w^{-1}q^j) \quad , \quad q=\ee(\tau)\]
+        \[\theta_1(z) = 2iq^{1/8} \sin(\pi z) \prod_j (1-q^j) (1-wq^j)(1-w^{-1}q^j) \quad , \quad q=\ee(\tau),w=\ee{z}\]
     \end{block}
     \emph{Jacobi Triple Product:}
     % https://en.wikipedia.org/wiki/Jacobi_triple_product
     % https://en.wikipedia.org/wiki/Theta_function
     \[f(x,y) = \prod_{j>0} (1-x^{2m})(1+x^{2m-1}y^2)(1+x^{2m-1}y^{-2})\]
-    \[f(x,xy) = \prod_{j>0} (1-x^{2m})(1+x^{2m+1}y^2)(1+x^{2m-3}y^{-2}) = \frac{1+x^{-1}y^{-2}}{(1+xy^2)}f(x,y) = x^{-1}y^{-2}f(x,y)\]
+    \[f(x,xy) = \prod_{j>0} (1-x^{2m})(1+x^{2m+1}y^2)(1+x^{2m-3}y^{-2}) = \frac{1+x^{-1}y^{-2}}{1+xy^2} f(x,y) = x^{-1}y^{-2}f(x,y)\]
 \end{frame}
 
 \begin{frame}{Odd theta function at genus 1}

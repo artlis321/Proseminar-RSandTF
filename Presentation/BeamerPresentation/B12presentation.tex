@@ -295,8 +295,8 @@
 
 \begin{frame}{(Application) Decomposing meromorphic functions}{\tiny \cite{Cha22} Section 3.4 \& \cite{Ber06} Chapter 6}
     Rough outline of how to reproduce a function with divisor $(f) = \sum n_i P_i$
-    \[ \begin{bmatrix}\text{Find function }t(z) \\ \text{such that }t(0)=0\end{bmatrix} \rightarrow \begin{bmatrix} g(z)=\prod t(P-P_i)^{n_i} \\ \text{respecting possible periodicity}\end{bmatrix} \rightarrow \left(\frac{f}{g}\right) = \emptyset \rightarrow \frac{f}{g} = \text{const.} \]
-    Recall that $\deg((f)) = \sum n_i = 0$ for meromorphic functions.
+    \[ \begin{bmatrix}\text{Find function }t(z) \\ \text{with known simple zero}\end{bmatrix} \rightarrow \begin{bmatrix} g(z)=\prod t(P-P_i)^{n_i} \\ \text{respecting possible periodicity}\end{bmatrix} \rightarrow \left(\frac{f}{g}\right) = \emptyset \rightarrow \frac{f}{g} = \text{const.} \]
+    Recall that $\deg((f)) = \sum n_i = 0$ for meromorphic functions, so extra factors can easily cancel.
     % \pause
     \vspace{+1em}
     \begin{columns}[t]
@@ -343,20 +343,57 @@
 \end{frame}
 
 \begin{frame}{Properties of the Kronecker function}{\tiny \cite{BL13} Section 3.4}
-    \emph{Properties:}
-    \[F(\xi+1,\eta) = \frac{\theta_1'(0)\theta_1(\xi+\eta+1)}{\theta_1(\xi+1)\theta_1(\eta)} = F(\xi,\eta)\]
+    {
+        % \setbeamercolor{block body}
+        \setbeamercolor{block title}{bg=ETHBlue}
+        \setbeamercolor{block body}{bg=ETHBlue!25!white}
+        \begin{block}{What about higher genus?}
+            \begin{itemize}
+                \item How can we define the Kronecker function at higher genus?
+            \end{itemize}
+        \end{block}
+    }
     % \pause
+    \emph{Periodicity Properties:}
+    \[F(\xi+1,\eta) = \frac{\theta_1'(0)\theta_1(\xi+\eta+1)}{\theta_1(\xi+1)\theta_1(\eta)} = F(\xi,\eta)\]
     \[F(\xi+\tau,\eta) = \frac{\theta_1'(0)\theta_1(\xi+\eta+\tau)}{\theta_1(\xi+\tau)\theta_1(\eta)} = \frac{\ee(-\xi-\eta)}{\ee(-\xi)} F(\xi,\eta)\]
     % \pause
-    \[FAY RELATION\]
+    \begin{block}{The Fay Relation}
+        \[F(\xi_1,\eta_1)F(\xi_2,\eta_2) = F(\xi_1,\eta_1+\eta_2)F(\xi_2-\xi_1,\eta_2)+F(\xi_2,\eta_1+\eta_2)F(\xi_1-\xi_2,\eta_1)\]
+    \end{block}
 \end{frame}
 
-\begin{frame}{Abridged derivation of the Fay relation}
-
+\begin{frame}{Setup for derivation of the Fay relation}{\tiny \cite{Mat19}}
+    \[F(\xi_1,\eta_1)F(\xi_2,\eta_2) = F(\xi_1,\eta_1+\eta_2)F(\xi_2-\xi_1,\eta_2)+F(\xi_2,\eta_1+\eta_2)F(\xi_1-\xi_2,\eta_1)\]
+    \vspace{-1em}
+    \[\downarrow \text{rewrite using Theta functions} \downarrow\]
+    \[\frac{\theta_1(\xi_1+\eta_1)\theta_1(\xi_2+\eta_2)}{\theta_1(\xi_1)\theta_1(\eta_1)\theta_1(\xi_2)\theta_1(\eta_2)}
+    = \frac{\theta_1(\xi_1+\eta_1+\eta_2)\theta_1(\xi_2-\xi_1+\eta_2)}{\theta_1(\xi_1)\theta_1(\eta_1+\eta_2)\theta_1(\xi_2-\xi_1)\theta_1(\eta_2)}
+    + \frac{\theta_1(\xi_1+\eta_1+\eta_2)\theta_1(\xi_1-\xi_2+\eta_1)}{\theta_1(\xi_1)\theta_1(\eta_1+\eta_2)\theta_1(\xi_1-\xi_2)\theta_1(\eta_1)}\]
+    \[\downarrow \text{multiply common denominator and relabel} \downarrow \]
+    \vspace{-2em}
+    \begin{align*}
+        & \theta_1(\alpha_0)\theta_1(\beta_0)\theta_1(\alpha_2+\beta_1)\theta_1(\alpha_2-\beta_1) + \\
+        & \theta_1(\alpha_1)\theta_1(\beta_1)\theta_1(\alpha_0+\beta_2)\theta_1(\alpha_0-\beta_2) + \\
+        & \theta_1(\alpha_2)\theta_1(\beta_2)\theta_1(\alpha_1+\beta_0)\theta_1(\alpha_1-\beta_0) = 0
+    \end{align*}
+    \vspace{-1em}
+    \[\downarrow \text{long process involving odd and even theta functions at genus 1} \downarrow\]
+    \[...\]
+    {
+        % \setbeamercolor{block body}
+        \setbeamercolor{block title}{bg=ETHBlue}
+        \setbeamercolor{block body}{bg=ETHBlue!25!white}
+        \begin{block}{What about higher genus?}
+            \begin{itemize}
+                \item What does the Fay identity look like at higher genus when theta functions are more complicated?
+            \end{itemize}
+        \end{block}
+    }
 \end{frame}
 
 \begin{frame}{Differentials from the Kronecker function}
-    showing how the expansion is done
+    \[F(z,\alpha) dz = \frac{1}{\alpha} \sum_{n=0}^\infty g^{(n)}(z) \alpha^n \]
 \end{frame}
 
 \begin{frame}{Examples of differentials}

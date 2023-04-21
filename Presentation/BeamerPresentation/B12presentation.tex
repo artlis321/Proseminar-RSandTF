@@ -287,7 +287,7 @@
         \setbeamercolor{block body}{bg=ETHBlue!25!white}
         \begin{block}{What about higher genus?}
             \begin{itemize}
-                \item Are there similar formulas for higher genus theta functions that make them easier to work with in some cases?
+                \item Are there similar formulas for higher genus theta functions?
             \end{itemize}
         \end{block}
     }
@@ -328,16 +328,29 @@
 
 \section{Kronecker function}
 
+\begin{frame}{Analogous function for Genus 0}
+    \[F(z,\alpha) = \frac{(z+\alpha)}{(z)(\alpha)}\]
+    \[\downarrow\]
+    \[\alpha F(z,\alpha) dz = \sum_{n=0,1} g^{(n)}(z) dz = dz + \frac{dz}{z}\]
+    \[\downarrow\]
+    \[\text{use differentials to calculate multiple polylogarithms}\]
+
+    \begin{block}{Kronecker function at Genus 1}
+        Elliptic version of what was shown above:
+        \[\frac{\theta_1(z+\alpha)}{\theta_1(z)\theta_1(\alpha)}\]
+    \end{block}
+\end{frame}
+
 \begin{frame}{Kronecker function}{\tiny \cite{BL13} Section 3.4}
     \begin{block}{Definitions of the Kronecker function}
-        The Kronecker function $F(\xi,\eta,\tau)$ has equivalent definitions
+        The Kronecker function $F(z,\alpha,\tau)$ has equivalent definitions
         \begin{enumerate}
             \item In terms of the odd theta function
-            \[\frac{\theta_1'(0)\theta_1(\xi+\eta)}{\theta_1(\xi)\theta_1(\eta)}\]
+            \[\frac{\theta_1'(0)\theta_1(z+\alpha)}{\theta_1(z)\theta_1(\alpha)}\]
             \item In terms of a sum over exponentials
-            \[-2\pi i \left(\frac{z}{1-z} + \frac{1}{1-w} + \sum_{m,n > 0} (z^m w^n - z^{-m} w^{-n}) q^{mn}\right) \quad , \quad \begin{pmatrix} z \\ w \\ q \end{pmatrix} = \ee \begin{pmatrix}\xi \\ \eta \\ \tau\end{pmatrix}\]
+            \[-2\pi i \left(\frac{z}{1-z} + \frac{1}{1-w} + \sum_{m,n > 0} (z^m w^n - z^{-m} w^{-n}) q^{mn}\right) \quad , \quad \begin{pmatrix} z \\ w \\ q \end{pmatrix} = \ee \begin{pmatrix}z \\ \alpha \\ \tau\end{pmatrix}\]
             \item In terms of a sum over Eisenstein functions and series
-            \[\frac{1}{\eta} \exp\left(-\sum_{j > 0} \frac{(-\eta)^j}{j} (E_j(\xi,\tau) - e_j(\tau))\right)\]
+            \[\frac{1}{\alpha} \exp\left(-\sum_{j > 0} \frac{(-\alpha)^j}{j} (E_j(z,\tau) - e_j(\tau))\right)\]
         \end{enumerate}
     \end{block}
 \end{frame}
@@ -355,21 +368,21 @@
     }
     % \pause
     \emph{Periodicity Properties:}
-    \[F(\xi+1,\eta) = \frac{\theta_1'(0)\theta_1(\xi+\eta+1)}{\theta_1(\xi+1)\theta_1(\eta)} = F(\xi,\eta)\]
-    \[F(\xi+\tau,\eta) = \frac{\theta_1'(0)\theta_1(\xi+\eta+\tau)}{\theta_1(\xi+\tau)\theta_1(\eta)} = \frac{\ee(-\xi-\eta)}{\ee(-\xi)} F(\xi,\eta)\]
+    \[F(z+1,\alpha) = \frac{\theta_1'(0)\theta_1(z+\alpha+1)}{\theta_1(z+1)\theta_1(\alpha)} = F(z,\alpha)\]
+    \[F(z+\tau,\alpha) = \frac{\theta_1'(0)\theta_1(z+\alpha+\tau)}{\theta_1(z+\tau)\theta_1(\alpha)} = \frac{\ee(-z-\alpha)}{\ee(-z)} F(z,\alpha)\]
     % \pause
     \begin{block}{The Fay Relation}
-        \[F(\xi_1,\eta_1)F(\xi_2,\eta_2) = F(\xi_1,\eta_1+\eta_2)F(\xi_2-\xi_1,\eta_2)+F(\xi_2,\eta_1+\eta_2)F(\xi_1-\xi_2,\eta_1)\]
+        \[F(z_1,\alpha_1)F(z_2,\alpha_2) = F(z_1,\alpha_1+\alpha_2)F(z_2-z_1,\alpha_2)+F(z_2,\alpha_1+\alpha_2)F(z_1-z_2,\alpha_1)\]
     \end{block}
 \end{frame}
 
 \begin{frame}{Setup for derivation of the Fay relation}{\tiny \cite{Mat19}}
-    \[F(\xi_1,\eta_1)F(\xi_2,\eta_2) = F(\xi_1,\eta_1+\eta_2)F(\xi_2-\xi_1,\eta_2)+F(\xi_2,\eta_1+\eta_2)F(\xi_1-\xi_2,\eta_1)\]
+    \[F(z_1,\alpha_1)F(z_2,\alpha_2) = F(z_1,\alpha_1+\alpha_2)F(z_2-z_1,\alpha_2)+F(z_2,\alpha_1+\alpha_2)F(z_1-z_2,\alpha_1)\]
     \vspace{-1em}
     \[\downarrow \text{rewrite using Theta functions} \downarrow\]
-    \[\frac{\theta_1(\xi_1+\eta_1)\theta_1(\xi_2+\eta_2)}{\theta_1(\xi_1)\theta_1(\eta_1)\theta_1(\xi_2)\theta_1(\eta_2)}
-    = \frac{\theta_1(\xi_1+\eta_1+\eta_2)\theta_1(\xi_2-\xi_1+\eta_2)}{\theta_1(\xi_1)\theta_1(\eta_1+\eta_2)\theta_1(\xi_2-\xi_1)\theta_1(\eta_2)}
-    + \frac{\theta_1(\xi_1+\eta_1+\eta_2)\theta_1(\xi_1-\xi_2+\eta_1)}{\theta_1(\xi_1)\theta_1(\eta_1+\eta_2)\theta_1(\xi_1-\xi_2)\theta_1(\eta_1)}\]
+    \[\frac{\theta_1(z_1+\alpha_1)\theta_1(z_2+\alpha_2)}{\theta_1(z_1)\theta_1(\alpha_1)\theta_1(z_2)\theta_1(\alpha_2)}
+    = \frac{\theta_1(z_1+\alpha_1+\alpha_2)\theta_1(z_2-z_1+\alpha_2)}{\theta_1(z_1)\theta_1(\alpha_1+\alpha_2)\theta_1(z_2-z_1)\theta_1(\alpha_2)}
+    + \frac{\theta_1(z_1+\alpha_1+\alpha_2)\theta_1(z_1-z_2+\alpha_1)}{\theta_1(z_1)\theta_1(\alpha_1+\alpha_2)\theta_1(z_1-z_2)\theta_1(\alpha_1)}\]
     \[\downarrow \text{multiply common denominator and relabel} \downarrow \]
     \vspace{-2em}
     \begin{align*}
@@ -393,11 +406,14 @@
 \end{frame}
 
 \begin{frame}{Differentials from the Kronecker function}
-    \[F(z,\alpha) dz = \frac{1}{\alpha} \sum_{n=0}^\infty g^{(n)}(z) \alpha^n \]
-\end{frame}
-
-\begin{frame}{Examples of differentials}
-    [1412.5535] eqn 3.31 etc.
+    \[\alpha F(z,\alpha) dz = \sum_{n=0}^\infty g^{(n)}(z) \alpha^n \]
+    \vspace{+1em}
+    \[g^{(0)}(z) = 1\]
+    \[g^{(1)}(z) = \pi \cot(\pi z) + 4\pi \sum_{m=1}^\infty \sin(2 \pi m z) \sum_{n=1}^\infty q^{mn}\]
+    \[g^{(2)}(z) = -2\zeta_2 + 8 \pi^2 \sum_{m=1}^\infty \cos(2 \pi m z) \sum_{n=1}^\infty nq^{mn}\]
+    \[\vdots\]
+    \pause
+    \[\boxed{g^{(n)}(-z) = (-1)^n g^{(n)}(z)}\]
 \end{frame}
 
 \begin{frame}{Independence of the differentials}
@@ -406,8 +422,18 @@
 \end{frame}
 
 \begin{frame}{Fay relation for differentials}
-    one line derivation
-    one line statement
+    \[F(z_1,\alpha_1)F(z_2,\alpha_2) = F(z_1,\alpha_1+\alpha_2)F(z_2-z_1,\alpha_2)+F(z_2,\alpha_1+\alpha_2)F(z_1-z_2,\alpha_1)\]
+    \begin{align*}
+        \left(\sum_{n=0}^\infty g^{(n)}(z_1) \alpha_1^n\right)\left(\sum_{n=0}^\infty g^{(n)}(z_2) \alpha_2^n\right) = 
+        \left(\sum_{n=0}^\infty g^{(n)}(z_1) (\alpha_1+\alpha_2)^n\right)\left(\sum_{n=0}^\infty g^{(n)}(z_2-z_1) \alpha_2^n\right) + \\
+        \left(\sum_{n=0}^\infty g^{(n)}(z_2) (\alpha_1+\alpha_2)^n\right)\left(\sum_{n=0}^\infty g^{(n)}(z_1-z_2) \alpha_1^n\right)
+    \end{align*}
+    \[\downarrow \text{match powers and use }g^{(0)}=1\]
+    \begin{align*}
+        g^{(m)}(z_1)g^{(n)}(z_2) = (-1)^{n+1}g^{(m+n)}(z_1-z_2) + \\
+        + \sum_{r=0}^n \begin{pmatrix} m+r-1 \\ m-1 \end{pmatrix} g^{(n-r)}(z_2-z_1) g^{(m+r)}(z_1) \\
+        + \sum_{r=0}^m \begin{pmatrix} n+r-1 \\ n-1 \end{pmatrix} g^{(m-r)}(z_1-z_2) g^{(n+r)}(z_2) 
+    \end{align*}
 \end{frame}
 
 \begin{frame}{Application of properties}

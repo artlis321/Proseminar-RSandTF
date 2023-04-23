@@ -421,18 +421,27 @@
     (probably needs to be several slides)
 \end{frame}
 
-\begin{frame}{Fay relation for differentials}
+\begin{frame}{Fay relation for differentials (Kronecker to Decomposition)}
     \[F(z_1,\alpha_1)F(z_2,\alpha_2) = F(z_1,\alpha_1+\alpha_2)F(z_2-z_1,\alpha_2)+F(z_2,\alpha_1+\alpha_2)F(z_1-z_2,\alpha_1)\]
+    \[\downarrow \text{decompose} \downarrow\]
     \begin{align*}
-        \left(\sum_{n=0}^\infty g^{(n)}(z_1) \alpha_1^n\right)\left(\sum_{n=0}^\infty g^{(n)}(z_2) \alpha_2^n\right) = 
-        \left(\sum_{n=0}^\infty g^{(n)}(z_1) (\alpha_1+\alpha_2)^n\right)\left(\sum_{n=0}^\infty g^{(n)}(z_2-z_1) \alpha_2^n\right) + \\
-        \left(\sum_{n=0}^\infty g^{(n)}(z_2) (\alpha_1+\alpha_2)^n\right)\left(\sum_{n=0}^\infty g^{(n)}(z_1-z_2) \alpha_1^n\right)
+        \frac{1}{\alpha_1 \alpha_2}\left(\sum_{n=0}^\infty g^{(n)}(z_1) \alpha_1^n\right)\left(\sum_{n=0}^\infty g^{(n)}(z_2) \alpha_2^n\right)& = \\
+        \frac{1}{(\alpha_1+\alpha_2)\alpha_2}\left(\sum_{n=0}^\infty g^{(n)}(z_1) (\alpha_1+\alpha_2)^n\right)\left(\sum_{n=0}^\infty g^{(n)}(z_2-z_1) \alpha_2^n\right)& + \\
+        \frac{1}{(\alpha_1+\alpha_2)\alpha_1}\left(\sum_{n=0}^\infty g^{(n)}(z_2) (\alpha_1+\alpha_2)^n\right)\left(\sum_{n=0}^\infty g^{(n)}(z_1-z_2) \alpha_1^n\right)&
     \end{align*}
-    \[\downarrow \text{match powers and use }g^{(0)}=1\]
+    
+\end{frame}
+
+\begin{frame}{Fay relation for differentials (decomposition to power matching)}
     \begin{align*}
-        g^{(m)}(z_1)g^{(n)}(z_2) = (-1)^{n+1}g^{(m+n)}(z_1-z_2) + \\
-        + \sum_{r=0}^n \begin{pmatrix} m+r-1 \\ m-1 \end{pmatrix} g^{(n-r)}(z_2-z_1) g^{(m+r)}(z_1) \\
-        + \sum_{r=0}^m \begin{pmatrix} n+r-1 \\ n-1 \end{pmatrix} g^{(m-r)}(z_1-z_2) g^{(n+r)}(z_2) 
+        (\alpha_1+\alpha_2)\left(\sum_{n=0}^\infty g^{(n)}(z_1) \alpha_1^n\right)\left(\sum_{n=0}^\infty g^{(n)}(z_2) \alpha_2^n\right)& = \\
+        \alpha_1\left(\sum_{n=0}^\infty g^{(n)}(z_1) (\alpha_1+\alpha_2)^n\right)\left(\sum_{n=0}^\infty g^{(n)}(z_2-z_1) \alpha_2^n\right)& + \\
+        \alpha_2\left(\sum_{n=0}^\infty g^{(n)}(z_2) (\alpha_1+\alpha_2)^n\right)\left(\sum_{n=0}^\infty g^{(n)}(z_1-z_2) \alpha_1^n\right)&
+    \end{align*}
+    \[\downarrow \text{match coefficients of }\alpha_1^m \alpha_2^n \downarrow\]
+    \begin{align*}
+        g^{(m-1)}(z_1) g^{(n)}(z_2) + g^{(m)}(z_1) g^{(n-1)}(z_2) = \sum_{r=0}^n \begin{pmatrix} m-1+r \\ r \end{pmatrix} g^{(m-1+r)}(z_1) g^{(n-r)}(z_2-z_1)& + \\
+        \sum_{r=0}^m \begin{pmatrix} n-1+r \\ r \end{pmatrix} g^{(n-1+r)}(z_2) g^{(m-r)}(z_1-z_2)&
     \end{align*}
 \end{frame}
 

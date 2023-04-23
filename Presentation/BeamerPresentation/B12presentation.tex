@@ -35,6 +35,33 @@
       archivePrefix={arXiv},
       primaryClass={math.NT},
     }
+
+    @article{Broedel_2022,
+	year = 2022,
+	publisher = {International Press of Boston},
+	author = {Johannes Broedel and Andre Kaderli},
+	title = {Amplitude recursions with an extra marked point},
+	journal = {Communications in Number Theory and Physics}
+    }
+
+    @article{Broedel_2015,
+	year = 2015,
+	publisher = {Springer Science and Business Media {LLC}},
+	author = {Johannes Broedel and Carlos R. Mafra and Nils Matthes and Oliver Schlotterer},
+	title = {Elliptic multiple zeta values and one-loop superstring amplitudes},
+	journal = {Journal of High Energy Physics}
+    }
+
+    @article{Mat19,
+    author = {Matthes, Nils},
+    title = {An algebraic characterization of the Kronecker function},
+    journal = {Research in the Mathematical Sciences},
+    volume = {6},
+    number = {3},
+    pages = {24},
+    year = {2019},
+    ISSN = {2197-9847},
+    }
 \end{filecontents}
 \usepackage[backend=bibtex,style=authoryear, defernumbers=true]{biblatex}
 \addbibresource{\jobname.bib}
@@ -92,11 +119,9 @@
         \begin{column}{0.45\textwidth}
             \center
 
-            \includegraphics[width=0.7\columnwidth]{example-image-a}
+            \includegraphics[width=0.7\columnwidth]{assets/Genus3Surface.png}
 
-            \tiny Fundamental domain
-
-            \cite{ImageSource}
+            \tiny Genus 3 surface
         \end{column}
     \end{columns}
 
@@ -104,6 +129,57 @@
     \[\mathbf{u}(P+a_i) = \mathbf{u}(P) + \begin{pmatrix} \int_{a_i} \omega_1 \\ \vdots \end{pmatrix} = \mathbf{u}(P) + \begin{pmatrix} \delta_{i1} \\ \vdots \end{pmatrix}\]
     \[\mathbf{u}(P+b_i) = \mathbf{u}(P) + \begin{pmatrix} \tau_{i1} \\ \vdots \end{pmatrix}\]
 \end{frame}
+
+\begin{frame}{Abel's map}{\tiny \cite{Ber06} Section 4.2}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+            \begin{block}{Formal definition of Abel's map}
+                For a particular choice of a point $P_0$ on the fundamental domain $\mathcal L$, using the normalized harmonic differentials $\omega_i$, we have Abel's map
+                \begin{align*}
+                    \mathbf{u} : \mathcal L & \mapsto \mathbb{C}^g , \quad P & \mapsto \begin{pmatrix} \int_{P_0}^P \omega_1 \\ \vdots \\ \int_{P_0}^P \omega_g \end{pmatrix} &
+                \end{align*}
+            \end{block}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \center
+
+            \includegraphics[width=0.7\columnwidth]{assets/Genus3Intermediate.png}
+
+            \tiny Unfolding Genus 3 Surface
+        \end{column}
+    \end{columns}
+
+    \emph{Analytic continuation beyond the fundamental domain:}
+    \[\mathbf{u}(P+a_i) = \mathbf{u}(P) + \begin{pmatrix} \int_{a_i} \omega_1 \\ \vdots \end{pmatrix} = \mathbf{u}(P) + \begin{pmatrix} \delta_{i1} \\ \vdots \end{pmatrix}\]
+    \[\mathbf{u}(P+b_i) = \mathbf{u}(P) + \begin{pmatrix} \tau_{i1} \\ \vdots \end{pmatrix}\]
+\end{frame}
+
+\begin{frame}{Abel's map}{\tiny \cite{Ber06} Section 4.2}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+            \begin{block}{Formal definition of Abel's map}
+                For a particular choice of a point $P_0$ on the fundamental domain $\mathcal L$, using the normalized harmonic differentials $\omega_i$, we have Abel's map
+                \begin{align*}
+                    \mathbf{u} : \mathcal L & \mapsto \mathbb{C}^g , \quad P & \mapsto \begin{pmatrix} \int_{P_0}^P \omega_1 \\ \vdots \\ \int_{P_0}^P \omega_g \end{pmatrix} &
+                \end{align*}
+            \end{block}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \center
+
+            \includegraphics[width=0.7\columnwidth]{assets/Genus3Domain.png}
+
+            \tiny Genus 3 fundamental domain
+        \end{column}
+    \end{columns}
+
+    \emph{Analytic continuation beyond the fundamental domain:}
+    \[\mathbf{u}(P+a_i) = \mathbf{u}(P) + \begin{pmatrix} \int_{a_i} \omega_1 \\ \vdots \end{pmatrix} = \mathbf{u}(P) + \begin{pmatrix} \delta_{i1} \\ \vdots \end{pmatrix}\]
+    \[\mathbf{u}(P+b_i) = \mathbf{u}(P) + \begin{pmatrix} \tau_{i1} \\ \vdots \end{pmatrix}\]
+\end{frame}
+
+
+
 
 \begin{frame}{Abel's map at genus 1}
     \begin{columns}[onlytextwidth]
@@ -116,11 +192,9 @@
         \end{column}
         \begin{column}{0.45\textwidth}
             \center{}
-            \includegraphics[width=0.7\columnwidth]{example-image-a}
+            \includegraphics[width=\columnwidth]{assets/Domain.png}
 
             \tiny Fundamental domain and continuation at genus 1
-
-            \cite{ImageSource}
         \end{column}
     \end{columns}
 
@@ -405,20 +479,29 @@
     }
 \end{frame}
 
-\begin{frame}{Differentials from the Kronecker function}
-    \[\alpha F(z,\alpha) dz = \sum_{n=0}^\infty g^{(n)}(z) \alpha^n \]
+\begin{frame}{Differentials from the Kronecker function}{\tiny \cite{Broedel_2015} Section 3.3.3}
+    \[\alpha F(z,\alpha) dz = \sum_{n=0}^\infty g^{(n)}(z)dz \alpha^n \]
     \vspace{+1em}
     \[g^{(0)}(z) = 1\]
     \[g^{(1)}(z) = \pi \cot(\pi z) + 4\pi \sum_{m=1}^\infty \sin(2 \pi m z) \sum_{n=1}^\infty q^{mn}\]
     \[g^{(2)}(z) = -2\zeta_2 + 8 \pi^2 \sum_{m=1}^\infty \cos(2 \pi m z) \sum_{n=1}^\infty nq^{mn}\]
     \[\vdots\]
-    \pause
+    % \pause
     \[\boxed{g^{(n)}(-z) = (-1)^n g^{(n)}(z)}\]
 \end{frame}
 
-\begin{frame}{Independence of the differentials}
-    Brown and Levin
-    (probably needs to be several slides)
+\begin{frame}{Independence of the differentials}{\tiny \cite{BL13} Lemma 8}
+    \[d(g^{(k+1)}(z)dz) = \nu \wedge (g^{(k)}(z)dz)\]
+
+    Let us assume that the first $w$ differentials are not independent
+    \[\sum_{k\leq w} c_{k} g^{(k)}(z) dz = 0\]
+
+    Then, we find that
+    \[ d\left(\sum_{k\leq w} c_{k} g^{(k)}(z) dz\right) = \nu \wedge \left(\sum_{k\leq (w-1)} c_{k} g^{(k)}(z) dz\right) = 0 \implies \sum_{k\leq (w-1)} c_{k} g^{(k)}(z) dz = 0 \]
+
+    Thus,
+    \[\sum_{k\leq (w-1)} c_{k} g^{(k)}(z) dz \neq 0 \implies \sum_{k\leq w} c_{k} g^{(k)}(z) dz \neq 0\]
+    and since $c_0 g^{(0)}(z) dz \neq 0$, all the differentials are independent by induction.
 \end{frame}
 
 \begin{frame}{Fay relation for differentials (Kronecker to Decomposition)}
@@ -445,8 +528,44 @@
     \end{align*}
 \end{frame}
 
+\begin{frame}{Periodicity instead of holomorphicity}{\tiny \cite{Broedel_2015} Section 3.2.3}
+    \begin{block}{Elliptic version of Kronecker function}
+        \[\Omega(z,\alpha) = \ee\left(\alpha \frac{\Im(z)}{\Im(\tau)}\right) F(z,\alpha)\]
+        \vspace{+1em}
+        \[\Omega(z+1,\alpha) = \ee\left(\alpha \frac{\Im(z+1)}{\Im(\tau)}\right) F(z+1,\alpha) = \Omega(z+1,\alpha)\]
+        \[\Omega(z+\tau,\alpha) = \ee\left(\alpha \frac{\Im(z+\tau)}{\Im(\tau)}\right) F(z+1,\alpha) = \ee(\alpha) \ee\left(\alpha \frac{\Im(z)}{\Im(\tau)}\right) \ee(-\alpha) F(z,\alpha) = \Omega(z,\alpha)\]
+    \end{block}
+    % \pause
+    Similarly, we find
+    \[ \alpha \Omega(z,\alpha) = \sum_{n=0}^\infty f^{(n)}(z)dz \alpha^n \]
+    for perfectly elliptic, but non-holomorphic $f$.
+
+\end{frame}
+
 \begin{frame}{Application of properties}
-    big picture view of when these come into string theory
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Properties of differentials:
+            \begin{itemize}
+                \item Periodic or quasi-periodic, with particular $\tau$ \\
+                $\rightarrow$ faithful to compact Riemann surface
+                \item Integrability and independence \\
+                $\rightarrow$ suitable for homotopy-invariant integrals
+                \item Constant ($g^{(0)}$) and simple pole ($g^{(1)}$) \\
+                $\rightarrow$ constructing elliptic polylogarithms
+                \item Fay relation \\
+                $\rightarrow$ rearranging dependence for integral evaluation
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \center{}
+            \includegraphics[width=0.7\columnwidth]{assets/Annulus.png}
+
+            \tiny Annulus from open string
+
+            \cite{Broedel_2022}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \section{Striving for higher genus}
@@ -467,6 +586,9 @@
                 \item What consequences does this have for Abel's map?
                 \item What does the Theta function look like at higher genus?
                 \item Which of the zeros located by odd characteristics are actually reached by Abel's map on compact Riemann surfaces of higher genus?
+                \item Are there similar formulas for higher genus theta functions?
+                \item How can we define the Kronecker function at higher genus?
+                \item What does the Fay identity look like at higher genus when theta functions are more complicated?
             \end{itemize}
         \end{block}
     }

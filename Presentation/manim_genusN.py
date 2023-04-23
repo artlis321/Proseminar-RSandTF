@@ -3,6 +3,8 @@ import numpy as np
 
 class GenusNTorus(ThreeDScene):
     def construct(self):
+        self.camera.background_color="#ffffff"
+        
         #####
         GENUS = 3
         DISPLAY = 3

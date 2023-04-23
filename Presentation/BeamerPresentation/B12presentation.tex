@@ -62,6 +62,13 @@
     year = {2019},
     ISSN = {2197-9847},
     }
+
+    @book{ComputationalSchottky,
+        title={Computational Approach to Riemann Surfaces},
+        author={Alexander I. Bobenko and Christian Klein},
+        year={2011},
+        publisher={Lecture Notes in Mathematics. Springer Berlin Heidelberg}
+    }
 \end{filecontents}
 \usepackage[backend=bibtex,style=authoryear, defernumbers=true]{biblatex}
 \addbibresource{\jobname.bib}
@@ -421,8 +428,8 @@
         \begin{enumerate}
             \item In terms of the odd theta function
             \[\frac{\theta_1'(0)\theta_1(z+\alpha)}{\theta_1(z)\theta_1(\alpha)}\]
-            \item In terms of a sum over exponentials
-            \[-2\pi i \left(\frac{z}{1-z} + \frac{1}{1-w} + \sum_{m,n > 0} (z^m w^n - z^{-m} w^{-n}) q^{mn}\right) \quad , \quad \begin{pmatrix} z \\ w \\ q \end{pmatrix} = \ee \begin{pmatrix}z \\ \alpha \\ \tau\end{pmatrix}\]
+            \item In terms of a sum over exponentials $F(\xi,\alpha,\tau)$
+            \[-2\pi i \left(\frac{z}{1-z} + \frac{1}{1-w} + \sum_{m,n > 0} (z^m w^n - z^{-m} w^{-n}) q^{mn}\right) \quad , \quad \begin{pmatrix} z \\ w \\ q \end{pmatrix} = \ee \begin{pmatrix}\xi \\ \alpha \\ \tau\end{pmatrix}\]
             \item In terms of a sum over Eisenstein functions and series
             \[\frac{1}{\alpha} \exp\left(-\sum_{j > 0} \frac{(-\alpha)^j}{j} (E_j(z,\tau) - e_j(\tau))\right)\]
         \end{enumerate}
@@ -528,6 +535,20 @@
     \end{align*}
 \end{frame}
 
+\begin{frame}{Fay relation for differentials (power matching to final form)}
+    \begin{align*}
+        g^{(m-1)}(z_1) g^{(n)}(z_2) + g^{(m)}(z_1) g^{(n-1)}(z_2) = \sum_{r=0}^n \begin{pmatrix} m-1+r \\ r \end{pmatrix} g^{(m-1+r)}(z_1) g^{(n-r)}(z_2-z_1)& + \\
+        \sum_{r=0}^m \begin{pmatrix} n-1+r \\ r \end{pmatrix} g^{(n-1+r)}(z_2) g^{(m-r)}(z_1-z_2)&
+    \end{align*}
+    \[\downarrow ????? \downarrow\]
+    \begin{align*}
+        g^{(m)}(z_1) g^{(n)}(z_2) = (-1)^{n+1} g^{(m+n)}(z_1-z_2)& \\
+         +\sum_{r=0}^m \begin{pmatrix} m+r-1 \\ r \end{pmatrix} g^{(m+r)}(z_1) g^{(n-r)}(z_2-z_1) & \\
+         +\sum_{r=0}^m \begin{pmatrix} n+r-1 \\ r \end{pmatrix} g^{(n+r)}(z_2) g^{(m-r)}(z_1-z_2) & 
+    \end{align*}
+    \[z_1 = t-x \quad ; \quad z_2 = t \implies \text{repeated }t\text{ dependence} \rightarrow \text{repeated }x\text{ dependence}\]
+\end{frame}
+
 \begin{frame}{Periodicity instead of holomorphicity}{\tiny \cite{Broedel_2015} Section 3.2.3}
     \begin{block}{Elliptic version of Kronecker function}
         \[\Omega(z,\alpha) = \ee\left(\alpha \frac{\Im(z)}{\Im(\tau)}\right) F(z,\alpha)\]
@@ -595,20 +616,86 @@
     }
 \end{frame}
 
-\begin{frame}{Schottky cover definition}
-
+\begin{frame}{Questions gathered so far}
+    {
+        % \setbeamercolor{block body}
+        \setbeamercolor{block title}{bg=ETHBlue}
+        \setbeamercolor{block body}{bg=ETHBlue!25!white}
+        \begin{block}{What about higher genus?}
+            \begin{itemize}
+                \item $\checkmark$ How do we represent the fundamental domain? 
+                \item $\checkmark$ What choice of differentials can we make?
+                \item $\checkmark$ What consequences does this have for Abel's map?
+                \item What does the Theta function look like at higher genus?
+                \item Which of the zeros located by odd characteristics are actually reached by Abel's map on compact Riemann surfaces of higher genus?
+                \item Are there similar formulas for higher genus theta functions?
+                \item $\sim$ How can we define the Kronecker function at higher genus?
+                \item What does the Fay identity look like at higher genus when theta functions are more complicated?
+            \end{itemize}
+        \end{block}
+    }
 \end{frame}
 
-\begin{frame}{Schottky group example}
+\begin{frame}{Schottky group}{\tiny \cite{ComputationalSchottky} and \cite{Cha22}}
+    \begin{block}{Schottky group}
+        Choosing mutually disjoint discs $\{D_i,D_i'\}$ with interiors $\{\overset{\circ}{D}_i,\overset{\circ}{D}_i'\}$ on a Riemann sphere,
+        we can choose mobius transformations $\gamma_i$ such that the exterior of $D_i$ is mapped to the interior of $D_i'$
+        \[\gamma_i \in \text{PSL}_2(\mathbb C) , \quad \gamma_i : z \mapsto \frac{az+b}{cz+d}\]
+        \[\gamma_i(\bar C \setminus \overset{\circ}{D}_i) = D_i'\]
+        \[\gamma_i(\partial D_i) = \partial D_i'\]
 
+        The transformations formed by composition of $\gamma_i$ form a group called a \textbf{Schottky group}, usually denoted as $\Gamma$.
+    \end{block}
+
+    \center{}
+    \includegraphics[width=0.7\columnwidth]{assets/ChanSchottkyGroup.png}
+
+    \tiny Mobius transformations mapping outside of one disc to inside of another
+
+    \cite{Cha22}
 \end{frame}
 
-\begin{frame}{Differentials and theta functions}
+\begin{frame}{Schottky cover}{\tiny \cite{ComputationalSchottky} and \cite{Cha22}}
+    \begin{block}{Schottky cover}
+        Given a Schottky group $\Gamma$ with associated discs $\{D_i,D_i'\}_{i=1}^g$ we can define
+        \[F := \bar {\mathbb C} \setminus \bigcup_i (\overset{\circ}{D}_i \cup \overset{\circ}{D}_i') \quad ; \quad \Omega := \bigcup_{\gamma \in \Gamma} \gamma(F)\]
+        Then, $\mathcal M := \Omega / \Gamma$ is a Riemann surface of genus $g$ with fundamental domain $F$.
+    \end{block}
+    \center{}
+    \includegraphics[width=0.5\textwidth]{assets/ChanSchottkyCover.png}
 
+    \tiny Schotty cover visuals
+
+    \cite{Cha22}
+\end{frame}
+
+\begin{frame}{Differentials and Abel's map}{\tiny \cite{ComputationalSchottky} and \cite{Cha22}}
+    We can define cosets of $\Gamma$
+    \[\Gamma / \Gamma_i = \{\gamma_{j_1}^{n_1}\cdots \gamma_{j_k}^{n_k}: \gamma_{j_k} \neq \gamma_i\}\]
+    \[\Gamma_i \setminus \Gamma  = \{\gamma_{j_1}^{n_1}\cdots \gamma_{j_k}^{n_k}: \gamma_{j_1} \neq \gamma_i\}\]
+
+    And use these to define holomorphic differentials
+    \[\omega_i = \sum_{\gamma \in \Gamma / \Gamma_i} \left(\frac{1}{z-\gamma(P_i')} - \frac{1}{z-\gamma(P_i)}\right) = \sum_{\gamma \in \Gamma_i \setminus \Gamma } \left(\frac{1}{\gamma(z)-P_i'} - \frac{1}{\gamma(z)-P_i}\right)\]
+
+    Which can then be used to define Abel's map
+    \[u_i[p] = \int_{p_0}^p \omega_i = \frac{1}{2\pi i} \sum_{\gamma \in \Gamma/\Gamma_i} \ln \{p,\gamma(P_i'),p_0,\gamma(P)\}\]
+    where
+    \[\{a,b,c,d\} = \frac{(a-b)(c-d)}{(a-d)(c-b)}\]
 \end{frame}
 
 \begin{frame}{Attempt at a Kronecker function}{\tiny \cite{Cha22}}
-
+    Focusing on three of the conditions:
+    \begin{enumerate}
+        \item Generalized Kronecker function should be quasi-periodic
+        \item Generalized Kronecker function should reduce to aforementioned genus 1 form
+        \item Generalized Kronecker function should satisfy integrability in a particular way
+    \end{enumerate}
+    \[K(z,\{w_1,...,w_g\}|\Gamma) = \sum_{\gamma \in \Gamma} \frac{\gamma'(z)}{\gamma(z)-1} w_1^{\mathrm{ord}_1\gamma}...w_g^{\mathrm{ord}_g\gamma}\]
+    
+    At Genus 1, for $\gamma : z \mapsto \ee(\tau) z = qz$
+    \[K(z,w|\Gamma) = \sum_{n \in \mathbb Z} \frac{q^n}{q^n z - 1} w^n = \cdots = \frac{1}{z} \left[1 - \frac{1}{1-z} - \frac{1}{1-w} - \sum_{m,n > 0} q^{mn} (z^m w^n - z^{-m} w^{-n})\right]\]
+    Recall
+    \[F(\xi,\alpha) = -2\pi i \left(\frac{z}{1-z} + \frac{1}{1-w} + \sum_{m,n > 0} (z^m w^n - z^{-m} w^{-n}) q^{mn}\right) \quad , \quad \begin{pmatrix} z \\ w \\ q \end{pmatrix} = \ee \begin{pmatrix}z \\ \alpha \\ \tau\end{pmatrix}\]
 \end{frame}
 
 \begin{frame}{Open questions}

@@ -137,7 +137,7 @@
     \[\mathbf{u}(P+b_i) = \mathbf{u}(P) + \begin{pmatrix} \tau_{i1} \\ \vdots \end{pmatrix}\]
 \end{frame}
 
-\begin{frame}{Abel's map}{\tiny \cite{Ber06} Section 4.2}
+\begin{frame}[noframenumbering]{Abel's map}{\tiny \cite{Ber06} Section 4.2}
     \begin{columns}
         \begin{column}{0.55\textwidth}
             \begin{block}{Formal definition of Abel's map}
@@ -161,7 +161,7 @@
     \[\mathbf{u}(P+b_i) = \mathbf{u}(P) + \begin{pmatrix} \tau_{i1} \\ \vdots \end{pmatrix}\]
 \end{frame}
 
-\begin{frame}{Abel's map}{\tiny \cite{Ber06} Section 4.2}
+\begin{frame}[noframenumbering]{Abel's map}{\tiny \cite{Ber06} Section 4.2}
     \begin{columns}
         \begin{column}{0.55\textwidth}
             \begin{block}{Formal definition of Abel's map}
@@ -184,9 +184,6 @@
     \[\mathbf{u}(P+a_i) = \mathbf{u}(P) + \begin{pmatrix} \int_{a_i} \omega_1 \\ \vdots \end{pmatrix} = \mathbf{u}(P) + \begin{pmatrix} \delta_{i1} \\ \vdots \end{pmatrix}\]
     \[\mathbf{u}(P+b_i) = \mathbf{u}(P) + \begin{pmatrix} \tau_{i1} \\ \vdots \end{pmatrix}\]
 \end{frame}
-
-
-
 
 \begin{frame}{Abel's map at genus 1}
     \begin{columns}[onlytextwidth]
@@ -288,7 +285,7 @@
         We can then define the Theta function with characteristics $ \epsilon$, $ \epsilon'$ as
         \[\Theta\begin{bmatrix} \epsilon \\  \epsilon'\end{bmatrix}(\vec z) := 
         \ee\left(\frac{1}{8}\epsilon^T \tau \epsilon + \frac{1}{2}\epsilon^T \vec z + \frac{1}{4}\epsilon^T  \epsilon'\right)
-        \Theta\left(\vec z + \frac{\epsilon'}{2}+\frac{\tau\epsilon}{2}\right)\]
+        \Theta\left(\vec z + \frac{\epsilon'}{2}+\frac{\tau\epsilon}{2}\right) = \begin{bmatrix}\vec n \mapsto \vec n+\epsilon \\ \vec z \mapsto \vec z + \epsilon' \end{bmatrix} \sum_{\vec n} \ee(...)\] 
     \end{block}
     % \pause
     \emph{Properties:}
@@ -593,7 +590,9 @@
 
 \begin{frame}{Why we care about higher genus}
     \center{}
-    \includegraphics[width=0.7\columnwidth]{example-image-b}
+    \includegraphics[width=0.7\columnwidth]{assets/MyGenus2.png}
+
+    \tiny Sketch of analogous construction for genus 2
 \end{frame}
 
 \begin{frame}{Questions gathered so far}
@@ -638,10 +637,10 @@
 
 \begin{frame}{Schottky group}{\tiny \cite{ComputationalSchottky} and \cite{Cha22}}
     \begin{block}{Schottky group}
-        Choosing mutually disjoint discs $\{D_i,D_i'\}$ with interiors $\{\overset{\circ}{D}_i,\overset{\circ}{D}_i'\}$ on a Riemann sphere,
+        Choosing mutually disjoint discs $\{D_i,D_i'\}$ with interiors $\{\mathring{D}_i,\mathring{D}_i'\}$ on a Riemann sphere,
         we can choose mobius transformations $\gamma_i$ such that the exterior of $D_i$ is mapped to the interior of $D_i'$
         \[\gamma_i \in \text{PSL}_2(\mathbb C) , \quad \gamma_i : z \mapsto \frac{az+b}{cz+d}\]
-        \[\gamma_i(\bar C \setminus \overset{\circ}{D}_i) = D_i'\]
+        \[\gamma_i(\bar C \setminus \mathring{D}_i) = D_i'\]
         \[\gamma_i(\partial D_i) = \partial D_i'\]
 
         The transformations formed by composition of $\gamma_i$ form a group called a \textbf{Schottky group}, usually denoted as $\Gamma$.
@@ -662,9 +661,18 @@
         Then, $\mathcal M := \Omega / \Gamma$ is a Riemann surface of genus $g$ with fundamental domain $F$.
     \end{block}
     \center{}
-    \includegraphics[width=0.5\textwidth]{assets/ChanSchottkyCover.png}
+    \includegraphics[width=0.6\textwidth]{assets/ChanSchottkyCover.png}
 
-    \tiny Schotty cover visuals
+    \tiny Schotty cover mapping to compact Riemann surface
+
+    \cite{Cha22}
+\end{frame}
+
+\begin{frame}{Schottky cover}{\tiny \cite{Cha22}}
+    \center{}
+    \includegraphics[width=0.5\textwidth]{assets/ChanSchottkyCover2.png}
+
+    \tiny Schotty cover visual for verbal explanation
 
     \cite{Cha22}
 \end{frame}
@@ -673,10 +681,10 @@
     We can define cosets of $\Gamma$
     \[\Gamma / \Gamma_i = \{\gamma_{j_1}^{n_1}\cdots \gamma_{j_k}^{n_k}: \gamma_{j_k} \neq \gamma_i\}\]
     \[\Gamma_i \setminus \Gamma  = \{\gamma_{j_1}^{n_1}\cdots \gamma_{j_k}^{n_k}: \gamma_{j_1} \neq \gamma_i\}\]
-
-    And use these to define holomorphic differentials
+    % \pause
+    And use these to define holomorphic differentials using fixed points $P_i$
     \[\omega_i = \sum_{\gamma \in \Gamma / \Gamma_i} \left(\frac{1}{z-\gamma(P_i')} - \frac{1}{z-\gamma(P_i)}\right) = \sum_{\gamma \in \Gamma_i \setminus \Gamma } \left(\frac{1}{\gamma(z)-P_i'} - \frac{1}{\gamma(z)-P_i}\right)\]
-
+    % \pause
     Which can then be used to define Abel's map
     \[u_i[p] = \int_{p_0}^p \omega_i = \frac{1}{2\pi i} \sum_{\gamma \in \Gamma/\Gamma_i} \ln \{p,\gamma(P_i'),p_0,\gamma(P)\}\]
     where

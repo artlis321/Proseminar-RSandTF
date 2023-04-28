@@ -75,7 +75,7 @@
 \begin{document}
 
 % Find better title image?
-\def\titlefigure{elements/title-page-image}
+\def\titlefigure{assets/ThetaBigMonoCrop.png}
 \titleframe{}
 
 \tocframe{}
@@ -357,7 +357,7 @@
     \[f(x,y) = \sum_{n=-\infty}^\infty c_n(x) y^{2n} \implies f(x,y) = xy^2 f(x,xy) = \sum_n c_n(x) x^{2n+1}y^{2n+2}\]
     \[\implies c_{n+1}(x) = x^{2n+1}c_n(x) \implies c_{n}(x) = c_0(x) x^{n^2} \implies f(x,y) = c_0(x) \sum_n x^{n^2} y^{2n}\]
 
-    This relates the two forms of the theta function : $\prod_j (1-q^j) (1-wq^j)(1-w^{-1}q^j) \simeq \sum_n \ee(\tau)^{n^2} \ee{z}^{n}$
+    This relates the two forms of the theta function : $\prod_j (1-q^j) (1-wq^j)(1-w^{-1}q^j) \simeq \sum_n \ee(\tau)^{n^2} \ee(z)^{n}$
 
     {
         % \setbeamercolor{block body}
@@ -365,7 +365,7 @@
         \setbeamercolor{block body}{bg=ETHBlue!25!white}
         \begin{block}{What about higher genus?}
             \begin{itemize}
-                \item Are there similar formulas for higher genus theta functions?
+                \item Are there similar Jacobi formulas for higher genus theta functions?
             \end{itemize}
         \end{block}
     }
@@ -607,7 +607,7 @@
                 \item What consequences does this have for Abel's map?
                 \item What does the Theta function look like at higher genus?
                 \item Which of the zeros located by odd characteristics are actually reached by Abel's map on compact Riemann surfaces of higher genus?
-                \item Are there similar formulas for higher genus theta functions?
+                \item Are there similar Jacobi formulas for higher genus theta functions?
                 \item How can we define the Kronecker function at higher genus?
                 \item What does the Fay identity look like at higher genus when theta functions are more complicated?
             \end{itemize}
@@ -627,7 +627,7 @@
                 \item $\checkmark$ What consequences does this have for Abel's map?
                 \item What does the Theta function look like at higher genus?
                 \item Which of the zeros located by odd characteristics are actually reached by Abel's map on compact Riemann surfaces of higher genus?
-                \item Are there similar formulas for higher genus theta functions?
+                \item Are there similar Jacobi formulas for higher genus theta functions?
                 \item $\sim$ How can we define the Kronecker function at higher genus?
                 \item What does the Fay identity look like at higher genus when theta functions are more complicated?
             \end{itemize}
@@ -707,7 +707,22 @@
 \end{frame}
 
 \begin{frame}{Open questions}
+    \textbf{Obtaining the Kronecker function in terms of theta functions}
+    \begin{itemize}
+        \item Choice of characters, description of heta's behavior
+        \item Existing attempts inspiring representation with theta functions
+    \end{itemize}
 
+    \textbf{More detail in Schottky cover description}
+    \begin{itemize}
+        \item Matching Schottky fundamental domain with usual fundamental polygon
+        \item Alternative choices for generalized Kronecker function
+    \end{itemize}
+
+    \textbf{Connection to algebraic curves}
+    \begin{itemize}
+        \item Mapping to other language of describing Riemann surfaces
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{References}

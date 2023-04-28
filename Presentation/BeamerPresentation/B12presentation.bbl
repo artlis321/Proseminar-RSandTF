@@ -1,0 +1,225 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nyt/global//global/global}
+  \entry{Ber06}{book}{}
+    \name{author}{1}{}{%
+      {{hash=BM}{%
+         family={Bertola},
+         familyi={B\bibinitperiod},
+         given={Marco},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BM1}
+    \strng{fullhash}{BM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2006}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Riemann Surfaces and Theta Functions}
+    \field{year}{2006}
+  \endentry
+
+  \entry{ComputationalSchottky}{book}{}
+    \name{author}{2}{}{%
+      {{hash=BAI}{%
+         family={Bobenko},
+         familyi={B\bibinitperiod},
+         given={Alexander\bibnamedelima I.},
+         giveni={A\bibinitperiod\bibinitdelim I\bibinitperiod},
+      }}%
+      {{hash=KC}{%
+         family={Klein},
+         familyi={K\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Lecture Notes in Mathematics. Springer Berlin Heidelberg}%
+    }
+    \strng{namehash}{BAIKC1}
+    \strng{fullhash}{BAIKC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2011}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Computational Approach to Riemann Surfaces}
+    \field{year}{2011}
+  \endentry
+
+  \entry{Broedel_2022}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BJ}{%
+         family={Broedel},
+         familyi={B\bibinitperiod},
+         given={Johannes},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=KA}{%
+         family={Kaderli},
+         familyi={K\bibinitperiod},
+         given={Andre},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {International Press of Boston}%
+    }
+    \strng{namehash}{BJKA1}
+    \strng{fullhash}{BJKA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Amplitude recursions with an extra marked point}
+    \field{journaltitle}{Communications in Number Theory and Physics}
+    \field{year}{2022}
+  \endentry
+
+  \entry{Broedel_2015}{article}{}
+    \name{author}{4}{}{%
+      {{hash=BJ}{%
+         family={Broedel},
+         familyi={B\bibinitperiod},
+         given={Johannes},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=MCR}{%
+         family={Mafra},
+         familyi={M\bibinitperiod},
+         given={Carlos\bibnamedelima R.},
+         giveni={C\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=MN}{%
+         family={Matthes},
+         familyi={M\bibinitperiod},
+         given={Nils},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=SO}{%
+         family={Schlotterer},
+         familyi={S\bibinitperiod},
+         given={Oliver},
+         giveni={O\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media {LLC}}%
+    }
+    \strng{namehash}{BJ+1}
+    \strng{fullhash}{BJMCRMNSO1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Elliptic multiple zeta values and one-loop superstring
+  amplitudes}
+    \field{journaltitle}{Journal of High Energy Physics}
+    \field{year}{2015}
+  \endentry
+
+  \entry{BL13}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=BFCS}{%
+         family={Brown},
+         familyi={B\bibinitperiod},
+         given={Francis C.\bibnamedelima S.},
+         giveni={F\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim
+  S\bibinitperiod},
+      }}%
+      {{hash=LA}{%
+         family={Levin},
+         familyi={L\bibinitperiod},
+         given={Andrey},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BFCSLA1}
+    \strng{fullhash}{BFCSLA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2013}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Multiple Elliptic Polylogarithms}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{math.NT}
+    \field{year}{2013}
+  \endentry
+
+  \entry{Cha22}{thesis}{}
+    \name{author}{1}{}{%
+      {{hash=CZC}{%
+         family={Chan},
+         familyi={C\bibinitperiod},
+         given={Zhi\bibnamedelima Cong},
+         giveni={Z\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CZC1}
+    \strng{fullhash}{CZC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{Towards a Higher-Genus Generalization of the Kronecker
+  Function Using Schottky Covers}
+    \field{year}{2022}
+  \endentry
+
+  \entry{Mat19}{article}{}
+    \name{author}{1}{}{%
+      {{hash=MN}{%
+         family={Matthes},
+         familyi={M\bibinitperiod},
+         given={Nils},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MN1}
+    \strng{fullhash}{MN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2019}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{issn}{2197-9847}
+    \field{number}{3}
+    \field{pages}{24}
+    \field{title}{An algebraic characterization of the Kronecker function}
+    \field{volume}{6}
+    \field{journaltitle}{Research in the Mathematical Sciences}
+    \field{year}{2019}
+  \endentry
+\enddatalist
+\endinput

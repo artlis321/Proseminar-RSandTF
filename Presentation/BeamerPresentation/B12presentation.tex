@@ -686,7 +686,7 @@
     \[\Gamma_i \setminus \Gamma  = \{\gamma_{j_1}^{n_1}\cdots \gamma_{j_k}^{n_k}: \gamma_{j_1} \neq \gamma_i\}\]
     % \pause
     And use these to define holomorphic differentials using fixed points $P_i$
-    \[\omega_i = \sum_{\gamma \in \Gamma / \Gamma_i} \left(\frac{1}{z-\gamma(P_i')} - \frac{1}{z-\gamma(P_i)}\right) = \sum_{\gamma \in \Gamma_i \setminus \Gamma } \left(\frac{1}{\gamma(z)-P_i'} - \frac{1}{\gamma(z)-P_i}\right)\]
+    \[\omega_i = \frac{1}{2\pi i}\sum_{\gamma \in \Gamma / \Gamma_i} \left(\frac{1}{z-\gamma(P_i')} - \frac{1}{z-\gamma(P_i)}\right)dz = \frac{1}{2\pi i}\sum_{\gamma \in \Gamma_i \setminus \Gamma } \left(\frac{1}{\gamma(z)-P_i'} - \frac{1}{\gamma(z)-P_i}\right)d(\gamma(z))\]
     % \pause
     Which can then be used to define Abel's map
     \[u_i[p] = \int_{p_0}^p \omega_i = \frac{1}{2\pi i} \sum_{\gamma \in \Gamma/\Gamma_i} \ln \{p,\gamma(P_i'),p_0,\gamma(P)\}\]

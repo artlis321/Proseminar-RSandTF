@@ -85,7 +85,7 @@
 \begin{frame}{Holomorphic Differentials}
     \begin{block}{Definition and existence of holomorphic differentials}
         \vspace{-1em}
-        \[\text{Definition: } \omega = f_\alpha dz_\alpha = f_\beta dz_\beta \quad , \quad f \text{ holomorphic}\]
+        \[\text{Definition: } \omega = f_\alpha dz_\alpha = f_\beta dz_\beta , \quad f \text{ holomorphic}\]
         \[\text{Existence: } \dim \mathcal H^1 = g \text{ (genus of compact Riemann surface)}\]
     \end{block}
 
@@ -118,9 +118,10 @@
         \begin{column}{0.55\textwidth}
             \begin{block}{Formal definition of Abel's map}
                 For a particular choice of a point $P_0$ on the fundamental domain $\mathcal L$, using the normalized harmonic differentials $\omega_i$, we have Abel's map
-                \begin{align*}
-                    \mathbf{u} : \mathcal L & \mapsto \mathbb{C}^g , \quad P & \mapsto \begin{pmatrix} \int_{P_0}^P \omega_1 \\ \vdots \\ \int_{P_0}^P \omega_g \end{pmatrix} &
-                \end{align*}
+                \[
+                    \mathbf{u} : \mathcal L \rightarrow \mathbb{C}^g ,
+                    \quad P \mapsto \begin{pmatrix} \int_{P_0}^P \omega_1 \\ \vdots \\ \int_{P_0}^P \omega_g \end{pmatrix}
+                \]
             \end{block}
         \end{column}
         \begin{column}{0.45\textwidth}
@@ -142,9 +143,10 @@
         \begin{column}{0.55\textwidth}
             \begin{block}{Formal definition of Abel's map}
                 For a particular choice of a point $P_0$ on the fundamental domain $\mathcal L$, using the normalized harmonic differentials $\omega_i$, we have Abel's map
-                \begin{align*}
-                    \mathbf{u} : \mathcal L & \mapsto \mathbb{C}^g , \quad P & \mapsto \begin{pmatrix} \int_{P_0}^P \omega_1 \\ \vdots \\ \int_{P_0}^P \omega_g \end{pmatrix} &
-                \end{align*}
+                \[
+                    \mathbf{u} : \mathcal L \rightarrow \mathbb{C}^g ,
+                    \quad P \mapsto \begin{pmatrix} \int_{P_0}^P \omega_1 \\ \vdots \\ \int_{P_0}^P \omega_g \end{pmatrix}
+                \]
             \end{block}
         \end{column}
         \begin{column}{0.45\textwidth}
@@ -166,9 +168,10 @@
         \begin{column}{0.55\textwidth}
             \begin{block}{Formal definition of Abel's map}
                 For a particular choice of a point $P_0$ on the fundamental domain $\mathcal L$, using the normalized harmonic differentials $\omega_i$, we have Abel's map
-                \begin{align*}
-                    \mathbf{u} : \mathcal L & \mapsto \mathbb{C}^g , \quad P & \mapsto \begin{pmatrix} \int_{P_0}^P \omega_1 \\ \vdots \\ \int_{P_0}^P \omega_g \end{pmatrix} &
-                \end{align*}
+                \[
+                    \mathbf{u} : \mathcal L \rightarrow \mathbb{C}^g ,
+                    \quad P \mapsto \begin{pmatrix} \int_{P_0}^P \omega_1 \\ \vdots \\ \int_{P_0}^P \omega_g \end{pmatrix}
+                \]
             \end{block}
         \end{column}
         \begin{column}{0.45\textwidth}
@@ -221,7 +224,7 @@
 \begin{frame}{Theta functions}{\tiny \cite{Ber06} Section 5.1}
     \begin{block}{Definition of the Theta function}
         Given a symmetric matrix $\tau$ with positive definite imaginary part, the Theta function is
-        \[\Theta(\vec z, \tau) := \sum_{\vec n \in \mathbb Z^g} \ee \left( \frac{1}{2} \vec n^T \tau \vec n + \vec n^T \vec z \right) \quad , \quad \ee(z) = \exp(2\pi i z)\]
+        \[\Theta(\vec z, \tau) := \sum_{\vec n \in \mathbb Z^g} \ee \left( \frac{1}{2} \vec n^T \tau \vec n + \vec n^T \vec z \right) , \quad \ee(z) = \exp(2\pi i z)\]
     \end{block}
     % \pause
     \emph{Properties:} For $\vec \lambda \in \mathbb Z^g$
@@ -237,7 +240,7 @@
     \begin{block}{Definition of Theta function on a compact Riemann surface}
         For a compact Riemann surface $\mathcal M$ of genus $g$, with period matrix $\tau$ and Abel's map $\mathbf{u}$, we can identify
         \begin{align*}
-            \theta : \ & \mathcal M \mapsto \mathbb C \\
+            \theta : \ & \mathcal M \rightarrow \mathbb C \\
             & P \mapsto \Theta(\mathbf{u}(P))
         \end{align*}
     \end{block}
@@ -295,9 +298,9 @@
     \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z)\]
     % \pause
     \[\Theta\begin{bmatrix}\epsilon + 2\eta \\ \epsilon' + 2\eta' \end{bmatrix}(\vec z) = \exp(\pi i \epsilon^T \eta')
-    \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) \quad , \quad \eta,\eta' \in \mathbb Z^g\]
+    \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) , \quad \eta,\eta' \in \mathbb Z^g\]
     % \pause
-    \[\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(-\vec z) = \exp(\pi i \epsilon^T \epsilon') \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) \quad , \quad \epsilon,\epsilon' \in \mathbb Z^g\]
+    \[\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(-\vec z) = \exp(\pi i \epsilon^T \epsilon') \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) , \quad \epsilon,\epsilon' \in \mathbb Z^g\]
 \end{frame}
 
 \begin{frame}{Odd theta functions and zeros}
@@ -341,7 +344,7 @@
         We define
         \[\theta_1(z) = -\theta \begin{bmatrix} 1 \\ 1 \end{bmatrix}(z)\]
         It has equivalent definition
-        \[\theta_1(z) = 2iq^{1/8} \sin(\pi z) \prod_j (1-q^j) (1-wq^j)(1-w^{-1}q^j) \quad , \quad q=\ee(\tau),w=\ee{z}\]
+        \[\theta_1(z) = 2iq^{1/8} \sin(\pi z) \prod_j (1-q^j) (1-wq^j)(1-w^{-1}q^j) , \quad q=\ee(\tau),w=\ee{z}\]
     \end{block}
     \emph{Jacobi Triple Product:}
     % https://en.wikipedia.org/wiki/Jacobi_triple_product
@@ -426,7 +429,7 @@
             \item In terms of the odd theta function
             \[\frac{\theta_1'(0)\theta_1(z+\alpha)}{\theta_1(z)\theta_1(\alpha)}\]
             \item In terms of a sum over exponentials $F(\xi,\alpha,\tau)$
-            \[-2\pi i \left(\frac{z}{1-z} + \frac{1}{1-w} + \sum_{m,n > 0} (z^m w^n - z^{-m} w^{-n}) q^{mn}\right) \quad , \quad \begin{pmatrix} z \\ w \\ q \end{pmatrix} = \ee \begin{pmatrix}\xi \\ \alpha \\ \tau\end{pmatrix}\]
+            \[-2\pi i \left(\frac{z}{1-z} + \frac{1}{1-w} + \sum_{m,n > 0} (z^m w^n - z^{-m} w^{-n}) q^{mn}\right) , \quad \begin{pmatrix} z \\ w \\ q \end{pmatrix} = \ee \begin{pmatrix}\xi \\ \alpha \\ \tau\end{pmatrix}\]
             \item In terms of a sum over Eisenstein functions and series
             \[\frac{1}{\alpha} \exp\left(-\sum_{j > 0} \frac{(-\alpha)^j}{j} (E_j(z,\tau) - e_j(\tau))\right)\]
         \end{enumerate}

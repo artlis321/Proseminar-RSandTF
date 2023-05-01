@@ -11,62 +11,58 @@
 
 \section{Introduction \& Background}
 
+\section{Abel's Map}
 
+\subsection{Holomorphic differentials}
+link to parts of proof in A6, A7, and A8
 
+\subsection{Definition of Abel's map}
+very similar to presentation
 
-\cite{ZCC22}
-\cite{Bertola2010RiemannSA}
+\section{Theta functions}
 
-\section{Decomposition of functions}
+\subsection{Definition on $\mathbb C^g$}
+very similar to presentation
 
-One of the goals we have as we describe complex functions on Riemann surfaces is to find a simple way to decompose any arbitrary function.
+\subsection{Definition on compact Riemann surface}
+very similar to presentation
 
-\subsection{Genus-Zero decompostion}
+\subsection{Odd theta functions and zeros}
+connect to odd theta functions in B10
 
-% lead into decomposition for genus-zero
+extend beyond presentation by pointing out that only $g$ zeros are on compact riemann surface
 
-\emph{I wrote this proof myself as an exercise. I think I am missing something in terms of how to formally treat the point at infinity; without that, my arguments that no poles $\implies$ bounded is not sound. See $\dagger$ below.}
+\subsection{Decomposition of functions}
+consider talk A5 (eqn 25, 40)
 
-\begin{theorem}[Decomposition for Genus-Zero]
-    Let $f$ be a meromorphic function on $\mathbb{C}$ (including the point at $\infty$). Let $z_i$ be its zeros with multiplicity $n_i$ and $q_j$ be the poles with multiplicity $p_j$. Then, there exists a constant $C \in \mathbb{C}$ such that
-    \begin{equation}
-        f(z) = C\frac{\prod_i (z-z_i)^{n_i}}{\prod_j (z-q_j)^{p_j}} \label{eqnB12:gen0decomp}
-    \end{equation}
+link to talk A9 with divisors
 
-    This is equivalent to saying that a meromorphic function is uniquely defined, up to the scaling factor $C$, by the locations and multiplicity of its zeros and poles. 
-\end{theorem}
+\section{Kronecker function}
 
-\begin{proof}
-    Consider a meromorphic function $g$ with zeros and poles as described above. Let us define $h$ as $h(z) = f(z) / g(z)$. We will show that $h(z)$ must be a constant function, thus showing that $g$ is of the form desired. In order to show that $h(z)$ is constant, we can show that it is bounded and then use Liouville's Theorem [refer to reportA5? or to a source?].
+\subsection{Definition and properties of the Kronecker function}
 
-    At all points besides the $z_i$ and $q_j$, we see that $f(z)$ and $g(z)$ have no zeros or poles, so $h(z)$ cannot have a pole at those locations.
+\subsection{Decomposition for differentials}
 
-    For each zero $z_i$, with multiplicity $n_i$, we can write
-    \begin{align}
-        f(z) &= (z-z_i)^{n_i} \tilde f(z) \\
-        g(z) &= (z-z_i)^{n_i} \tilde g(z)
-    \end{align}
-    for some holomorphic functions $\tilde f$ and $\tilde g$ defined on a disc around $z_i$ that satisfy $\tilde f \neq 0 \neq \tilde g$.
+\subsection{Application}
 
-    Then, on that disc we have $h(z) = \frac{\tilde f(z)}{\tilde g(z)}$. Since this is a ratio of two non-zero holomorphic functions, $h$ does not have a pole at $z_i$.
+\section{Schottky Covers}
 
-    Similarly, for each pole $q_j$ with multiplicity $p_j$, we can write
-    \begin{align}
-        f(z) &= (z-q_j)^{-p_j} \tilde f(z) \\
-        g(z) &= (z-q_j)^{-p_j} \tilde g(z)
-    \end{align}
-    and conclude that $h$ does not have poles at $q_j$ either.
+\subsection{Definition of the Schottky group and cover}
+\cite{Cha22}
+\cite{ComputationalSchottky}
 
-    Since $h$ has no poles, it must be bounded. \emph{$\dagger$ Some step is missing here.}
-\end{proof}
+\subsection{Differentials and Abel's map}
+\cite{Cha22}
+\cite{ComputationalSchottky}
 
-\subsection{Genus-One decomposition}
-
-\section{Main theorem}
-\subsection{Preconditions}
-\subsection{Boundary conditions}
-\subsection{Proof}
-\section{Outlook \& open questions}
+\subsection{Attepmts at a Kronecker function}
+\cite{Cha22}
 
 \bibliography{reportB12}
 \bibliographystyle{alphaurl}
+
+\appendix
+
+\chapter{Properties of the Theta function:}
+Periodicity on $\mathbb C^g$ and compact Riemann surface
+Properties of theta function with characteristics

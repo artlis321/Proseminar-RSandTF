@@ -78,6 +78,11 @@
 \def\titlefigure{assets/ThetaBigMonoCrop.png}
 \titleframe{}
 
+\begin{frame}{Diagram of plan}
+    \center
+    \includegraphics[width=0.5\textwidth]{assets/diagram.png}
+\end{frame}
+
 \tocframe{}
 
 \section{Abel's map}
@@ -344,7 +349,7 @@
         We define
         \[\theta_1(z) = -\theta \begin{bmatrix} 1 \\ 1 \end{bmatrix}(z)\]
         It has equivalent definition
-        \[\theta_1(z) = 2iq^{1/8} \sin(\pi z) \prod_j (1-q^j) (1-wq^j)(1-w^{-1}q^j) , \quad q=\ee(\tau),w=\ee{z}\]
+        \[\theta_1(z) = 2iq^{1/8} \sin(\pi z) \prod_j (1-q^j) (1-wq^j)(1-w^{-1}q^j) , \quad q=\ee(\tau),w=\ee(z)\]
     \end{block}
     \emph{Jacobi Triple Product:}
     % https://en.wikipedia.org/wiki/Jacobi_triple_product
@@ -412,7 +417,7 @@
 \begin{frame}{Analogous function for Genus 0}
     \[F(z,\alpha) = \frac{(z+\alpha)}{(z)(\alpha)}\]
     \[\downarrow\]
-    \[\alpha F(z,\alpha) dz = \sum_{n=0,1} g^{(n)}(z) dz = dz + \frac{dz}{z}\]
+    \[\alpha F(z,\alpha) dz = \sum_{n=0,1} g^{(n)}(z) dz = dz + \alpha \frac{dz}{z}\]
     \[\downarrow\]
     \[\text{use differentials to calculate multiple polylogarithms}\]
 
@@ -511,36 +516,11 @@
     and since $c_0 g^{(0)}(z) dz \neq 0$, all the differentials are independent by induction.
 \end{frame}
 
-\begin{frame}{Fay relation for differentials (Kronecker to decomposition)}
+\begin{frame}{Fay relation for differentials}
     \[F(z_1,\alpha_1)F(z_2,\alpha_2) = F(z_1,\alpha_1+\alpha_2)F(z_2-z_1,\alpha_2)+F(z_2,\alpha_1+\alpha_2)F(z_1-z_2,\alpha_1)\]
     \[\downarrow \text{decompose} \downarrow\]
-    \begin{align*}
-        \frac{1}{\alpha_1 \alpha_2}\left(\sum_{n=0}^\infty g^{(n)}(z_1) \alpha_1^n\right)\left(\sum_{n=0}^\infty g^{(n)}(z_2) \alpha_2^n\right)& = \\
-        \frac{1}{(\alpha_1+\alpha_2)\alpha_2}\left(\sum_{n=0}^\infty g^{(n)}(z_1) (\alpha_1+\alpha_2)^n\right)\left(\sum_{n=0}^\infty g^{(n)}(z_2-z_1) \alpha_2^n\right)& + \\
-        \frac{1}{(\alpha_1+\alpha_2)\alpha_1}\left(\sum_{n=0}^\infty g^{(n)}(z_2) (\alpha_1+\alpha_2)^n\right)\left(\sum_{n=0}^\infty g^{(n)}(z_1-z_2) \alpha_1^n\right)&
-    \end{align*}
-    
-\end{frame}
-
-\begin{frame}{Fay relation for differentials (decomposition to power matching)}
-    \begin{align*}
-        (\alpha_1+\alpha_2)\left(\sum_{n=0}^\infty g^{(n)}(z_1) \alpha_1^n\right)\left(\sum_{n=0}^\infty g^{(n)}(z_2) \alpha_2^n\right)& = \\
-        \alpha_1\left(\sum_{n=0}^\infty g^{(n)}(z_1) (\alpha_1+\alpha_2)^n\right)\left(\sum_{n=0}^\infty g^{(n)}(z_2-z_1) \alpha_2^n\right)& + \\
-        \alpha_2\left(\sum_{n=0}^\infty g^{(n)}(z_2) (\alpha_1+\alpha_2)^n\right)\left(\sum_{n=0}^\infty g^{(n)}(z_1-z_2) \alpha_1^n\right)&
-    \end{align*}
     \[\downarrow \text{match coefficients of }\alpha_1^m \alpha_2^n \downarrow\]
-    \begin{align*}
-        g^{(m-1)}(z_1) g^{(n)}(z_2) + g^{(m)}(z_1) g^{(n-1)}(z_2) = \sum_{r=0}^n \begin{pmatrix} m-1+r \\ r \end{pmatrix} g^{(m-1+r)}(z_1) g^{(n-r)}(z_2-z_1)& + \\
-        \sum_{r=0}^m \begin{pmatrix} n-1+r \\ r \end{pmatrix} g^{(n-1+r)}(z_2) g^{(m-r)}(z_1-z_2)&
-    \end{align*}
-\end{frame}
-
-\begin{frame}{Fay relation for differentials (power matching to final form)}
-    \begin{align*}
-        g^{(m-1)}(z_1) g^{(n)}(z_2) + g^{(m)}(z_1) g^{(n-1)}(z_2) = \sum_{r=0}^n \begin{pmatrix} m-1+r \\ r \end{pmatrix} g^{(m-1+r)}(z_1) g^{(n-r)}(z_2-z_1)& + \\
-        \sum_{r=0}^m \begin{pmatrix} n-1+r \\ r \end{pmatrix} g^{(n-1+r)}(z_2) g^{(m-r)}(z_1-z_2)&
-    \end{align*}
-    \[\downarrow ????? \downarrow\]
+    \[\downarrow \text{induction} \downarrow\]
     \begin{align*}
         g^{(m)}(z_1) g^{(n)}(z_2) = (-1)^{n+1} g^{(m+n)}(z_1-z_2)& \\
          +\sum_{r=0}^m \begin{pmatrix} m+r-1 \\ r \end{pmatrix} g^{(m+r)}(z_1) g^{(n-r)}(z_2-z_1) & \\
@@ -591,11 +571,16 @@
 
 \section{Striving for higher genus}
 
-\begin{frame}{Why we care about higher genus}
-    \center{}
-    \includegraphics[width=0.7\columnwidth]{assets/MyGenus2.png}
-
-    \tiny Sketch of analogous construction for genus 2
+\begin{frame}{Big picture}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \includegraphics[width=\columnwidth]{assets/diagram.png}
+        \end{column}
+        \begin{column}{0.55\textwidth}
+            \includegraphics[width=\columnwidth]{assets/MyGenus2.png}
+            \tiny Sketch of construction for genus 2 analogous to annulus
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Questions gathered so far}
@@ -612,26 +597,6 @@
                 \item Which of the zeros located by odd characteristics are actually reached by Abel's map on compact Riemann surfaces of higher genus?
                 \item Are there similar Jacobi formulas for higher genus theta functions?
                 \item How can we define the Kronecker function at higher genus?
-                \item What does the Fay identity look like at higher genus when theta functions are more complicated?
-            \end{itemize}
-        \end{block}
-    }
-\end{frame}
-
-\begin{frame}{Questions gathered so far}
-    {
-        % \setbeamercolor{block body}
-        \setbeamercolor{block title}{bg=ETHBlue}
-        \setbeamercolor{block body}{bg=ETHBlue!25!white}
-        \begin{block}{What about higher genus?}
-            \begin{itemize}
-                \item $\checkmark$ How do we represent the fundamental domain? 
-                \item $\checkmark$ What choice of differentials can we make?
-                \item $\checkmark$ What consequences does this have for Abel's map?
-                \item What does the Theta function look like at higher genus?
-                \item Which of the zeros located by odd characteristics are actually reached by Abel's map on compact Riemann surfaces of higher genus?
-                \item Are there similar Jacobi formulas for higher genus theta functions?
-                \item $\sim$ How can we define the Kronecker function at higher genus?
                 \item What does the Fay identity look like at higher genus when theta functions are more complicated?
             \end{itemize}
         \end{block}

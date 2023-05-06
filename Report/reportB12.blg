@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: reportB12.aux
+The top-level auxiliary file: .\reportB12.aux
 Reallocating 'name_of_file' (item size: 1) to 10 items.
 Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: alphaurl.bst
@@ -10,48 +10,49 @@ Reallocating 'global_strs' (item size: 1) to 4000000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: reportB12.bib
-Warning--I didn't find a database entry for "ZCC22"
-Warning--I didn't find a database entry for "Bertola2010RiemannSA"
+Warning--entry type for "Cha22" isn't style-file defined
+--line 19 of file reportB12.bib
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
-You've used 0 entries,
+Warning--empty publisher in Ber06
+You've used 3 entries,
             3368 wiz_defined-function locations,
-            697 strings with 5570 characters,
-and the built_in function-call counts, 47 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 33
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 2
+            710 strings with 5892 characters,
+and the built_in function-call counts, 1182 in all, are:
+= -- 103
+> -- 38
+< -- 2
++ -- 10
+- -- 10
+* -- 47
+:= -- 194
+add.period$ -- 8
+call.type$ -- 3
+change.case$ -- 14
+chr.to.int$ -- 3
+cite$ -- 4
+duplicate$ -- 42
+empty$ -- 119
+format.name$ -- 15
+if$ -- 296
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 3
-num.names$ -- 0
-pop$ -- 0
+missing$ -- 4
+newline$ -- 17
+num.names$ -- 9
+pop$ -- 44
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 19
 quote$ -- 0
-skip$ -- 2
+skip$ -- 88
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
-text.prefix$ -- 0
+substring$ -- 21
+swap$ -- 3
+text.length$ -- 2
+text.prefix$ -- 2
 top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 2
+type$ -- 16
+warning$ -- 1
+while$ -- 7
+width$ -- 4
+write$ -- 35
 (There were 2 warnings)

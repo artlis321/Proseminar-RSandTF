@@ -25,16 +25,52 @@ Finally in (REF FOURTH SECTION), we will take a look at a particular way used to
 \begin{figure}
     \center
     \includegraphics[width=0.5\textwidth]{assets/diagram.png}
-    \caption{Diagramatic outline of the functions defined in this report}
+    \caption{Diagramatic outline of the functions defined in this report. Dashed arrows downwards represent how concepts are used to built up to define new functions. Horizontal arrows represent inputs and outputs to the labeled objects.}
 \end{figure}
 
 \section{Abel's Map}
 
 \subsection{Holomorphic differentials}
-link to parts of proof in A6, A7, and A8
+Holomorphic and harmonic differentials are described in detail in (REFERENCE TO A6 AND A7). However, for the readers convenience they will again be defined and their existence briefly shown here.
+
+For more detail on the definitions and proofs shown, one may refer to \cite{Ber06}.
+
+\begin{definition}[Holomorphic differential]
+    A holomorphic differential is a smooth, complex one-form, consisting of a collection of holomorphic functions $f_\alpha$ such that
+    \begin{equation}
+        \omega = f_\alpha dz_\alpha
+    \end{equation}
+    is independent of chart.
+\end{definition}
+
+\begin{theorem}[Existence and normalization of holomorphic differentials on a compact Riemann surface]
+    The dimension of the space of holomorphic differentials on a compact Riemann surface of genus $g$ is
+    \begin{equation}
+        \dim \mathcal H^1 = g.
+    \end{equation}
+
+    We can thus construct $g$ independent holomorphic differentials normalized such that
+    \begin{equation}
+        \int_{a_i} \omega_j = \delta_{ij},
+    \end{equation}
+    \begin{equation}
+        \int_{b_i} \omega_j = \tau_{ij},
+    \end{equation}
+    where $\tau$ is a symmetric matrix, referred to as the period matrix.
+\end{theorem}
+
+\begin{proof}
+    SKETCH OF PROOF OF THEOREM ABOVE
+\end{proof}
+
+\begin{figure}
+    \center
+    \includegraphics{assets/HarmonicDifferential.png}
+    \caption{Figure 3.1 from \cite{Ber06}. The black curve $\gamma$ is an arbitrary cycle used to define a harmonic differential. We can define a function $f_\gamma$ that is 1 on the blue belt, 0 outside of the colored belts, and smoothly connects 0 to 1 on the green belt. The exterior derivative $df_\gamma=dh+\eta_\gamma$ lets us identify the harmonic differential $\eta_\gamma$ corresponding to the cycle $\gamma$.}
+\end{figure}
 
 \subsection{Definition of Abel's map}
-\begin{definition}[Abel's map]
+\begin{definition}[Abel's map]\label{defB12:AbelMap}
     Given the normalized differentials $\omega_i$ for a Riemann surface $\mathcal M$ of genus $g$, we can define Abel's map on the fundamental domain $\mathcal L$ for some chosen basepoint $P_0$
     \begin{align}
         \mathbf{u} : & \ \mathcal L \rightarrow \mathbb C^g \\ & \ P \mapsto \begin{pmatrix}\int_{P_0}^P \omega_1 \\ \vdots \\ \int_{P_0}^P \omega_g \end{pmatrix}.
@@ -128,7 +164,26 @@ Though we will omit a formal proof thereof, it is apparent that the series will 
 \end{proof}
 
 \subsection{Definition on compact Riemann surface}
-very similar to presentation
+Now, we can combine Abel's map (\ref{defB12:AbelMap}) and the Theta function above (\ref{eqnB12:ThetaGeneralDefn}) to identify Theta functions directly on a compact Riemann surface. The properties of the two functions work perfectly together to produce desired quasiperiodic results on the Riemann surface.
+
+\begin{definition}[Theta function on a compact Riemann surface]
+    Using Abel's map $\mathbf{u} : \mathcal M \mapsto \mathbb C^g$ with some basepoint $P_0 \in \mathcal M$, and the Theta function $\Theta : \mathbb C^g \mapsto \mathbb C$ with $\tau$ corresponding to the period matrix of $\mathcal M$, we identify
+
+    \begin{equation}
+        \theta(P) = \Theta(\mathbf{u}(P),\tau)
+    \end{equation}
+    as a Theta function on the Riemann surface.
+\end{definition}
+
+\begin{lemma}[Properties of Theta functions on a compact Riemann surface]
+    Using the analytic continuation provided by Abel's map and the quasiperiodic properties of the Theta function, we find that
+    \begin{equation}
+        \theta(P+a_i) = \theta(P),
+    \end{equation}
+    \begin{equation}
+        \theta(P+b_i) = \bolde\left(-\mathbf{u}_i(P)-\frac{1}{2}\tau_{ii}\right)\theta(P).
+    \end{equation}
+\end{lemma}
 
 \subsection{Characteristics and zeros}
 \begin{definition}[Theta function with characteristics]

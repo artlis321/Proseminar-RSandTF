@@ -10,11 +10,23 @@
 \label{rep:B12}
 \speaker{Artyom Lisitsyn}
 
-\section{Introduction \& Background}
+\section{Introduction}
 
-\begin{equation}
-    \bolde(z) = \exp(2\pi i z)
-\end{equation}
+As seen in the previous two sections (REFERENCES TO THEM), the Theta and Kronecker functions are crucial to defining multiple elliptic polylogarithms. In this section we will analyze these mathematical tools in more detail, with the goal of considering open questions in generalizations to a higher genus can be approached.
+
+In (REF FIRST SECTION), we will start with a review of normalized holomorphic differentials on compact Riemann surfaces. These will be applied to define Abel's map, a function that takes assigns complex vectors to points on the Riemann surface, taking advantage of the differentials' properties to achieve an additively quasiperiodic result.
+
+Then in (REF SECOND SECTION), Theta functions will discussed in detail as they can be defined at an arbitrary genus. These functions use Abel's map to assign complex numbers to a Riemann surface in a quasiperiodic way. In particular, we will find through an example that odd versions of the Theta functions are essentially elliptic/hyperelliptic analogues of the monomial $(z-z_0)$ at genus 0.
+
+In (REF THIRD SECTION), we will define the familiar Kronecker function can be defined as a ratio of Theta functions at genus 1. This can be used to define quasiperiodic holomorphic differentials with properties including the bilinear Fay relation, which allows us to relate products of the differentials to products that may be simpler to evaluate.
+
+Finally in (REF FOURTH SECTION), we will take a look at a particular way used today to attempt generalizations of the Kronecker function to higher genus. Schottky covers use mobius transformations to define a recursive structure on the complex plane that can be chosen to be a cover of a Riemann surface. With such covers, properties of holomorphic differentials, Abel's map, and Theta functions are easier to investigate directly, and attempts at a Kronecker function can be made.
+
+\begin{figure}
+    \center
+    \includegraphics[width=0.5\textwidth]{assets/diagram.png}
+    \caption{Diagramatic outline of the functions defined in this report}
+\end{figure}
 
 \section{Abel's Map}
 
@@ -22,11 +34,52 @@
 link to parts of proof in A6, A7, and A8
 
 \subsection{Definition of Abel's map}
-very similar to presentation
+\begin{definition}[Abel's map]
+    Given the normalized differentials $\omega_i$ for a Riemann surface $\mathcal M$ of genus $g$, we can define Abel's map on the fundamental domain $\mathcal L$ for some chosen basepoint $P_0$
+    \begin{align}
+        \mathbf{u} : & \ \mathcal L \rightarrow \mathbb C^g \\ & \ P \mapsto \begin{pmatrix}\int_{P_0}^P \omega_1 \\ \vdots \\ \int_{P_0}^P \omega_g \end{pmatrix}.
+    \end{align}
+    Such a mapping is well defined on the fundamental domain since the integration paths are limited to being homotopically equivalent. We can analytically continue Abel's map to beyond the fundamental domain using known results for integrations along $a$-cycles and $b$-cycles
+    \begin{equation}
+        \mathbf{u}(P+a_i) = \mathbf{u}(P) + \begin{pmatrix}\int_{a_i} \omega_1 \\ \vdots \\ \int_{a_i} \omega_g \end{pmatrix} = \mathbf{u}(P) + \begin{pmatrix} \delta_{i1} \\ \vdots \\ \delta_{ig} \end{pmatrix},
+    \end{equation}
+    \begin{equation}
+        \mathbf{u}(P+b_i) = \mathbf{u}(P) + \begin{pmatrix}\int_{b_i} \omega_1 \\ \vdots \\ \int_{b_i} \omega_g \end{pmatrix} = \mathbf{u}(P) + \begin{pmatrix} \tau_{i1} \\ \vdots \\ \tau_{ig} \end{pmatrix}.
+    \end{equation}
+\end{definition}
+
+The simplest example of Abel's map is one we had implicitly already seen before. At genus 1, we can use the familiar cover in which the torus is mapped to the complex plane, where the fundamental domain is a parallelogram with vertices $0$, $1$, $\tau$, $1+\tau$. There is a single holomorphic differential
+\begin{equation}
+    \omega = dz.
+\end{equation}
+Using Abel's map, with the basepoint $P_0=0$, we find that
+\begin{equation}
+    \mathbf{u}(z) = \int_0^z dz = z,
+\end{equation}
+with this result being kept as the map is continued analytically along $a$-cycles and $b$-cycles
+\begin{equation}
+    \mathbf{u}(P+a_i)=\mathbf{u}(z+1)=\int_0^z dz + \delta_{11} = z+1,
+\end{equation}
+\begin{equation}
+    \mathbf{u}(P+b_i)=\mathbf{u}(z+\tau)=\int_0^z dz + \tau_{11} = z+\tau.
+\end{equation}
+
+\begin{figure}
+    \center
+    \includegraphics[width=0.6\textwidth]{assets/Domain.png}
+    \caption{The fundamental domain at genus 1. Due to the trivial differential $\omega = dz$, we find that Abel's map at genus 1 is simply $\mathbf{u}(z)=z$, justifying the choice of cover.}
+\end{figure}
+
+Unfortunately, it is not so simple to define a fundamental domain and identify holomorphic differentials for higher genus. The resolution to this challenge is covered in (REF FOURTH SECTION).
 
 \section{Theta functions}
 
 With Abel's map, we have derived a additively quasiperiodic function that takes us from the manifold to vectors in $\mathbb C^g$. We seek to take advantage of this definition to find a function that instead embodies multiplicative quasiperiodicity. Then, the location of zeros on the Riemann surface will be homotopically invariant, since moving along a cycle and multiplying by some factor will not change whether the function vanishes.
+
+The multiplicative quasiperiodicity will be facilitated by using properties of the exponential function, using the following notation to simplify some expressions
+\begin{equation}
+    \bolde(z) = \exp(2\pi i z), \quad \bolde(z+1)=\bolde(z).
+\end{equation}
 
 \subsection{Definition on $\mathbb C^g$}
 
@@ -35,7 +88,7 @@ With Abel's map, we have derived a additively quasiperiodic function that takes 
     \begin{equation} \label{eqnB12:ThetaGeneralDefn}
         \Theta(\vec z,\tau) := \sum_{\vec n \in \mathbb Z^g} \bolde\left(\frac{1}{2} \vec n^T \tau \vec n + \vec n^T \vec z\right)
     \end{equation}
-    where $\vec z \in \mathbb C^g$.
+    where $\vec z \in \mathbb C^g$. From this point forward the Theta functions explicit dependence on $\tau$ will be omitted, since the Theta functions are almost always discussed in the context of a $\tau$ chosen to be a constant.
 \end{definition}
 
 Though we will omit a formal proof thereof, it is apparent that the series will converge due to the matrix $\tau$ having a positive definite imaginary part supressing terms with large $\vec n$. As we will go on to see in the following section, the choices made for the Theta function are made to fit naturally with the formalism we developed for Riemann surfaces, as the matrix $\tau$ will be filled by the period matrix and the input $\vec z$ will be the output of Abel's map.
@@ -44,13 +97,13 @@ Though we will omit a formal proof thereof, it is apparent that the series will 
     \label{lemmaB12:ThetaGeneralProperties}
     The Theta function satisfies the properties
     \begin{equation} \label{eqnB12:ThetaGeneralEven}
-        \Theta(\vec z,\tau) = \Theta(-\vec z,\tau)
+        \Theta(\vec z) = \Theta(-\vec z)
     \end{equation}
     \begin{equation} \label{eqnB12:ThetaGeneralShift}
-        \Theta(\vec z+\vec \alpha,\tau) = \Theta(\vec z,\tau) \quad \forall \vec \alpha \in \mathbb Z^g
+        \Theta(\vec z+\vec \alpha) = \Theta(\vec z) \quad \forall \vec \alpha \in \mathbb Z^g
     \end{equation}
     \begin{equation} \label{eqnB12:ThetaGeneralTauShift}
-        \Theta(\vec z + \tau \vec \beta, \tau) = \bolde\left(-\frac{1}{2}\vec \beta^T \tau \vec \beta - \vec \beta^T \vec z\right) \Theta(\vec z, \tau) \quad \forall \vec \beta \in \mathbb Z^g
+        \Theta(\vec z + \tau \vec \beta) = \bolde\left(-\frac{1}{2}\vec \beta^T \tau \vec \beta - \vec \beta^T \vec z\right) \Theta(\vec z) \quad \forall \vec \beta \in \mathbb Z^g
     \end{equation}
 \end{lemma}
 
@@ -58,19 +111,19 @@ Though we will omit a formal proof thereof, it is apparent that the series will 
 
     Proving that the Theta function is even (\ref{eqnB12:ThetaGeneralEven})
     \begin{align}
-        \Theta(-\vec z,\tau) = \sum_{\vec n \in \mathbb Z^g} \bolde\left(\frac{1}{2} \vec n^T \tau \vec n + \vec n^T (-\vec z)\right) \overset{\vec n \mapsto -\vec m}{=} \sum_{\vec m \in \mathbb Z^g} \bolde\left(\frac{1}{2} \vec m^T \tau \vec m + \vec m^T \vec z\right) = \Theta(\vec z, \tau)
+        \Theta(-\vec z) = \sum_{\vec n \in \mathbb Z^g} \bolde\left(\frac{1}{2} \vec n^T \tau \vec n + \vec n^T (-\vec z)\right) \overset{\vec n \mapsto -\vec m}{=} \sum_{\vec m \in \mathbb Z^g} \bolde\left(\frac{1}{2} \vec m^T \tau \vec m + \vec m^T \vec z\right) = \Theta(\vec z)
     \end{align}
     Proving that the Theta function is invariant under integer shifts (\ref{eqnB12:ThetaGeneralShift})
     \begin{align}
         \Theta(\vec z + \vec \alpha) &= \sum_{\vec n \in \mathbb Z^g} \bolde\left(\frac{1}{2} \vec n^T \tau \vec n + \vec n^T (\vec z + \vec \alpha)\right) \\ &=
-        \sum_{\vec n \in \mathbb Z^g} \underset{=1}{\underbrace{\bolde\left(\vec n^T \vec \alpha\right)}} \bolde\left(\frac{1}{2} \vec n^T \tau \vec n + \vec n^T \vec z\right) = \Theta(\vec z, \tau)
+        \sum_{\vec n \in \mathbb Z^g} \underset{=1}{\underbrace{\bolde\left(\vec n^T \vec \alpha\right)}} \bolde\left(\frac{1}{2} \vec n^T \tau \vec n + \vec n^T \vec z\right) = \Theta(\vec z)
     \end{align}
     Proving that the Theta function is invariant under period matrix shifts (\ref{eqnB12:ThetaGeneralTauShift})
     \begin{align}
         \Theta(\vec z + \tau \vec \beta) &= \sum_{\vec n \in \mathbb Z^g} \bolde\left(\frac{1}{2} \vec n^T \tau \vec n + \vec n^T (\vec z + \tau \vec \beta)\right) \\ &=
         \sum_{\vec n \in \mathbb Z^g}
         \bolde\left(-\frac{1}{2} \vec \beta^T \tau \vec \beta - \vec \beta^T \vec z\right) \bolde\left(\frac{1}{2} (\vec n+\vec \beta)^T \tau (\vec n+\vec \beta) + (\vec n+\vec \beta)^T \vec z\right)\\
-        &=  \bolde\left(-\frac{1}{2} \vec \beta^T \tau \vec \beta - \vec \beta^T \vec z\right) \Theta(\vec z, \tau) 
+        &=  \bolde\left(-\frac{1}{2} \vec \beta^T \tau \vec \beta - \vec \beta^T \vec z\right) \Theta(\vec z) 
     \end{align}
 \end{proof}
 
@@ -112,8 +165,24 @@ The choice of adding characteristics to the Theta functions in this way seems ar
 \end{lemma}
 
 \begin{proof}
-    The proof is left as an exercise for the reader, as it follows very similar steps as when proving Lemma \ref{lemmaB12:ThetaGeneralProperties}.
+    The first and second properties are proved analogously to Lemma \ref{lemmaB12:ThetaGeneralProperties}.
+
+    The third property uses
+    \begin{equation}
+        \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) = \Theta\begin{bmatrix}-\epsilon \\ -\epsilon'\end{bmatrix}(-\vec z)
+    \end{equation}
+    followed by applying the second property using $\eta=2\epsilon$ and $\eta=2\epsilon'$ to return to the original characteristics with a possible sign difference.
 \end{proof}
+
+The third property tells us that for characteristics $\epsilon,\epsilon' \in \mathbb Z^g$ such that $\epsilon^T\epsilon'$ is odd, the resulting Theta function will be odd. Since odd function vanish at the origin, this property can be used to identify the locations of zeros for the Theta function in general.
+
+\begin{theorem}[Location of zeros of the Theta function]
+    The zeros of the Theta function are
+    \begin{equation}
+        \Theta\left(\frac{\epsilon}{2} + \frac{\tau \epsilon'}{2}\right) = 0
+    \end{equation}
+    for all $\epsilon,\epsilon' \in \mathbb Z^g$ for which $\epsilon^T \epsilon'$ is odd.
+\end{theorem}
 
 connect to odd theta functions in B10
 

@@ -4,12 +4,17 @@
 % Please do not delete the header data
 
 %\newcommand{\mycommand}{command}
+\newcommand{\bolde}[0]{\mathbf{e}}
 
 \chapter{Theta functions, Kronecker functions and bilinear relations}
 \label{rep:B12}
 \speaker{Artyom Lisitsyn}
 
 \section{Introduction \& Background}
+
+\begin{equation}
+    \bolde(z) = \exp(2\pi i z)
+\end{equation}
 
 \section{Abel's Map}
 
@@ -21,13 +26,95 @@ very similar to presentation
 
 \section{Theta functions}
 
+With Abel's map, we have derived a additively quasiperiodic function that takes us from the manifold to vectors in $\mathbb C^g$. We seek to take advantage of this definition to find a function that instead embodies multiplicative quasiperiodicity. Then, the location of zeros on the Riemann surface will be homotopically invariant, since moving along a cycle and multiplying by some factor will not change whether the function vanishes.
+
 \subsection{Definition on $\mathbb C^g$}
-very similar to presentation
+
+\begin{definition}[Theta function]
+    Given a $g \times g$ matrix $\tau$ that is symmetric $(\tau = \tau^T)$ and has positive definite imaginary part $(\vec n^T (\Im \tau) \vec n > 0 \forall \vec n \in \mathbb R^g \setminus \vec 0)$, we can define the associated Theta function
+    \begin{equation} \label{eqnB12:ThetaGeneralDefn}
+        \Theta(\vec z,\tau) := \sum_{\vec n \in \mathbb Z^g} \bolde\left(\frac{1}{2} \vec n^T \tau \vec n + \vec n^T \vec z\right)
+    \end{equation}
+    where $\vec z \in \mathbb C^g$.
+\end{definition}
+
+Though we will omit a formal proof thereof, it is apparent that the series will converge due to the matrix $\tau$ having a positive definite imaginary part supressing terms with large $\vec n$. As we will go on to see in the following section, the choices made for the Theta function are made to fit naturally with the formalism we developed for Riemann surfaces, as the matrix $\tau$ will be filled by the period matrix and the input $\vec z$ will be the output of Abel's map.
+
+\begin{lemma}[Properties of the Theta function]
+    \label{lemmaB12:ThetaGeneralProperties}
+    The Theta function satisfies the properties
+    \begin{equation} \label{eqnB12:ThetaGeneralEven}
+        \Theta(\vec z,\tau) = \Theta(-\vec z,\tau)
+    \end{equation}
+    \begin{equation} \label{eqnB12:ThetaGeneralShift}
+        \Theta(\vec z+\vec \alpha,\tau) = \Theta(\vec z,\tau) \quad \forall \vec \alpha \in \mathbb Z^g
+    \end{equation}
+    \begin{equation} \label{eqnB12:ThetaGeneralTauShift}
+        \Theta(\vec z + \tau \vec \beta, \tau) = \bolde\left(-\frac{1}{2}\vec \beta^T \tau \vec \beta - \vec \beta^T \vec z\right) \Theta(\vec z, \tau) \quad \forall \vec \beta \in \mathbb Z^g
+    \end{equation}
+\end{lemma}
+
+\begin{proof} The simple proofs of the three properties are included for the convenience of the reader.
+
+    Proving that the Theta function is even (\ref{eqnB12:ThetaGeneralEven})
+    \begin{align}
+        \Theta(-\vec z,\tau) = \sum_{\vec n \in \mathbb Z^g} \bolde\left(\frac{1}{2} \vec n^T \tau \vec n + \vec n^T (-\vec z)\right) \overset{\vec n \mapsto -\vec m}{=} \sum_{\vec m \in \mathbb Z^g} \bolde\left(\frac{1}{2} \vec m^T \tau \vec m + \vec m^T \vec z\right) = \Theta(\vec z, \tau)
+    \end{align}
+    Proving that the Theta function is invariant under integer shifts (\ref{eqnB12:ThetaGeneralShift})
+    \begin{align}
+        \Theta(\vec z + \vec \alpha) &= \sum_{\vec n \in \mathbb Z^g} \bolde\left(\frac{1}{2} \vec n^T \tau \vec n + \vec n^T (\vec z + \vec \alpha)\right) \\ &=
+        \sum_{\vec n \in \mathbb Z^g} \underset{=1}{\underbrace{\bolde\left(\vec n^T \vec \alpha\right)}} \bolde\left(\frac{1}{2} \vec n^T \tau \vec n + \vec n^T \vec z\right) = \Theta(\vec z, \tau)
+    \end{align}
+    Proving that the Theta function is invariant under period matrix shifts (\ref{eqnB12:ThetaGeneralTauShift})
+    \begin{align}
+        \Theta(\vec z + \tau \vec \beta) &= \sum_{\vec n \in \mathbb Z^g} \bolde\left(\frac{1}{2} \vec n^T \tau \vec n + \vec n^T (\vec z + \tau \vec \beta)\right) \\ &=
+        \sum_{\vec n \in \mathbb Z^g}
+        \bolde\left(-\frac{1}{2} \vec \beta^T \tau \vec \beta - \vec \beta^T \vec z\right) \bolde\left(\frac{1}{2} (\vec n+\vec \beta)^T \tau (\vec n+\vec \beta) + (\vec n+\vec \beta)^T \vec z\right)\\
+        &=  \bolde\left(-\frac{1}{2} \vec \beta^T \tau \vec \beta - \vec \beta^T \vec z\right) \Theta(\vec z, \tau) 
+    \end{align}
+\end{proof}
 
 \subsection{Definition on compact Riemann surface}
 very similar to presentation
 
-\subsection{Odd theta functions and zeros}
+\subsection{Characteristics and zeros}
+\begin{definition}[Theta function with characteristics]
+    For vectors $\epsilon,\epsilon' \in \mathbb C^g$, the Theta function with characteristics is defined as
+    \begin{align}
+        \Theta\begin{bmatrix} \epsilon \\  \epsilon'\end{bmatrix}(\vec z) :=& \ 
+        \bolde\left(\frac{1}{8}\epsilon^T \tau \epsilon + \frac{1}{2}\epsilon^T \vec z + \frac{1}{4}\epsilon^T  \epsilon'\right)
+        \Theta\left(\vec z + \frac{\epsilon'}{2}+\frac{\tau\epsilon}{2}\right)
+       \\ =& \sum_{\vec n \in \mathbb Z^g} \bolde\left(\frac{1}{2} (\vec n^T \tau \vec n +\epsilon^T \tau \epsilon/4) + (\vec n+\epsilon/2)^T (\vec z+\epsilon'/2)\right).
+    \end{align}
+
+    Note that many sources (e.g. INCLUDE SOURCES HERE) use $\epsilon,\epsilon' \mapsto \epsilon/2,\epsilon'/2$ instead to simplify parts of the notation.
+\end{definition}
+
+The choice of adding characteristics to the Theta functions in this way seems arbitrary, but it actually leads to a few key properties. First, it is apparent from the definition that the Theta function, and consequently its zeros, are shifted by some controlled amount. Second, the quasiperiodicity and parity properties of the Theta function will change in ways that we will be able to take advantage of.
+
+\begin{lemma}[Properties of the Theta functions with characteristics]
+    The Theta function satisfies the properties
+    \begin{equation}\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z + \vec \alpha + \tau \vec \beta) =
+    \ee\left(\frac{1}{2}(\epsilon^T \vec \alpha - \vec \beta^T \epsilon') - \frac{1}{2} \beta^T \tau \beta - \vec \beta \vec z\right)
+    \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z)
+    \end{equation}
+
+    \begin{equation}\Theta\begin{bmatrix}\epsilon + 2\eta \\ \epsilon' + 2\eta' \end{bmatrix}(\vec z) = \exp(\pi i \epsilon^T \eta')
+    \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) , \quad \eta,\eta' \in \mathbb Z^g\end{equation}
+    % \pause
+    \begin{equation}\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(-\vec z) = \exp(\pi i \epsilon^T \epsilon') \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) , \quad \epsilon,\epsilon' \in \mathbb Z^g\end{equation}
+
+    The first property is analogous to the quasiperiodicity of the theta function before (\ref{eqnB12:ThetaGeneralShift} and \ref{eqnB12:ThetaGeneralTauShift}).
+    
+    The second property shows that, up to a sign, the characteristics are equivalent modulo 2.
+    
+    The third property defines the parity of the resulting theta function; note that it is only true for integer characteristics.
+\end{lemma}
+
+\begin{proof}
+    The proof is left as an exercise for the reader, as it follows very similar steps as when proving Lemma \ref{lemmaB12:ThetaGeneralProperties}.
+\end{proof}
+
 connect to odd theta functions in B10
 
 extend beyond presentation by pointing out that only $g$ zeros are on compact riemann surface
@@ -60,9 +147,3 @@ link to talk A9 with divisors
 
 \bibliography{reportB12}
 \bibliographystyle{alphaurl}
-
-\appendix
-
-\chapter{Properties of the Theta function:}
-Periodicity on $\mathbb C^g$ and compact Riemann surface
-Properties of theta function with characteristics

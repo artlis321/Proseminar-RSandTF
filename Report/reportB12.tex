@@ -12,15 +12,15 @@
 
 \section{Introduction}
 
-As seen in the previous two sections (REFERENCES TO THEM), the Theta and Kronecker functions are crucial to defining multiple elliptic polylogarithms. In this section we will analyze these mathematical tools in more detail, with the goal of considering open questions in generalizations to a higher genus can be approached.
+As seen in the previous two reports (\ref{rep:B10} and \ref{rep:B11}), the Theta and Kronecker functions are crucial to defining multiple elliptic polylogarithms. In this section we will analyze these mathematical tools in more detail, with the goal of considering open questions in generalizations to a higher genus can be approached.
 
-In (REF FIRST SECTION), we will start with a review of normalized holomorphic differentials on compact Riemann surfaces. These will be applied to define Abel's map, a function that takes assigns complex vectors to points on the Riemann surface, taking advantage of the differentials' properties to achieve an additively quasiperiodic result.
+In Section \ref{secB12:Abel}, we will start with a review of normalized holomorphic differentials on compact Riemann surfaces. These will be applied to define Abel's map, a function that takes assigns complex vectors to points on the Riemann surface, taking advantage of the differentials' properties to achieve an additively quasiperiodic result.
 
-Then in (REF SECOND SECTION), Theta functions will discussed in detail as they can be defined at an arbitrary genus. These functions use Abel's map to assign complex numbers to a Riemann surface in a quasiperiodic way. In particular, we will find through an example that odd versions of the Theta functions are essentially elliptic/hyperelliptic analogues of the monomial $(z-z_0)$ at genus 0.
+Then in Section \ref{secB12:Theta}, Theta functions will discussed in detail as they can be defined at an arbitrary genus. These functions use Abel's map to assign complex numbers to a Riemann surface in a quasiperiodic way. In particular, we will find through an example that odd versions of the Theta functions are essentially elliptic/hyperelliptic analogues of the monomial $(z-z_0)$ at genus 0.
 
-In (REF THIRD SECTION), we will define the familiar Kronecker function can be defined as a ratio of Theta functions at genus 1. This can be used to define quasiperiodic holomorphic differentials with properties including the bilinear Fay relation, which allows us to relate products of the differentials to products that may be simpler to evaluate.
+In Section \ref{secB12:Kronecker}, we will define the familiar Kronecker function can be defined as a ratio of Theta functions at genus 1. This can be used to define quasiperiodic holomorphic differentials with properties including the bilinear Fay relation, which allows us to relate products of the differentials to products that may be simpler to evaluate.
 
-Finally in (REF FOURTH SECTION), we will take a look at a particular way used today to attempt generalizations of the Kronecker function to higher genus. Schottky covers use mobius transformations to define a recursive structure on the complex plane that can be chosen to be a cover of a Riemann surface. With such covers, properties of holomorphic differentials, Abel's map, and Theta functions are easier to investigate directly, and attempts at a Kronecker function can be made.
+Finally in Section \ref{secB12:Schottky}, we will take a look at a particular way used today to attempt generalizations of the Kronecker function to higher genus. Schottky covers use mobius transformations to define a recursive structure on the complex plane that can be chosen to be a cover of a Riemann surface. With such covers, properties of holomorphic differentials, Abel's map, and Theta functions are easier to investigate directly, and attempts at a Kronecker function can be made.
 
 \begin{figure}
     \center
@@ -28,7 +28,7 @@ Finally in (REF FOURTH SECTION), we will take a look at a particular way used to
     \caption{Diagramatic outline of the functions defined in this report. Dashed arrows downwards represent how concepts are used to built up to define new functions. Horizontal arrows represent inputs and outputs to the labeled objects.}
 \end{figure}
 
-\section{Abel's Map}
+\section{Abel's Map}\label{secB12:Abel}
 
 \subsection{Holomorphic differentials}
 Holomorphic and harmonic differentials are described in detail in (REFERENCE TO A6 AND A7). However, for the readers convenience they will again be defined and their existence briefly shown here.
@@ -48,8 +48,37 @@ For more detail on the definitions and proofs shown, one may refer to \cite{Ber0
     \begin{equation}
         \dim \mathcal H^1 = g.
     \end{equation}
+\end{theorem}
 
-    We can thus construct $g$ independent holomorphic differentials normalized such that
+\begin{proof}
+    An abridged version of the proof is described here.
+
+    We can bound the number of holomorphic differentials above and below using the number of cycles.
+
+    Let us start with the lower bound, $\dim \mathcal H^1 \geq g$.
+
+    As was described in \ref{defA6:ass_diff} and is illustrated in Figure \ref{figB12:Harmonic}, we are able to construct harmonic differentials from arbitrary cycles $\gamma$ on a compact Riemann surface. Since there are $2g$ independent cycles, there are at least $2g$ harmonic one-forms
+    \begin{equation}
+        \dim H \geq 2g.
+    \end{equation}
+    Since harmonic differentials decompose into a holomorphic and antiholomorphic differentials, we find that
+    \begin{equation}
+        \dim H = 2 \dim \mathcal H^1 \implies \mathcal H^1 \geq g
+    \end{equation}
+
+    Now, we will prove the upper bound, $\dim \mathcal H^1 \leq g$.
+
+    If there were more than $g$ holomorphic differentials, it would be possible to find a non-zero linear combination thereof such that
+    \begin{equation}
+        \int_{a_i} \sum_j c_j \omega_j = 0 \quad \forall i.
+    \end{equation}
+    However, one could show that the only differentials that make all $a$-periods vanish in this way are $\omega \equiv 0$ (Corrolary 3.1.1 \cite{Ber06}). Therefore, we reach a contradiction and indeed $\dim \mathcal H^1 \leq g$. 
+
+    Combining the two inequalities, we find that $g \leq \dim \mathcal H^1 \leq g \implies \dim \mathcal H^1 = g$.
+\end{proof}
+
+\begin{lemma}[Normalized basis of holomorphic differentials]
+    For a compact Riemann surface of genus $g$, we can identify $g$ independent holomorphic differentials normalized such that
     \begin{equation}
         \int_{a_i} \omega_j = \delta_{ij},
     \end{equation}
@@ -57,19 +86,19 @@ For more detail on the definitions and proofs shown, one may refer to \cite{Ber0
         \int_{b_i} \omega_j = \tau_{ij},
     \end{equation}
     where $\tau$ is a symmetric matrix, referred to as the period matrix.
-\end{theorem}
-
-\begin{proof}
-    SKETCH OF PROOF OF THEOREM ABOVE
-\end{proof}
+\end{lemma}
 
 \begin{figure}
     \center
     \includegraphics{assets/HarmonicDifferential.png}
     \caption{Figure 3.1 from \cite{Ber06}. The black curve $\gamma$ is an arbitrary cycle used to define a harmonic differential. We can define a function $f_\gamma$ that is 1 on the blue belt, 0 outside of the colored belts, and smoothly connects 0 to 1 on the green belt. The exterior derivative $df_\gamma=dh+\eta_\gamma$ lets us identify the harmonic differential $\eta_\gamma$ corresponding to the cycle $\gamma$.}
+    \label{figB12:Harmonic}
 \end{figure}
 
 \subsection{Definition of Abel's map}
+
+Now that the normalized holomorphic differentials are identified, we can all $g$ of them to produce a function that outputs a $\mathbb C^g$ vector. Since the differentials have known integrals on $a$-cycles and $b$-cycles, the definition of the function can just be made on the fundamental domain, with further points being identified through the cycles.
+
 \begin{definition}[Abel's map]\label{defB12:AbelMap}
     Given the normalized differentials $\omega_i$ for a Riemann surface $\mathcal M$ of genus $g$, we can define Abel's map on the fundamental domain $\mathcal L$ for some chosen basepoint $P_0$
     \begin{align}
@@ -90,7 +119,7 @@ The simplest example of Abel's map is one we had implicitly already seen before.
 \end{equation}
 Using Abel's map, with the basepoint $P_0=0$, we find that
 \begin{equation}
-    \mathbf{u}(z) = \int_0^z dz = z,
+    \mathbf{u}(z) = \int_0^z dz = z,\label{eqnB12:AbelGenus1}
 \end{equation}
 with this result being kept as the map is continued analytically along $a$-cycles and $b$-cycles
 \begin{equation}
@@ -106,9 +135,9 @@ with this result being kept as the map is continued analytically along $a$-cycle
     \caption{The fundamental domain at genus 1. Due to the trivial differential $\omega = dz$, we find that Abel's map at genus 1 is simply $\mathbf{u}(z)=z$, justifying the choice of cover.}
 \end{figure}
 
-Unfortunately, it is not so simple to define a fundamental domain and identify holomorphic differentials for higher genus. The resolution to this challenge is covered in (REF FOURTH SECTION).
+Unfortunately, it is not so simple to define a fundamental domain and identify holomorphic differentials for higher genus. The resolution to this challenge is covered in Section \ref{secB12:SchottkyDifAndAbel}.
 
-\section{Theta functions}
+\section{Theta functions}\label{secB12:Theta}
 
 With Abel's map, we have derived a additively quasiperiodic function that takes us from the manifold to vectors in $\mathbb C^g$. We seek to take advantage of this definition to find a function that instead embodies multiplicative quasiperiodicity. Then, the location of zeros on the Riemann surface will be homotopically invariant, since moving along a cycle and multiplying by some factor will not change whether the function vanishes.
 
@@ -185,12 +214,17 @@ Now, we can combine Abel's map (\ref{defB12:AbelMap}) and the Theta function abo
     \end{equation}
 \end{lemma}
 
-EXAPLANATION OF GENUS 1 EXAMPLE
+Recall that Abel's map on a genus 1 Riemann surface is simply $\mathbf{u}(z)=z$ (Equation \ref{eqnB12:AbelGenus1}). We can then easily see that the Theta function on a genus 1 Riemann surface is simply
+\begin{equation}
+    \theta(z) = \Theta(\mathbf{u}(z)) = \Theta(z) = \sum_{n \in \mathbb Z} \bolde\left(\frac{1}{2}n^2 \tau + n z\right),
+\end{equation}
+a plot of which is seen in Figure \ref{figB12:Genus1Theta}.
 
 \begin{figure}
     \center
     \includegraphics{assets/genus1theta.png}
-    \caption{Complex plot of the Theta function on a genus 1 surface with $\tau = 0.7+0.6i$. For $\theta(z)=r\exp(i\phi)$, the color represents the argument $\phi$. One can see the quasiperiodic properties: the plot is perfectly symmetric with respect to shifts by 1 ($a$-cycles), and quasiperiodic with respect to shifts by $\tau$ ($b$-cycles). The points around which the color wraps are simple zeros, the locations of which are proven in (REF ODD THETA FUNCTION EXAMPLE).}
+    \caption{Complex plot of the Theta function on a genus 1 surface with $\tau = 0.7+0.6i$. For $\theta(z)=r\exp(i\phi)$, the color represents the argument $\phi$. One can see the quasiperiodic properties: the plot is perfectly symmetric with respect to shifts by 1 ($a$-cycles), and quasiperiodic with respect to shifts by $\tau$ ($b$-cycles). The points around which the color wraps are simple zeros, the locations of which are proven in Theorem \ref{thmB12:OddLocations}.}
+    \label{figB12:Genus1Theta}
 \end{figure}
 
 \subsection{Characteristics and zeros}
@@ -200,10 +234,10 @@ EXAPLANATION OF GENUS 1 EXAMPLE
         \Theta\begin{bmatrix} \epsilon \\  \epsilon'\end{bmatrix}(\vec z) :=& \ 
         \bolde\left(\frac{1}{8}\epsilon^T \tau \epsilon + \frac{1}{2}\epsilon^T \vec z + \frac{1}{4}\epsilon^T  \epsilon'\right)
         \Theta\left(\vec z + \frac{\epsilon'}{2}+\frac{\tau\epsilon}{2}\right)
-       \\ =& \sum_{\vec n \in \mathbb Z^g} \bolde\left(\frac{1}{2} (\vec n^T \tau \vec n +\epsilon^T \tau \epsilon/4) + (\vec n+\epsilon/2)^T (\vec z+\epsilon'/2)\right).
+       \\ =& \sum_{\vec n \in \mathbb Z^g} \bolde\left(\frac{1}{2} (\vec n+\epsilon/2)^T \tau (\vec n+\epsilon/2) + (\vec n+\epsilon/2)^T (\vec z+\epsilon'/2)\right).
     \end{align}
 
-    Note that many sources (e.g. INCLUDE SOURCES HERE) use $\epsilon,\epsilon' \mapsto \epsilon/2,\epsilon'/2$ instead to simplify parts of the notation.
+    Note that many sources (e.g. \cite{Cha22} and \cite{ComputationalSchottky}) use $\epsilon,\epsilon' \mapsto \epsilon/2,\epsilon'/2$ instead to simplify parts of the notation.
 \end{definition}
 
 The choice of adding characteristics to the Theta functions in this way seems arbitrary, but it actually leads to a few key properties. First, it is apparent from the definition that the Theta function, and consequently its zeros, are shifted by some controlled amount. Second, the quasiperiodicity and parity properties of the Theta function will change in ways that we will be able to take advantage of.
@@ -239,7 +273,7 @@ The choice of adding characteristics to the Theta functions in this way seems ar
 
 The third property tells us that for characteristics $\epsilon,\epsilon' \in \mathbb Z^g$ such that $\epsilon^T\epsilon'$ is odd, the resulting Theta function will be odd. Since odd function vanish at the origin, this property can be used to identify the locations of zeros for the Theta function in general.
 
-\begin{theorem}[Location of zeros of the Theta function]
+\begin{theorem}[Location of zeros of the Theta function]\label{thmB12:OddLocations}
     The zeros of the Theta function are
     \begin{equation}
         \Theta\left(\frac{\epsilon}{2} + \frac{\tau \epsilon'}{2}\right) = 0
@@ -247,30 +281,90 @@ The third property tells us that for characteristics $\epsilon,\epsilon' \in \ma
     for all $\epsilon,\epsilon' \in \mathbb Z^g$ for which $\epsilon^T \epsilon'$ is odd.
 \end{theorem}
 
-connect to odd theta functions in B10
+\begin{proof}
+    For such $\epsilon$ and $\epsilon'$, we find that
+    \begin{equation}
+        \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(-\vec z) = -\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) \implies \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(0) = 0.
+    \end{equation}
+    Using the definition of the Theta function with characteristics
+    \begin{equation}
+        \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(0) = \overset{\neq 0}{\overbrace{\bolde( \cdots )}}\Theta\left(0+ \frac{\epsilon'}{2}+\frac{\tau\epsilon}{2}\right) = 0,
+    \end{equation}
+    we find that
+    \begin{equation}
+        \Theta\left(\frac{\epsilon'}{2}+\frac{\tau\epsilon}{2}\right) = 0
+    \end{equation}
+    as desired.
+\end{proof}
 
-extend beyond presentation by pointing out that only $g$ zeros are on compact riemann surface
+Depending on the genus, the number of possible odd characteristics changes. Indeed, one can prove that the precise number is $2^{g-1}(2^g-1)$ choices out of the $2^{2g}$ possible integer characteristics modulo 2. At genus 1, this leaves only a single function, known as \emph{the} odd Theta function at genus 1.
+
+\begin{definition}[The odd Theta function at genus 1]
+    The odd Theta function at genus 1 can be identified as
+    \begin{equation}
+        \theta_1(z) = -\Theta \begin{bmatrix}1 \\ 1\end{bmatrix} (z),
+    \end{equation}
+    where the choice of characteristics $\epsilon=\epsilon'=1$ is the only possible odd choice, and the extra $-1$ factor exists by convention.
+\end{definition}
 
 \subsection{Decomposition of functions}
-consider talk A5 (eqn 25, 40)
+To provide some intuition and illustration of the properties of Theta functions, this section will describe their use in the decomposition of meromorphic functions.
 
-link to talk A9 with divisors
+Parts of this proof have already been done in \ref{rep:A5}, with results for decompositions of meromorphic functions at genus 0 (Equation \ref{eqnA5:eqnA5:rational product}) and at genus 1 (Equation \ref{eqnA5:trans-theta-ratio}).
 
-\section{Kronecker function}
+Consider decomposing a function $f$ with divisor $(f)$ (see \ref{rep:A9} for an overview of divisors). We can approach this by constructing a function $g$ such that $(g)=(f)$. Then, the function $f/g$ has divisor $(f/g)=(f)-(g)=0$, and is thus constant by Liouville's theorem (Theorem \ref{thrmA9:1_Liouville_compact_surface}). Consequently, the desired function $f$ is off from our constructed function $g$ by a constant.
+
+\begin{lemma}
+    Given a function $f$ on the Riemann sphere, with divisor $(f)=\sum_i n_i z_i$, it can be decomposed as
+    \begin{equation}
+        f = c \prod_i (z-z_i)^n_i.
+    \end{equation}
+\end{lemma}
+
+\begin{lemma}
+    Consider a function $f$ on the Torus, with divisor $(f) = \sum_i n_i z_i$. If we decompose $z_i = b_i/2 + \tau a_i/2$, then we can write
+    \begin{equation}
+
+    \end{equation}
+\end{lemma}
+
+\section{Kronecker function}\label{secB12:Kronecker}
+
+With a better understanding and formalism of Theta functions, we can now return to the Kronecker function from prior reports (\ref{rep:B10} and \ref{rep:B11}). Rather than focusing on the consequences that the Kronecker function has for multiple elliptic polylogarithms \cite{BL13} or its applications to string theory \cite{Broedel_2022}, we will focus on the properties that it has and how those properties are inherited by the functions used in its expansion.
 
 \subsection{Definition and properties of the Kronecker function}
+
+\begin{definition}
+    The Kronecker function $F(z,\alpha,\tau)$ has equivalent definitions \cite{BL13}
+    \begin{enumerate}
+        \item In terms of the odd theta function
+        \[\frac{\theta_1'(0)\theta_1(z+\alpha)}{\theta_1(z)\theta_1(\alpha)}\]
+        \item In terms of a sum over exponentials $F(\xi,\alpha,\tau)$
+        \[-2\pi i \left(\frac{z}{1-z} + \frac{1}{1-w} + \sum_{m,n > 0} (z^m w^n - z^{-m} w^{-n}) q^{mn}\right) , \quad \begin{pmatrix} z \\ w \\ q \end{pmatrix} = \bolde \begin{pmatrix}\xi \\ \alpha \\ \tau\end{pmatrix}\]
+        \item In terms of a sum over Eisenstein functions and series
+        \[\frac{1}{\alpha} \exp\left(-\sum_{j > 0} \frac{(-\alpha)^j}{j} (E_j(z,\tau) - e_j(\tau))\right)\]
+    \end{enumerate}
+    where $E_j(z,\tau)$ and $e_j(\tau)$ are the Eisenstein functions and series, defined by
+    \begin{equation}
+        E_j(\xi,\tau) = \lim_{N,M\rightarrow \infty} \sum_{n=-N}^N \sum_{m=-M}^M \frac{1}{(\xi+m+n\tau)^j}, \quad e_j(\tau) = \lim_{N,M\rightarrow \infty} \underset{\text{except }(m,n)=(0,0)}{\underbrace{\sum_{n=-N}^N \sum_{m=-M}^M}} \frac{1}{(m+n\tau)^j}.
+    \end{equation}
+\end{definition}
+
+\begin{proof}
+    An explanation of the proof of equivalence of the definitions is given in \cite{BL13}. 
+\end{proof}
 
 \subsection{Decomposition for differentials}
 
 \subsection{Application}
 
-\section{Schottky Covers}
+\section{Schottky Covers}\label{secB12:Schottky}
 
 \subsection{Definition of the Schottky group and cover}
 \cite{Cha22}
 \cite{ComputationalSchottky}
 
-\subsection{Differentials and Abel's map}
+\subsection{Differentials and Abel's map}\label{secB12:SchottkyDifAndAbel}
 \cite{Cha22}
 \cite{ComputationalSchottky}
 

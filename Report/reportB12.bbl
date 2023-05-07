@@ -1,4 +1,4 @@
-\begin{thebibliography}{Cha22}
+\begin{thebibliography}{BMMS15}
 
 \bibitem[Ber06]{Ber06}
 Marco Bertola.
@@ -19,9 +19,19 @@ Johannes Broedel and Andre Kaderli.
 Francis C.~S. Brown and Andrey Levin.
 \newblock Multiple elliptic polylogarithms, 2013.
 
+\bibitem[BMMS15]{Broedel_2015}
+Johannes Broedel, Carlos~R. Mafra, Nils Matthes, and Oliver Schlotterer.
+\newblock Elliptic multiple zeta values and one-loop superstring amplitudes.
+\newblock {\em Journal of High Energy Physics}, 2015.
+
 \bibitem[Cha22]{Cha22}
 Zhi~Cong Chan.
 \newblock Towards a higher-genus generalization of the kronecker function using
   schottky covers, 2022.
+
+\bibitem[Mat19]{Mat19}
+Nils Matthes.
+\newblock An algebraic characterization of the kronecker function.
+\newblock {\em Research in the Mathematical Sciences}, 6(3):24, 2019.
 
 \end{thebibliography}

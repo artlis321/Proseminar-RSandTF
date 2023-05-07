@@ -307,32 +307,78 @@ Depending on the genus, the number of possible odd characteristics changes. Inde
     where the choice of characteristics $\epsilon=\epsilon'=1$ is the only possible odd choice, and the extra $-1$ factor exists by convention.
 \end{definition}
 
-\subsection{Decomposition of functions}
+\subsection{Decomposition of functions}\label{secB12:decomposition}
 To provide some intuition and illustration of the properties of Theta functions, this section will describe their use in the decomposition of meromorphic functions.
 
 Parts of this proof have already been done in \ref{rep:A5}, with results for decompositions of meromorphic functions at genus 0 (Equation \ref{eqnA5:eqnA5:rational product}) and at genus 1 (Equation \ref{eqnA5:trans-theta-ratio}).
 
 Consider decomposing a function $f$ with divisor $(f)$ (see \ref{rep:A9} for an overview of divisors). We can approach this by constructing a function $g$ such that $(g)=(f)$. Then, the function $f/g$ has divisor $(f/g)=(f)-(g)=0$, and is thus constant by Liouville's theorem (Theorem \ref{thrmA9:1_Liouville_compact_surface}). Consequently, the desired function $f$ is off from our constructed function $g$ by a constant.
 
-\begin{lemma}
+\begin{lemma}[Decomposition at genus 0]
     Given a function $f$ on the Riemann sphere, with divisor $(f)=\sum_i n_i z_i$, it can be decomposed as
     \begin{equation}
         f = c \prod_i (z-z_i)^n_i.
     \end{equation}
 \end{lemma}
 
-\begin{lemma}
+\begin{lemma}[Decomposition at genus 1]
     Consider a function $f$ on the Torus, with divisor $(f) = \sum_i n_i z_i$. If we decompose $z_i = b_i/2 + \tau a_i/2$, then we can write
     \begin{equation}
+        f = c \prod_i \left[\Theta\begin{bmatrix}a_i+1 \\ b_i+1\end{bmatrix}(z)\right]^{n_i}.
+    \end{equation}
+    The result will indeed be elliptic through a cancellation of quasiperiodic factors \cite{Cha22}, though the proof of this is beyond the scope of this report.
+\end{lemma}
 
+\begin{lemma}[Decomposition at arbtirary genus $\geq 1$]
+    Choosing $\vec e$ such that $\Theta(\vec e)=0$ \cite{Ber06}, we can decompose the hyperelliptic function $f$ with divisor $(f) = \sum_i n_i P_i$ as 
+    \begin{equation}
+        f(P) = c \prod_i \left[\Theta(\mathbf{u}(P) - \mathbf{u}(P_i) + \vec e)\right]^{n_i}.
     \end{equation}
 \end{lemma}
+
+Essentially, we can see the Theta functions as higher genus analogues of a monomial. This will come into play to inspire the choice of the Kronecker function in the next section.
 
 \section{Kronecker function}\label{secB12:Kronecker}
 
 With a better understanding and formalism of Theta functions, we can now return to the Kronecker function from prior reports (\ref{rep:B10} and \ref{rep:B11}). Rather than focusing on the consequences that the Kronecker function has for multiple elliptic polylogarithms \cite{BL13} or its applications to string theory \cite{Broedel_2022}, we will focus on the properties that it has and how those properties are inherited by the functions used in its expansion.
 
+\subsection{Genus 0 analogy}
+
+At genus 0, the multiple polylogarithms are generated using the differentials
+\begin{equation}
+    g^{(0)}(z)dz = 1 dz , \quad g^{(1)}(z)dz = \frac{1}{z} dz.
+\end{equation}
+
+One way to make them appear is by noting that from the function
+\begin{equation}
+    \tilde F(z,\alpha) = \frac{z+\alpha}{z\alpha},
+\end{equation}
+once it is expanded in $\alpha$
+\begin{equation}\label{eqnB12:ExpandExample}
+    \alpha \tilde{F}(z,\alpha) = \alpha^0 g^{(0)}(z) + \alpha^1 g^{(1)}(z),
+\end{equation}
+we find the two differentials as coefficients of the powers.
+
+Furthermore, with some effort we can identify that
+\begin{equation}
+    \tilde{F}(z_1,\alpha_1)\tilde{F}(z_2,\alpha_2) = \tilde{F}(z_1,\alpha_1+\alpha_2)\tilde{F}(z_2-z_1,\alpha_2) + \tilde{F}(z_2,\alpha_1+\alpha_2)\tilde{F}(z_1-z_2,\alpha_1),
+\end{equation}
+which is the titular \emph{bilinear relation}. In the next section with the actual Kronecker function, the analogous relation will be called the Fay Relation.
+
+Expanding this relation as done in Equation \ref{eqnB12:ExpandExample} and matching corresponding powers of $\alpha_i$ will give us the result
+\begin{equation}
+    g^{(1)}(z_1)g^{(1)}(z_2) = g^{(1)}(z_1)g^{(1)}(z_2-z_1) + g^{(1)}(z_2)g^{(1)}(z_1-z_2),
+\end{equation}
+which is more easily recognized as a partial fraction identity with $z_1 \mapsto (t-a)$ and $z_2 \mapsto (t-b)$ \cite{Broedel_2015}
+\begin{equation}
+    \frac{1}{(t-a)(t-b)} = \frac{1}{(t-a)(a-b)} + \frac{1}{(t-b)(b-a)}.
+\end{equation}
+
+Of course, proving this relation for partial fractions does not require the roundabout way using the function $\tilde F$. However, this example is very instructive to what is done for genus 1.
+
 \subsection{Definition and properties of the Kronecker function}
+
+In section \label{secB12:decomposition}, we showed how Theta functions are analogous to monomials through the way meromorphic functions are decomposed at various genera. In the previous section, we used monomials in order to construct $\tilde F$ which generated differentials $g^{(i)}$ useful for multiple polylogarithms \cite{rep:B1}. Combining these ideas, we can define the Kronecker function $F$, using the odd Theta function at genus 1 instead of monomials.
 
 \begin{definition}
     The Kronecker function $F(z,\alpha,\tau)$ has equivalent definitions \cite{BL13}
@@ -352,6 +398,17 @@ With a better understanding and formalism of Theta functions, we can now return 
 
 \begin{proof}
     An explanation of the proof of equivalence of the definitions is given in \cite{BL13}. 
+\end{proof}
+
+\begin{lemma}[The Fay relation]
+    The Kronecker function defined above satisfies
+    \begin{equation}
+        {F}(z_1,\alpha_1){F}(z_2,\alpha_2) = {F}(z_1,\alpha_1+\alpha_2){F}(z_2-z_1,\alpha_2) + {F}(z_2,\alpha_1+\alpha_2){F}(z_1-z_2,\alpha_1).
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+    \cite{Mat19}
 \end{proof}
 
 \subsection{Decomposition for differentials}

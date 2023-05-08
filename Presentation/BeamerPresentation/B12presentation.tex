@@ -415,16 +415,18 @@
 \section{Kronecker function}
 
 \begin{frame}{Analogous function for Genus 0}
-    \[F(z,\alpha) = \frac{(z+\alpha)}{(z)(\alpha)}\]
+    \[\tilde F(z,\alpha) = \frac{(z+\alpha)}{(z)(\alpha)}\]
+    % \pause
     \[\downarrow\]
-    \[\alpha F(z,\alpha) dz = \sum_{n=0,1} g^{(n)}(z) dz = dz + \alpha \frac{dz}{z}\]
+    \[\alpha \tilde F(z,\alpha) dz = \sum_{n=0,1} g^{(n)}(z) dz = dz + \alpha \frac{dz}{z}\]
+    % \pause
+    \[\downarrow\]
+    \[\tilde{F}(z_1,\alpha_1)\tilde{F}(z_2,\alpha_2) = \tilde{F}(z_1,\alpha_1+\alpha_2)\tilde{F}(z_2-z_1,\alpha_2) + \tilde{F}(z_2,\alpha_1+\alpha_2)\tilde{F}(z_1-z_2,\alpha_1)\]
+    \[g^{(1)}(z_1)g^{(1)}(z_2) = g^{(1)}(z_1)g^{(1)}(z_2-z_1) + g^{(1)}(z_2)g^{(1)}(z_1-z_2)\]
+    \[\frac{1}{(t-a)(t-b)} = \frac{1}{(t-a)(a-b)} + \frac{1}{(t-b)(b-a)}\]
+    % \pause
     \[\downarrow\]
     \[\text{use differentials to calculate multiple polylogarithms}\]
-
-    \begin{block}{Kronecker function at Genus 1}
-        Elliptic version of what was shown above:
-        \[\frac{\theta_1(z+\alpha)}{\theta_1(z)\theta_1(\alpha)}\]
-    \end{block}
 \end{frame}
 
 \begin{frame}{Kronecker function}{\tiny \cite{BL13} Section 3.4}
@@ -636,7 +638,21 @@
     \cite{Cha22}
 \end{frame}
 
-\begin{frame}{Schottky cover}{\tiny \cite{Cha22}}
+\begin{frame}[noframenumbering]{Schottky cover}
+    \center{}
+    \includegraphics[width=0.5\textwidth]{assets/Genus2SchottkyOuter.png}
+
+    \tiny Schotty cover visual for verbal explanation
+\end{frame}
+
+\begin{frame}[noframenumbering]{Schottky cover}
+    \center{}
+    \includegraphics[width=0.5\textwidth]{assets/Genus2SchottkyInner.png}
+
+    \tiny Schotty cover visual for verbal explanation
+\end{frame}
+
+\begin{frame}[noframenumbering]{Schottky cover}{\tiny \cite{Cha22}}
     \center{}
     \includegraphics[width=0.5\textwidth]{assets/ChanSchottkyCover2.png}
 
@@ -657,6 +673,23 @@
     \[u_i[p] = \int_{p_0}^p \omega_i = \frac{1}{2\pi i} \sum_{\gamma \in \Gamma/\Gamma_i} \ln \{p,\gamma(P_i'),p_0,\gamma(P)\}\]
     where
     \[\{a,b,c,d\} = \frac{(a-b)(c-d)}{(a-d)(c-b)}\]
+\end{frame}
+
+\begin{frame}[noframenumbering]{Differentials and Abel's map}{\tiny \cite{ComputationalSchottky} and \cite{Cha22}}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \center
+            \[\omega_i = \frac{1}{2\pi i}\sum_{\gamma \in \Gamma / \Gamma_i} \left(\frac{1}{z-\gamma(P_i')} - \frac{1}{z-\gamma(P_i)}\right)dz\]
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \center{}
+            \includegraphics[width=\columnwidth]{assets/ChanSchottkyCover2.png}
+        
+            \tiny Schotty cover visual for verbal explanation
+        
+            \cite{Cha22}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Attempt at a Kronecker function}{\tiny \cite{Cha22}}

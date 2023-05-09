@@ -51,6 +51,8 @@ For more detail on the definitions and proofs shown, one may refer to \cite{Ber0
 \end{theorem}
 
 \begin{proof}
+    A complete proof, including underlying lemmas, is given in \cite{Ber06}.
+
     An abridged version of the proof is described here.
 
     We can bound the number of holomorphic differentials above and below using the number of cycles.
@@ -397,7 +399,7 @@ In section \label{secB12:decomposition}, we showed how Theta functions are analo
 \end{definition}
 
 \begin{proof}
-    An explanation of the proof of equivalence of the definitions is given in \cite{BL13}. 
+    An complete outline of the proof of equivalence of the definitions is given in \cite{BL13}.
 \end{proof}
 
 \begin{lemma}[The Fay relation]
@@ -408,10 +410,27 @@ In section \label{secB12:decomposition}, we showed how Theta functions are analo
 \end{lemma}
 
 \begin{proof}
-    \cite{Mat19}
+    A complete outline of the proof is given in \cite{Mat19} and is paraphrased here.
+
+    Using the definition of the Kronecker function in terms of Theta functions, we can multiply by all the denominators.
+    This gives us three terms, each of which is a product of 4 theta functions. After a relabeling of their arguments, we reach
+    \begin{align}
+        & \theta_1(a_0)\theta_1(b_0)\theta_1(a_2+b_1)\theta_1(a_2-b_1) + \\
+        & \theta_1(a_1)\theta_1(b_1)\theta_1(a_0+b_2)\theta_1(a_0-b_2) + \\
+        & \theta_1(a_2)\theta_1(b_2)\theta_1(a_1+b_0)\theta_1(a_1-b_0) = 0,
+    \end{align}
+    which has convenient symmetry properties. We can conclude the proof by noting that this is Proposition 5 from \cite{Zagier1991}.
 \end{proof}
 
-\subsection{Decomposition for differentials}
+\subsection{Decomposition to differentials}
+
+With the Kronecker function defined, we can now take an expansion in $\alpha$ to recover appropriate differentials. Unlike the analogous genus 0 case (Equation \ref{eqnB12:ExpandExample}), there will be an infinite tower of differentials.
+
+\begin{definition}[Holomorphic differentials from the Kronecker function]
+    \begin{equation}
+        \alpha F(z,\alpha) = \sum_{n=0}^{\infty} g^{(n)}(z) \alpha^n
+    \end{equation}
+\end{definition}
 
 \subsection{Application}
 

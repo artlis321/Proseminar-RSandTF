@@ -34,4 +34,10 @@ Nils Matthes.
 \newblock An algebraic characterization of the kronecker function.
 \newblock {\em Research in the Mathematical Sciences}, 6(3):24, 2019.
 
+\bibitem[Zag91]{Zagier1991}
+Don Zagier.
+\newblock Periods of modular forms and jacobi theta functions.
+\newblock {\em Inventiones mathematicae}, 104(3):449--466, 1991.
+\newblock URL: \url{http://eudml.org/doc/143891}.
+
 \end{thebibliography}

@@ -31,7 +31,7 @@ Finally in Section \ref{secB12:Schottky}, we will take a look at a particular wa
 \section{Abel's Map}\label{secB12:Abel}
 
 \subsection{Holomorphic differentials}
-Holomorphic and harmonic differentials are described in detail in (REFERENCE TO A6 AND A7). However, for the readers convenience they will again be defined and their existence briefly shown here.
+Holomorphic and harmonic differentials are described in detail in \ref{rep:A6} and \ref{rep:A7}. However, for the readers convenience they will again be defined and their existence briefly shown here.
 
 For more detail on the definitions and proofs shown, one may refer to \cite{Ber06}.
 
@@ -371,12 +371,13 @@ Expanding this relation as done in Equation \ref{eqnB12:ExpandExample} and match
 \begin{equation}
     g^{(1)}(z_1)g^{(1)}(z_2) = g^{(1)}(z_1)g^{(1)}(z_2-z_1) + g^{(1)}(z_2)g^{(1)}(z_1-z_2),
 \end{equation}
-which is more easily recognized as a partial fraction identity with $z_1 \mapsto (t-a)$ and $z_2 \mapsto (t-b)$ \cite{Broedel_2015}
+which is more easily recognized as a partial fraction identity with $z_1 \mapsto (t-a)$ and $z_2 \mapsto (t-b)$
 \begin{equation}
-    \frac{1}{(t-a)(t-b)} = \frac{1}{(t-a)(a-b)} + \frac{1}{(t-b)(b-a)}.
+    \frac{1}{(t-a)(t-b)} = \frac{1}{(t-a)(a-b)} + \frac{1}{(t-b)(b-a)},
 \end{equation}
+which has uses for evaluating integral representations of multiple polylogarithms \cite{Broedel_2015}.
 
-Of course, proving this relation for partial fractions does not require the roundabout way using the function $\tilde F$. However, this example is very instructive to what is done for genus 1.
+Of course, proving this relation for partial fractions does not require the roundabout way using the function $\tilde F$. However, this example is representative of what is done for genus 1.
 
 \subsection{Definition and properties of the Kronecker function}
 
@@ -386,11 +387,11 @@ In section \label{secB12:decomposition}, we showed how Theta functions are analo
     The Kronecker function $F(z,\alpha,\tau)$ has equivalent definitions \cite{BL13}
     \begin{enumerate}
         \item In terms of the odd theta function
-        \[\frac{\theta_1'(0)\theta_1(z+\alpha)}{\theta_1(z)\theta_1(\alpha)}\]
-        \item In terms of a sum over exponentials $F(\xi,\alpha,\tau)$
-        \[-2\pi i \left(\frac{z}{1-z} + \frac{1}{1-w} + \sum_{m,n > 0} (z^m w^n - z^{-m} w^{-n}) q^{mn}\right) , \quad \begin{pmatrix} z \\ w \\ q \end{pmatrix} = \bolde \begin{pmatrix}\xi \\ \alpha \\ \tau\end{pmatrix}\]
+        \begin{equation}\frac{\theta_1'(0)\theta_1(z+\alpha)}{\theta_1(z)\theta_1(\alpha)}\end{equation}
+        \item In terms of a sum over exponentials
+        \begin{equation}-2\pi i \left(\frac{z}{1-z} + \frac{1}{1-w} + \sum_{m,n > 0} (z^m w^n - z^{-m} w^{-n}) q^{mn}\right) , \quad \begin{pmatrix} z \\ w \\ q \end{pmatrix} = \bolde \begin{pmatrix}\xi \\ \alpha \\ \tau\end{pmatrix}\end{equation}
         \item In terms of a sum over Eisenstein functions and series
-        \[\frac{1}{\alpha} \exp\left(-\sum_{j > 0} \frac{(-\alpha)^j}{j} (E_j(z,\tau) - e_j(\tau))\right)\]
+        \begin{equation}\frac{1}{\alpha} \exp\left(-\sum_{j > 0} \frac{(-\alpha)^j}{j} (E_j(z,\tau) - e_j(\tau))\right)\end{equation}
     \end{enumerate}
     where $E_j(z,\tau)$ and $e_j(\tau)$ are the Eisenstein functions and series, defined by
     \begin{equation}
@@ -445,11 +446,18 @@ BRIEFLY SHOWING PERFECTLY PERIODIC VERSION
 With an understanding of the Kronecker function at genus 1, we may ask how one can approach working with higher genus surfaces.
 The first hurdle to overcome is that of creating a suitable cover, on which we can begin to define our analytical tools, like holomorphic differentials.
 
-The way this is approached in \cite{ComputationalSchottky} and \cite{Cha22} is by constructing covers in which $a$-cycles are represented by circles in the complex plane.
+We can approach this by constructing covers in which $a$-cycles are represented by circles in the complex plane \cite{ComputationalSchottky} \cite{Cha22}.
 
 \subsection{Definition of the Schottky group and cover}
-\cite{Cha22}
-\cite{ComputationalSchottky}
+In order to create maps involving discs on the complex plane, we can use Mobius transformations.
+
+\begin{definition}[Mobius transformations]
+    A Mobius transformation $\gamma$ is a meromorphic map on the Riemann sphere $\mathbb C \cup \{\infty\}$ characterized by constants $a,b,c,d \in \mathbb C$
+    \begin{equation}
+        \gamma : \mathbb C \cup \{\infty\} \rightarrow \mathbb C \cup \{\infty\} ; \ z \mapsto \frac{az+b}{cz+d}
+    \end{equation}
+    with $ad-bc \neq 0$. Since rescaling of the coefficients $a,b,c,d\mapsto \lambda a,\lambda b, \lambda c, \lambda d$ do not change the map, they can be normalized to $ad-bc=1$.
+\end{definition}
 
 \subsection{Differentials and Abel's map}\label{secB12:SchottkyDifAndAbel}
 \cite{Cha22}

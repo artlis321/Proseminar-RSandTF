@@ -607,9 +607,9 @@
 \end{frame}
 
 \begin{frame}{Differentials and Abel's map}{\tiny \cite{ComputationalSchottky} and \cite{Cha22}}
-    We can define cosets of $\Gamma$
+    We can define fixed points and cosets
+    \[\gamma_i(P_i)=P_i, \quad \gamma_i(P_i')=P_i'\]
     \[\Gamma / \Gamma_i = \{\gamma_{j_1}^{n_1}\cdots \gamma_{j_k}^{n_k}: \gamma_{j_k} \neq \gamma_i\}\]
-    \[\Gamma_i \setminus \Gamma  = \{\gamma_{j_1}^{n_1}\cdots \gamma_{j_k}^{n_k}: \gamma_{j_1} \neq \gamma_i\}\]
     % \pause
     And use these to define holomorphic differentials using fixed points $P_i$
     \[\omega_i = \frac{1}{2\pi i}\sum_{\gamma \in \Gamma / \Gamma_i} \left(\frac{1}{z-\gamma(P_i')} - \frac{1}{z-\gamma(P_i)}\right)dz = \frac{1}{2\pi i}\sum_{\gamma \in \Gamma_i \setminus \Gamma } \left(\frac{1}{\gamma(z)-P_i'} - \frac{1}{\gamma(z)-P_i}\right)d(\gamma(z))\]

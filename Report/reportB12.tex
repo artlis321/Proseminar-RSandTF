@@ -16,7 +16,7 @@ As seen in the previous two reports (\ref{rep:B10} and \ref{rep:B11}), the Theta
 
 In Section \ref{secB12:Abel}, we will start with a review of normalized holomorphic differentials on compact Riemann surfaces. These will be applied to define Abel's map, a function that takes assigns complex vectors to points on the Riemann surface, taking advantage of the differentials' properties to achieve an additively quasiperiodic result.
 
-Then in Section \ref{secB12:Theta}, Theta functions will discussed in detail as they can be defined at an arbitrary genus. These functions use Abel's map to assign complex numbers to a Riemann surface in a quasiperiodic way. In particular, we will find through an example that odd versions of the Theta functions are essentially elliptic/hyperelliptic analogues of the monomial $(z-z_0)$ at genus 0.
+Then in Section \ref{secB12:Theta}, Theta functions will discussed in detail as they can be defined at an arbitrary genus. These functions use Abel's map to assign complex numbers to a Riemann surface in a quasiperiodic way. In particular, we will find through an example that odd versions of the Theta functions are essentially elliptic/hyperelliptic analogues of the linear monomial $(z-z_0)$ at genus 0.
 
 In Section \ref{secB12:Kronecker}, we will define the familiar Kronecker function can be defined as a ratio of Theta functions at genus 1. This can be used to define quasiperiodic holomorphic differentials with properties including the bilinear Fay relation, which allows us to relate products of the differentials to products that may be simpler to evaluate.
 
@@ -338,7 +338,7 @@ Consider decomposing a function $f$ with divisor $(f)$ (see \ref{rep:A9} for an 
     \end{equation}
 \end{lemma}
 
-Essentially, we can see the Theta functions as higher genus analogues of a monomial. This will come into play to inspire the choice of the Kronecker function in the next section.
+Essentially, we can see the Theta functions as higher genus analogues of a linear monomial. This will come into play to inspire the choice of the Kronecker function in the next section.
 
 \section{Kronecker function}\label{secB12:Kronecker}
 
@@ -380,7 +380,7 @@ Of course, proving this relation for partial fractions does not require the roun
 
 \subsection{Definition and properties of the Kronecker function}
 
-In section \label{secB12:decomposition}, we showed how Theta functions are analogous to monomials through the way meromorphic functions are decomposed at various genera. In the previous section, we used monomials in order to construct $\tilde F$ which generated differentials $g^{(i)}$ useful for multiple polylogarithms \cite{rep:B1}. Combining these ideas, we can define the Kronecker function $F$, using the odd Theta function at genus 1 instead of monomials.
+In section \label{secB12:decomposition}, we showed how Theta functions are analogous to linear monomials through the way meromorphic functions are decomposed at various genera. In the previous section, we used linear monomials in order to construct $\tilde F$ which generated differentials $g^{(i)}$ useful for multiple polylogarithms \cite{rep:B1}. Combining these ideas, we can define the Kronecker function $F$, using the odd Theta function at genus 1 instead of linear monomials.
 
 \begin{definition}
     The Kronecker function $F(z,\alpha,\tau)$ has equivalent definitions \cite{BL13}
@@ -394,7 +394,7 @@ In section \label{secB12:decomposition}, we showed how Theta functions are analo
     \end{enumerate}
     where $E_j(z,\tau)$ and $e_j(\tau)$ are the Eisenstein functions and series, defined by
     \begin{equation}
-        E_j(\xi,\tau) = \lim_{N,M\rightarrow \infty} \sum_{n=-N}^N \sum_{m=-M}^M \frac{1}{(\xi+m+n\tau)^j}, \quad e_j(\tau) = \lim_{N,M\rightarrow \infty} \underset{\text{except }(m,n)=(0,0)}{\underbrace{\sum_{n=-N}^N \sum_{m=-M}^M}} \frac{1}{(m+n\tau)^j}.
+        E_j(\xi,\tau) = \lim_{N,M\rightarrow \infty} \sum_{n=-N}^N \sum_{m=-M}^M \frac{1}{(\xi+m+n\tau)^j}, \quad e_j(\tau) = \lim_{N,M\rightarrow \infty} \underset{\mathrm{except \ }(m,n)=(0,0)}{\underbrace{\sum_{n=-N}^N \sum_{m=-M}^M}} \frac{1}{(m+n\tau)^j}.
     \end{equation}
 \end{definition}
 

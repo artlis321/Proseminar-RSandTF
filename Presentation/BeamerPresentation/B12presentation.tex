@@ -380,8 +380,8 @@
         \begin{enumerate}
             \item In terms of the odd theta function
             \[\frac{\theta_1'(0)\theta_1(z+\alpha)}{\theta_1(z)\theta_1(\alpha)}\]
-            \item In terms of a sum over exponentials $F(\xi,\alpha,\tau)$
-            \[-2\pi i \left(\frac{z}{1-z} + \frac{1}{1-w} + \sum_{m,n > 0} (z^m w^n - z^{-m} w^{-n}) q^{mn}\right) , \quad \begin{pmatrix} z \\ w \\ q \end{pmatrix} = \ee \begin{pmatrix}\xi \\ \alpha \\ \tau\end{pmatrix}\]
+            \item In terms of a sum over exponentials
+            \[-2\pi i \left(\frac{\tilde z}{1-\tilde z} + \frac{1}{1-w} + \sum_{m,n > 0} (\tilde z^m w^n - \tilde z^{-m} w^{-n}) q^{mn}\right) , \quad \begin{pmatrix} \tilde z \\ w \\ q \end{pmatrix} = \ee \begin{pmatrix}z \\ \alpha \\ \tau\end{pmatrix}\]
             \item In terms of a sum over Eisenstein functions and series
             \[\frac{1}{\alpha} \exp\left(-\sum_{j > 0} \frac{(-\alpha)^j}{j} (E_j(z,\tau) - e_j(\tau))\right)\]
         \end{enumerate}
@@ -624,6 +624,7 @@
     \begin{columns}
         \begin{column}{0.5\textwidth}
             \center
+            \[\gamma_i(P_i)=P_i, \quad \gamma_i(P_i')=P_i'\]        
             \[\omega_i = \frac{1}{2\pi i}\sum_{\gamma \in \Gamma / \Gamma_i} \left(\frac{1}{z-\gamma(P_i')} - \frac{1}{z-\gamma(P_i)}\right)dz\]
         \end{column}
         \begin{column}{0.5\textwidth}
@@ -647,9 +648,9 @@
     \[K(z,\{w_1,...,w_g\}|\Gamma) = \sum_{\gamma \in \Gamma} \frac{\gamma'(z)}{\gamma(z)-1} w_1^{\mathrm{ord}_1\gamma}...w_g^{\mathrm{ord}_g\gamma}\]
     
     At Genus 1, for $\gamma : z \mapsto \ee(\tau) z = qz$
-    \[K(z,w|\Gamma) = \sum_{n \in \mathbb Z} \frac{q^n}{q^n z - 1} w^n = \cdots = \frac{1}{z} \left[1 - \frac{1}{1-z} - \frac{1}{1-w} - \sum_{m,n > 0} q^{mn} (z^m w^n - z^{-m} w^{-n})\right]\]
+    \[K(z,w|\Gamma) = \sum_{n \in \mathbb Z} \frac{q^n}{q^n z - 1} w^n = \cdots = \frac{1}{z} \left[\frac{z}{1-z} - \frac{1}{1-w} - \sum_{m,n > 0} q^{mn} (z^m w^n - z^{-m} w^{-n})\right]\]
     Recall
-    \[F(\xi,\alpha) = -2\pi i \left(\frac{z}{1-z} + \frac{1}{1-w} + \sum_{m,n > 0} (z^m w^n - z^{-m} w^{-n}) q^{mn}\right) \quad , \quad \begin{pmatrix} z \\ w \\ q \end{pmatrix} = \ee \begin{pmatrix}z \\ \alpha \\ \tau\end{pmatrix}\]
+    \[F(\xi,\alpha) = -2\pi i \left(\frac{z}{1-z} + \frac{1}{1-w} + \sum_{m,n > 0} q^{mn}(z^m w^n - z^{-m} w^{-n}) \right) \quad , \quad \begin{pmatrix} z \\ w \\ q \end{pmatrix} = \ee \begin{pmatrix}z \\ \alpha \\ \tau\end{pmatrix}\]
 \end{frame}
 
 \begin{frame}{Open questions}

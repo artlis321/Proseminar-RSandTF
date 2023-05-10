@@ -162,7 +162,7 @@
     \begin{block}{What about higher genus?}
         \begin{itemize}
             \item How do we represent the fundamental domain?
-            \item What choice of differentials can we make?
+            \item What choice of holomorphic differentials can we make?
             \item What consequences does this have for Abel's map?
         \end{itemize}
     \end{block}
@@ -236,9 +236,29 @@
     \begin{block}{Definition of Theta function with characteristics}
         Consider vectors $ \epsilon ,  \epsilon' \in \mathbb R^g$.
         We can then define the Theta function with characteristics $ \epsilon$, $ \epsilon'$ as
+        \[\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z, \tau) := \sum_{\vec n \in \mathbb Z^g} \ee 
+        \left( \frac{1}{2} (\vec n+\epsilon/2)^T \tau (\vec n+\epsilon/2) + (\vec n+\epsilon/2)^T (\vec z+\epsilon'/2) \right)\]
+    \end{block}
+    % \pause
+    \emph{Properties:}
+
+    \[\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z + \vec \alpha + \tau \vec \beta) =
+    \ee\left(\frac{1}{2}(\epsilon^T \vec \alpha - \vec \beta^T \epsilon') - \frac{1}{2} \beta^T \tau \beta - \vec \beta \vec z\right)
+    \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z)\]
+    % \pause
+    \[\Theta\begin{bmatrix}\epsilon + 2\eta \\ \epsilon' + 2\eta' \end{bmatrix}(\vec z) = \exp(\pi i \epsilon^T \eta')
+    \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) , \quad \eta,\eta' \in \mathbb Z^g\]
+    % \pause
+    \[\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(-\vec z) = \exp(\pi i \epsilon^T \epsilon') \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) , \quad \epsilon,\epsilon' \in \mathbb Z^g\]
+\end{frame}
+
+\begin{frame}[noframenumbering]{Theta function with characteristics}{\tiny \cite{Ber06} Section 5.1}
+    \begin{block}{Definition of Theta function with characteristics}
+        Consider vectors $ \epsilon ,  \epsilon' \in \mathbb R^g$.
+        We can then define the Theta function with characteristics $ \epsilon$, $ \epsilon'$ as
         \[\Theta\begin{bmatrix} \epsilon \\  \epsilon'\end{bmatrix}(\vec z) := 
         \ee\left(\frac{1}{8}\epsilon^T \tau \epsilon + \frac{1}{2}\epsilon^T \vec z + \frac{1}{4}\epsilon^T  \epsilon'\right)
-        \Theta\left(\vec z + \frac{\epsilon'}{2}+\frac{\tau\epsilon}{2}\right) = \begin{bmatrix}\vec n \mapsto \vec n+\epsilon/2 \\ \vec z \mapsto \vec z + \epsilon'/2 \end{bmatrix} \sum_{\vec n} \ee(...)\] 
+        \Theta\left(\vec z + \frac{\epsilon'}{2}+\frac{\tau\epsilon}{2}\right)\] 
     \end{block}
     % \pause
     \emph{Properties:}
@@ -294,18 +314,18 @@
         We define
         \[\theta_1(z) = -\theta \begin{bmatrix} 1 \\ 1 \end{bmatrix}(z)\]
         It has equivalent definition
-        \[\theta_1(z) = 2iq^{1/8} \sin(\pi z) \prod_j (1-q^j) (1-wq^j)(1-w^{-1}q^j) , \quad q=\ee(\tau),w=\ee(z)\]
+        \[\theta_1(z) = 2iq^{1/8} \sin(\pi z) \prod_{j>0} (1-q^j) (1-wq^j)(1-w^{-1}q^j) , \quad q=\ee(\tau),w=\ee(z)\]
     \end{block}
     \emph{Jacobi Triple Product:}
     % https://en.wikipedia.org/wiki/Jacobi_triple_product
     % https://en.wikipedia.org/wiki/Theta_function
-    \[f(x,y) = \prod_{j>0} (1-x^{2m})(1+x^{2m-1}y^2)(1+x^{2m-1}y^{-2})\]
-    \[f(x,xy) = \prod_{j>0} (1-x^{2m})(1+x^{2m+1}y^2)(1+x^{2m-3}y^{-2}) = \frac{1+x^{-1}y^{-2}}{1+xy^2} f(x,y) = x^{-1}y^{-2}f(x,y)\]
+    \[f(x,y) = \prod_{m>0} (1-x^{2m})(1+x^{2m-1}y^2)(1+x^{2m-1}y^{-2})\]
+    \[f(x,xy) = \prod_{m>0} (1-x^{2m})(1+x^{2m+1}y^2)(1+x^{2m-3}y^{-2}) = \frac{1+x^{-1}y^{-2}}{1+xy^2} f(x,y) = x^{-1}y^{-2}f(x,y)\]
 \end{frame}
 
 \begin{frame}{Odd theta function at genus 1}
-    \[f(x,y) = \prod_{j>0} (1-x^{2m})(1+x^{2m-1}y^2)(1+x^{2m-1}y^{-2})\]
-    \[f(x,xy) = \prod_{j>0} (1-x^{2m})(1+x^{2m+1}y^2)(1+x^{2m-3}y^{-2}) = \frac{1+x^{-1}y^{-2}}{(1+xy^2)}f(x,y) = x^{-1}y^{-2}f(x,y)\]
+    \[f(x,y) = \prod_{m>0} (1-x^{2m})(1+x^{2m-1}y^2)(1+x^{2m-1}y^{-2})\]
+    \[f(x,xy) = \prod_{m>0} (1-x^{2m})(1+x^{2m+1}y^2)(1+x^{2m-3}y^{-2}) = \frac{1+x^{-1}y^{-2}}{(1+xy^2)}f(x,y) = x^{-1}y^{-2}f(x,y)\]
     % \pause
     \[f(x,y) = \sum_{n=-\infty}^\infty c_n(x) y^{2n} \implies f(x,y) = xy^2 f(x,xy) = \sum_n c_n(x) x^{2n+1}y^{2n+2}\]
     \[\implies c_{n+1}(x) = x^{2n+1}c_n(x) \implies c_{n}(x) = c_0(x) x^{n^2} \implies f(x,y) = c_0(x) \sum_n x^{n^2} y^{2n}\]
@@ -432,7 +452,7 @@
         \setbeamercolor{block body}{bg=ETHBlue!25!white}
         \begin{block}{What about higher genus?}
             \begin{itemize}
-                \item What does the Fay identity look like at higher genus when theta functions are more complicated?
+                \item What does the Fay relation look like at higher genus when theta functions are more complicated?
             \end{itemize}
         \end{block}
     }
@@ -456,10 +476,10 @@
     \[\sum_{k\leq w} c_{k} g^{(k)}(z) dz = 0\]
 
     Then, we find that
-    \[ d\left(\sum_{k\leq w} c_{k} g^{(k)}(z) dz\right) = \nu \wedge \left(\sum_{k\leq (w-1)} c_{k} g^{(k)}(z) dz\right) = 0 \implies \sum_{k\leq (w-1)} c_{k} g^{(k)}(z) dz = 0 \]
+    \[ d\left(\sum_{k\leq w} c_{k} g^{(k)}(z) dz\right) = \nu \wedge \left(\sum_{k\leq w-1} c_{k} g^{(k)}(z) dz\right) = 0 \implies \sum_{k\leq w-1} c_{k} g^{(k)}(z) dz = 0 \]
 
     Thus,
-    \[\sum_{k\leq (w-1)} c_{k} g^{(k)}(z) dz \neq 0 \implies \sum_{k\leq w} c_{k} g^{(k)}(z) dz \neq 0\]
+    \[\sum_{k\leq w-1} c_{k} g^{(k)}(z) dz \neq 0 \implies \sum_{k\leq w} c_{k} g^{(k)}(z) dz \neq 0\]
     and since $c_0 g^{(0)}(z) dz \neq 0$, all the differentials are independent by induction.
 \end{frame}
 
@@ -535,18 +555,20 @@
         % \setbeamercolor{block body}
         \setbeamercolor{block title}{bg=ETHBlue}
         \setbeamercolor{block body}{bg=ETHBlue!25!white}
+        \vspace*{\fill}
         \begin{block}{What about higher genus?}
             \begin{itemize}
                 \item How do we represent the fundamental domain?
-                \item What choice of differentials can we make?
+                \item What choice of holomorphic differentials can we make?
                 \item What consequences does this have for Abel's map?
                 \item What does the Theta function look like at higher genus?
                 \item Which of the zeros located by odd characteristics are actually reached by Abel's map on compact Riemann surfaces of higher genus?
                 \item Are there similar Jacobi formulas for higher genus theta functions?
                 \item How can we define the Kronecker function at higher genus?
-                \item What does the Fay identity look like at higher genus when theta functions are more complicated?
+                \item What does the Fay relation look like at higher genus when theta functions are more complicated?
             \end{itemize}
         \end{block}
+        \vspace*{\fill}
     }
 \end{frame}
 
@@ -578,7 +600,7 @@
     \center{}
     \includegraphics[width=0.6\textwidth]{assets/ChanSchottkyCover.png}
 
-    \tiny Schotty cover mapping to compact Riemann surface
+    \tiny Schottky cover mapping to compact Riemann surface
 
     \cite{Cha22}
 \end{frame}
@@ -587,21 +609,21 @@
     \center{}
     \includegraphics[width=0.5\textwidth]{assets/Genus2SchottkyOuter.png}
 
-    \tiny Schotty cover visual for verbal explanation
+    \tiny Schottky cover visual for verbal explanation
 \end{frame}
 
 \begin{frame}[noframenumbering]{Schottky cover visual}
     \center{}
     \includegraphics[width=0.5\textwidth]{assets/Genus2SchottkyInner.png}
 
-    \tiny Schotty cover visual for verbal explanation
+    \tiny Schottky cover visual for verbal explanation
 \end{frame}
 
 \begin{frame}[noframenumbering]{Schottky cover visual}{\tiny \cite{Cha22}}
     \center{}
     \includegraphics[width=0.5\textwidth]{assets/ChanSchottkyCover2.png}
 
-    \tiny Schotty cover visual for verbal explanation
+    \tiny Schottky cover visual for verbal explanation
 
     \cite{Cha22}
 \end{frame}
@@ -615,12 +637,12 @@
     \[\omega_i = \frac{1}{2\pi i}\sum_{\gamma \in \Gamma / \Gamma_i} \left(\frac{1}{z-\gamma(P_i')} - \frac{1}{z-\gamma(P_i)}\right)dz = \frac{1}{2\pi i}\sum_{\gamma \in \Gamma_i \setminus \Gamma } \left(\frac{1}{\gamma(z)-P_i'} - \frac{1}{\gamma(z)-P_i}\right)d(\gamma(z))\]
     % \pause
     Which can then be used to define Abel's map
-    \[u_i[p] = \int_{p_0}^p \omega_i = \frac{1}{2\pi i} \sum_{\gamma \in \Gamma/\Gamma_i} \ln \{p,\gamma(P_i'),p_0,\gamma(P)\}\]
+    \[u_i[p] = \int_{p_0}^p \omega_i = \frac{1}{2\pi i} \sum_{\gamma \in \Gamma/\Gamma_i} \ln \{p,\gamma(P_i'),p_0,\gamma(P_i)\}\]
     where
     \[\{a,b,c,d\} = \frac{(a-b)(c-d)}{(a-d)(c-b)}\]
 \end{frame}
 
-\begin{frame}[noframenumbering]{Differentials and Abel's map}{\tiny \cite{ComputationalSchottky} and \cite{Cha22}}
+\begin{frame}{Schottky differentials with visual}{\tiny \cite{ComputationalSchottky} and \cite{Cha22}}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             \center
@@ -629,9 +651,9 @@
         \end{column}
         \begin{column}{0.5\textwidth}
             \center{}
-            \includegraphics[width=\columnwidth]{assets/ChanSchottkyCover2.png}
+            \includegraphics[width=0.9\columnwidth]{assets/ChanSchottkyCover2.png}
         
-            \tiny Schotty cover visual for verbal explanation
+            \tiny Schottky cover visual for verbal explanation
         
             \cite{Cha22}
         \end{column}

@@ -424,12 +424,12 @@
     \[F(z+1,\alpha) = \frac{\theta_1'(0)\theta_1(z+\alpha+1)}{\theta_1(z+1)\theta_1(\alpha)} = F(z,\alpha)\]
     \[F(z+\tau,\alpha) = \frac{\theta_1'(0)\theta_1(z+\alpha+\tau)}{\theta_1(z+\tau)\theta_1(\alpha)} = \frac{\ee(-z-\alpha)}{\ee(-z)} F(z,\alpha)\]
     % \pause
-    \begin{block}{The Fay Relation}
+    \begin{block}{The Fay identity}
         \[F(z_1,\alpha_1)F(z_2,\alpha_2) = F(z_1,\alpha_1+\alpha_2)F(z_2-z_1,\alpha_2)+F(z_2,\alpha_1+\alpha_2)F(z_1-z_2,\alpha_1)\]
     \end{block}
 \end{frame}
 
-\begin{frame}{Setup for derivation of the Fay relation}{\tiny \cite{Mat19}}
+\begin{frame}{Setup for derivation of the Fay identity}{\tiny \cite{Mat19}}
     \[F(z_1,\alpha_1)F(z_2,\alpha_2) = F(z_1,\alpha_1+\alpha_2)F(z_2-z_1,\alpha_2)+F(z_2,\alpha_1+\alpha_2)F(z_1-z_2,\alpha_1)\]
     \vspace{-1em}
     \[\downarrow \text{rewrite using Theta functions} \downarrow\]
@@ -452,7 +452,7 @@
         \setbeamercolor{block body}{bg=ETHBlue!25!white}
         \begin{block}{What about higher genus?}
             \begin{itemize}
-                \item What does the Fay relation look like at higher genus when theta functions are more complicated?
+                \item What does the Fay identity look like at higher genus when theta functions are more complicated?
             \end{itemize}
         \end{block}
     }
@@ -483,7 +483,7 @@
     and since $c_0 g^{(0)}(z) dz \neq 0$, all the differentials are independent by induction.
 \end{frame}
 
-\begin{frame}{Fay relation for differentials}
+\begin{frame}{Fay identity for differentials}
     \[F(z_1,\alpha_1)F(z_2,\alpha_2) = F(z_1,\alpha_1+\alpha_2)F(z_2-z_1,\alpha_2)+F(z_2,\alpha_1+\alpha_2)F(z_1-z_2,\alpha_1)\]
     \[\downarrow \text{decompose} \downarrow\]
     \[\downarrow \text{match coefficients of }\alpha_1^m \alpha_2^n \downarrow\]
@@ -521,7 +521,7 @@
                 $\rightarrow$ suitable for homotopy-invariant integrals
                 \item Constant ($g^{(0)}$) and simple pole ($g^{(1)}$) \\
                 $\rightarrow$ constructing elliptic polylogarithms
-                \item Fay relation \\
+                \item Fay identity \\
                 $\rightarrow$ rearranging dependence for integral evaluation
             \end{itemize}
         \end{column}
@@ -565,7 +565,7 @@
                 \item Which of the zeros located by odd characteristics are actually reached by Abel's map on compact Riemann surfaces of higher genus?
                 \item Are there similar Jacobi formulas for higher genus theta functions?
                 \item How can we define the Kronecker function at higher genus?
-                \item What does the Fay relation look like at higher genus when theta functions are more complicated?
+                \item What does the Fay identity look like at higher genus when theta functions are more complicated?
             \end{itemize}
         \end{block}
         \vspace*{\fill}

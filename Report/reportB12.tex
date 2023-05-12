@@ -423,17 +423,31 @@ In section \label{secB12:decomposition}, we showed how Theta functions are analo
     which has convenient symmetry properties. We can conclude the proof by noting that this is Proposition 5 from \cite{Zagier1991}.
 \end{proof}
 
-\subsection{Decomposition to differentials}
+\subsection{Decomposition of the Kronecker function}
 
 With the Kronecker function defined, we can now take an expansion in $\alpha$ to recover appropriate differentials. Unlike the analogous genus 0 case (Equation \ref{eqnB12:ExpandExample}), there will be an infinite tower of differentials.
 
-\begin{definition}[Holomorphic differentials from the Kronecker function]
+\begin{definition}[Holomorphic functions from the Kronecker function]
+    Expanding the Kronecker function in powers of $\alpha$
     \begin{equation}
-        \alpha F(z,\alpha) = \sum_{n=0}^{\infty} g^{(n)}(z) \alpha^n
+        \alpha F(z,\alpha) = \sum_{n=0}^{\infty} g^{(n)}(z) \alpha^n,
     \end{equation}
+    we find the functions $g^{(n)}(z)$, which are suitable integration kernels for elliptic polylogarithms (\ref{rep:B11}) \cite{Broedel_2022}.
 \end{definition}
 
-EXAMPLE OF DIFFERENTIALS
+The resulting differentials have power expansions in $q = \bolde(\tau)$ \cite{Broedel_2015}
+\begin{equation}
+    g^{(0)}(z) = 1,
+\end{equation}
+\begin{equation}
+    g^{(1)}(z) = \pi \cot(\pi z) + 4 \pi \sum_{m=1}^\infty \sin(2 \pi m z) \sum_{n=1}^\infty q^{mn},
+\end{equation}
+\begin{equation}
+    g^{(k)}(z)\big|_{k=2,4,\ldots} = -2\left[\xi_k + \frac{(2\pi i)^k}{(k-1)!} \sum_{m=1}^\infty \cos(2 \pi m z) \sum_{n=1}^\infty n^{k-1} q^{mn} \right],
+\end{equation}
+\begin{equation}
+    g^{(k)}(z)\big|_{k=3,5,\ldots} = -2i \frac{(2\pi i)^k}{(k-1)!} \sum_{m=1}^\infty \sin(2\pi mz) \sum_{n=1}^\infty n^{k-1} q^{mn}.
+\end{equation}
 
 INDEPENDENCE OF DIFFERENTIALS
 

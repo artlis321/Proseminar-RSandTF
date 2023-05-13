@@ -39,6 +39,8 @@
         \[\text{Existence: } \dim \mathcal H^1 = g \text{ (genus of compact Riemann surface)}\]
     \end{block}
 
+    \pause{}
+
     \begin{columns}[onlytextwidth]
         \begin{column}{0.55\textwidth}
             \emph{Proof outline:}
@@ -48,6 +50,7 @@
                 \item $h = f dz + g d \bar z \implies \dim H = 2 \dim \mathcal H^1$
                 \item $g \leq \dim \mathcal H^1 \leq g \implies \dim \mathcal H^1 = g$
             \end{itemize}
+
             \emph{Normalization \& period matrix:}
             \[ \int_{a_i} \omega_j = \delta_{ij} \]
             \[ \int_{b_i} \omega_j = \tau_{ij} \]
@@ -155,6 +158,8 @@
         \end{column}
     \end{columns}
 
+    \pause{}
+
     {
     % \setbeamercolor{block body}
     \setbeamercolor{block title}{bg=ETHBlue}
@@ -176,13 +181,13 @@
         Given a symmetric matrix $\tau$ with positive definite imaginary part, the Theta function is
         \[\Theta(\vec z, \tau) := \sum_{\vec n \in \mathbb Z^g} \ee \left( \frac{1}{2} \vec n^T \tau \vec n + \vec n^T \vec z \right) , \quad \ee(z) = \exp(2\pi i z)\]
     \end{block}
-    % \pause
+    
+    \pause{}
+
     \emph{Properties:} For $\vec \lambda \in \mathbb Z^g$
 
     \[\Theta(-\vec z) \overset{\vec n \mapsto -\vec n}{=} \Theta(\vec z)\]
-    % \pause
     \[\Theta(\vec z + \vec \lambda) = \sum_{\vec n \in \mathbb Z^g} \cancelto{1}{\ee ( \vec n^T \vec \lambda)} \ee(\ldots) = \Theta(\vec z)\]
-    % \pause
     \[\Theta(\vec z + \tau \vec \lambda) = \begin{bmatrix} \text{shift } \vec n \\ \text{use }\tau\text{ symmetry}\end{bmatrix} = \ee \left(- \frac{1}{2}\vec \lambda^T \tau \lambda-\vec \lambda^T \vec z\right)\Theta(\vec z)\]
 \end{frame}
 
@@ -194,6 +199,8 @@
             & P \mapsto \Theta(\mathbf{u}(P))
         \end{align*}
     \end{block}
+
+    \pause{}
 
     \emph{Properties:}
     \[ \theta(P + a_i) = \theta(P) \]
@@ -220,6 +227,8 @@
         \end{column}
     \end{columns}
 
+    \pause{}
+
     {
     % \setbeamercolor{block body}
     \setbeamercolor{block title}{bg=ETHBlue}
@@ -239,16 +248,14 @@
         \[\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z, \tau) := \sum_{\vec n \in \mathbb Z^g} \ee 
         \left( \frac{1}{2} (\vec n+\epsilon/2)^T \tau (\vec n+\epsilon/2) + (\vec n+\epsilon/2)^T (\vec z+\epsilon'/2) \right)\]
     \end{block}
-    % \pause
+
     \emph{Properties:}
 
     \[\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z + \vec \alpha + \tau \vec \beta) =
     \ee\left(\frac{1}{2}(\epsilon^T \vec \alpha - \vec \beta^T \epsilon') - \frac{1}{2} \beta^T \tau \beta - \vec \beta \vec z\right)
     \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z)\]
-    % \pause
     \[\Theta\begin{bmatrix}\epsilon + 2\eta \\ \epsilon' + 2\eta' \end{bmatrix}(\vec z) = \exp(\pi i \epsilon^T \eta')
     \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) , \quad \eta,\eta' \in \mathbb Z^g\]
-    % \pause
     \[\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(-\vec z) = \exp(\pi i \epsilon^T \epsilon') \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) , \quad \epsilon,\epsilon' \in \mathbb Z^g\]
 \end{frame}
 
@@ -260,16 +267,14 @@
         \ee\left(\frac{1}{8}\epsilon^T \tau \epsilon + \frac{1}{2}\epsilon^T \vec z + \frac{1}{4}\epsilon^T  \epsilon'\right)
         \Theta\left(\vec z + \frac{\epsilon'}{2}+\frac{\tau\epsilon}{2}\right)\] 
     \end{block}
-    % \pause
+
     \emph{Properties:}
 
     \[\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z + \vec \alpha + \tau \vec \beta) =
     \ee\left(\frac{1}{2}(\epsilon^T \vec \alpha - \vec \beta^T \epsilon') - \frac{1}{2} \beta^T \tau \beta - \vec \beta \vec z\right)
     \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z)\]
-    % \pause
     \[\Theta\begin{bmatrix}\epsilon + 2\eta \\ \epsilon' + 2\eta' \end{bmatrix}(\vec z) = \exp(\pi i \epsilon^T \eta')
     \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) , \quad \eta,\eta' \in \mathbb Z^g\]
-    % \pause
     \[\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(-\vec z) = \exp(\pi i \epsilon^T \epsilon') \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) , \quad \epsilon,\epsilon' \in \mathbb Z^g\]
 \end{frame}
 
@@ -297,6 +302,8 @@
         \end{column}
     \end{columns}
 
+    \pause{}
+
     {
         % \setbeamercolor{block body}
         \setbeamercolor{block title}{bg=ETHBlue}
@@ -316,6 +323,9 @@
         It has equivalent definition
         \[\theta_1(z) = 2iq^{1/8} \sin(\pi z) \prod_{j>0} (1-q^j) (1-wq^j)(1-w^{-1}q^j) , \quad q=\ee(\tau),w=\ee(z)\]
     \end{block}
+
+    \pause{}
+
     \emph{Jacobi Triple Product:}
     % https://en.wikipedia.org/wiki/Jacobi_triple_product
     % https://en.wikipedia.org/wiki/Theta_function
@@ -326,11 +336,15 @@
 \begin{frame}{Odd theta function at genus 1}
     \[f(x,y) = \prod_{m>0} (1-x^{2m})(1+x^{2m-1}y^2)(1+x^{2m-1}y^{-2})\]
     \[f(x,xy) = \prod_{m>0} (1-x^{2m})(1+x^{2m+1}y^2)(1+x^{2m-3}y^{-2}) = \frac{1+x^{-1}y^{-2}}{(1+xy^2)}f(x,y) = x^{-1}y^{-2}f(x,y)\]
-    % \pause
+    
+    \pause{}
+
     \[f(x,y) = \sum_{n=-\infty}^\infty c_n(x) y^{2n} \implies f(x,y) = xy^2 f(x,xy) = \sum_n c_n(x) x^{2n+1}y^{2n+2}\]
     \[\implies c_{n+1}(x) = x^{2n+1}c_n(x) \implies c_{n}(x) = c_0(x) x^{n^2} \implies f(x,y) = c_0(x) \sum_n x^{n^2} y^{2n}\]
 
     This relates the two forms of the theta function : $\prod_j (1-q^j) (1-wq^j)(1-w^{-1}q^j) \simeq \sum_n \ee(\tau)^{n^2} \ee(z)^{n}$
+
+    \pause{}
 
     {
         % \setbeamercolor{block body}
@@ -348,7 +362,9 @@
     Rough outline of how to reproduce a function with divisor $(f) = \sum n_i P_i$
     \[ \begin{bmatrix}\text{Find function }t(z) \\ \text{with known simple zero}\end{bmatrix} \rightarrow \begin{bmatrix} g(z)=\prod t(P-P_i)^{n_i} \\ \text{respecting possible periodicity}\end{bmatrix} \rightarrow \left(\frac{f}{g}\right) = \emptyset \rightarrow \frac{f}{g} = \text{const.} \]
     Recall that $\deg((f)) = \sum n_i = 0$ for meromorphic functions, so extra factors can easily cancel.
-    % \pause
+    
+    \pause{}
+    
     \vspace{+1em}
     \begin{columns}[t]
         \begin{column}{0.3\textwidth}
@@ -358,20 +374,24 @@
             \end{itemize}
         \end{column}
 
-        \begin{column}{0.3\textwidth}
-            Genus $>0$:
-            \begin{itemize}
-                \item $\Theta(\xi) = 0$
-                \item $g_{P'} : P \mapsto \Theta(\mathbf{u}(P)-\mathbf{u}(P')+\xi)$
-                \item $f(P) = C \prod \left(g_{P_i}(P)\right)^{n_i}$
-            \end{itemize}
-        \end{column}
+        \pause{}
 
         \begin{column}{0.35\textwidth}
             Genus 1:
             \begin{itemize}
                 \item Decompose $z_i = \frac{b_i}{2} + \tau \frac{a_i}{2}$
                 \item $f(z) = C \prod \left(\theta\begin{bmatrix}a_i+1 \\ b_i+1\end{bmatrix}(z)\right)^{n_i}$
+            \end{itemize}
+        \end{column}
+
+        \pause{}
+
+        \begin{column}{0.3\textwidth}
+            Genus $>0$:
+            \begin{itemize}
+                \item $\Theta(\xi) = 0$
+                \item $g_{P'} : P \mapsto \Theta(\mathbf{u}(P)-\mathbf{u}(P')+\xi)$
+                \item $f(P) = C \prod \left(g_{P_i}(P)\right)^{n_i}$
             \end{itemize}
         \end{column}
     \end{columns}
@@ -381,15 +401,21 @@
 
 \begin{frame}{Analogous function for Genus 0}
     \[\tilde F(z,\alpha) = \frac{(z+\alpha)}{(z)(\alpha)}\]
-    % \pause
+
+    \pause{}
+
     \[\downarrow\]
     \[\alpha \tilde F(z,\alpha) dz = \sum_{n=0,1} \alpha^n g^{(n)}(z) dz = dz + \alpha \frac{dz}{z}\]
-    % \pause
+    
+    \pause{}
+    
     \[\downarrow\]
     \[\tilde{F}(z_1,\alpha_1)\tilde{F}(z_2,\alpha_2) = \tilde{F}(z_1,\alpha_1+\alpha_2)\tilde{F}(z_2-z_1,\alpha_2) + \tilde{F}(z_2,\alpha_1+\alpha_2)\tilde{F}(z_1-z_2,\alpha_1)\]
     \[g^{(1)}(z_1)g^{(1)}(z_2) = g^{(1)}(z_1)g^{(1)}(z_2-z_1) + g^{(1)}(z_2)g^{(1)}(z_1-z_2)\]
     \[\frac{1}{(t-a)(t-b)} = \frac{1}{(t-a)(a-b)} + \frac{1}{(t-b)(b-a)}\]
-    % \pause
+    
+    \pause{}
+    
     \[\downarrow\]
     \[\text{use differentials to calculate multiple polylogarithms}\]
 \end{frame}
@@ -409,6 +435,18 @@
 \end{frame}
 
 \begin{frame}{Properties of the Kronecker function}{\tiny \cite{BL13} Section 3.4}
+    \emph{Periodicity Properties:}
+    \[F(z+1,\alpha) = \frac{\theta_1'(0)\theta_1(z+\alpha+1)}{\theta_1(z+1)\theta_1(\alpha)} = F(z,\alpha)\]
+    \[F(z+\tau,\alpha) = \frac{\theta_1'(0)\theta_1(z+\alpha+\tau)}{\theta_1(z+\tau)\theta_1(\alpha)} = \frac{\ee(-z-\alpha)}{\ee(-z)} F(z,\alpha)\]
+    
+    \pause{}
+
+    \begin{block}{The Fay identity}
+        \[F(z_1,\alpha_1)F(z_2,\alpha_2) = F(z_1,\alpha_1+\alpha_2)F(z_2-z_1,\alpha_2)+F(z_2,\alpha_1+\alpha_2)F(z_1-z_2,\alpha_1)\]
+    \end{block}
+
+    \pause{}
+
     {
         % \setbeamercolor{block body}
         \setbeamercolor{block title}{bg=ETHBlue}
@@ -419,14 +457,6 @@
             \end{itemize}
         \end{block}
     }
-    % \pause
-    \emph{Periodicity Properties:}
-    \[F(z+1,\alpha) = \frac{\theta_1'(0)\theta_1(z+\alpha+1)}{\theta_1(z+1)\theta_1(\alpha)} = F(z,\alpha)\]
-    \[F(z+\tau,\alpha) = \frac{\theta_1'(0)\theta_1(z+\alpha+\tau)}{\theta_1(z+\tau)\theta_1(\alpha)} = \frac{\ee(-z-\alpha)}{\ee(-z)} F(z,\alpha)\]
-    % \pause
-    \begin{block}{The Fay identity}
-        \[F(z_1,\alpha_1)F(z_2,\alpha_2) = F(z_1,\alpha_1+\alpha_2)F(z_2-z_1,\alpha_2)+F(z_2,\alpha_1+\alpha_2)F(z_1-z_2,\alpha_1)\]
-    \end{block}
 \end{frame}
 
 \begin{frame}{Setup for derivation of the Fay identity}{\tiny \cite{Mat19}}
@@ -446,6 +476,9 @@
     \vspace{-1em}
     \[\downarrow \text{long process involving odd and even theta functions at genus 1} \downarrow\]
     \[...\]
+    
+    \pause{}
+
     {
         % \setbeamercolor{block body}
         \setbeamercolor{block title}{bg=ETHBlue}
@@ -465,22 +498,7 @@
     \[g^{(1)}(z) = \pi \cot(\pi z) + 4\pi \sum_{m=1}^\infty \sin(2 \pi m z) \sum_{n=1}^\infty q^{mn}\]
     \[g^{(2)}(z) = -2\zeta_2 + 8 \pi^2 \sum_{m=1}^\infty \cos(2 \pi m z) \sum_{n=1}^\infty nq^{mn}\]
     \[\vdots\]
-    % \pause
     \[\boxed{g^{(n)}(-z) = (-1)^n g^{(n)}(z)}\]
-\end{frame}
-
-\begin{frame}{Independence of the differentials}{\tiny \cite{BL13} Lemma 8}
-    \[d(g^{(k+1)}(z)dz) = \nu \wedge (g^{(k)}(z)dz)\]
-
-    Let us assume that the first $w$ differentials are not independent
-    \[\sum_{k\leq w} c_{k} g^{(k)}(z) dz = 0\]
-
-    Then, we find that
-    \[ d\left(\sum_{k\leq w} c_{k} g^{(k)}(z) dz\right) = \nu \wedge \left(\sum_{k\leq w-1} c_{k} g^{(k)}(z) dz\right) = 0 \implies \sum_{k\leq w-1} c_{k} g^{(k)}(z) dz = 0 \]
-
-    Thus,
-    \[\sum_{k\leq w-1} c_{k} g^{(k)}(z) dz \neq 0 \implies \sum_{k\leq w} c_{k} g^{(k)}(z) dz \neq 0\]
-    and since $c_0 g^{(0)}(z) dz \neq 0$, all the differentials are independent by induction.
 \end{frame}
 
 \begin{frame}{Fay identity for differentials}
@@ -503,11 +521,31 @@
         \[\Omega(z+1,\alpha) = \ee\left(\alpha \frac{\Im(z+1)}{\Im(\tau)}\right) F(z+1,\alpha) = \Omega(z+1,\alpha)\]
         \[\Omega(z+\tau,\alpha) = \ee\left(\alpha \frac{\Im(z+\tau)}{\Im(\tau)}\right) F(z+1,\alpha) = \ee(\alpha) \ee\left(\alpha \frac{\Im(z)}{\Im(\tau)}\right) \ee(-\alpha) F(z,\alpha) = \Omega(z,\alpha)\]
     \end{block}
-    % \pause
+    
     Similarly, we find
     \[ \alpha \Omega(z,\alpha) = \sum_{n=0}^\infty f^{(n)}(z)dz \alpha^n \]
     for perfectly elliptic, but non-holomorphic $f$.
 
+\end{frame}
+
+\begin{frame}{Independence of the differentials}{\tiny \cite{BL13} Lemma 8}
+    \[d(f^{(k+1)}(z)dz) = \nu \wedge (f^{(k)}(z)dz), \quad \nu = 2\pi i d\left(\frac{\Im(z)}{\Im(\tau)}\right)\]
+
+    \pause{}
+
+    Let us assume that the first $w$ differentials are not independent
+    \[\sum_{k\leq w} c_{k} f^{(k)}(z) dz = 0\]
+
+    \pause{}
+
+    Then, we find that
+    \[ d\left(\sum_{k\leq w} c_{k} f^{(k)}(z) dz\right) = \nu \wedge \left(\sum_{k\leq w-1} c_{k} f^{(k)}(z) dz\right) = 0 \implies \sum_{k\leq w-1} c_{k} f^{(k)}(z) dz = 0 \]
+
+    \pause{}
+
+    Thus,
+    \[\sum_{k\leq w-1} c_{k} f^{(k)}(z) dz \neq 0 \implies \sum_{k\leq w} c_{k} f^{(k)}(z) dz \neq 0\]
+    and since $c_0 f^{(0)}(z) dz \neq 0$, all the differentials are independent by induction.
 \end{frame}
 
 \begin{frame}{Application of properties}
@@ -636,10 +674,14 @@
     We can define fixed points and cosets
     \[\gamma_i(P_i)=P_i, \quad \gamma_i(P_i')=P_i'\]
     \[\Gamma / \Gamma_i = \{\gamma_{j_1}^{n_1}\cdots \gamma_{j_k}^{n_k}: \gamma_{j_k} \neq \gamma_i\}\]
-    % \pause
+    
+    \pause{}
+    
     And use these to define holomorphic differentials using fixed points $P_i$
     \[\omega_i = \frac{1}{2\pi i}\sum_{\gamma \in \Gamma / \Gamma_i} \left(\frac{1}{z-\gamma(P_i')} - \frac{1}{z-\gamma(P_i)}\right)dz = \frac{1}{2\pi i}\sum_{\gamma \in \Gamma_i \setminus \Gamma } \left(\frac{1}{\gamma(z)-P_i'} - \frac{1}{\gamma(z)-P_i}\right)d(\gamma(z))\]
-    % \pause
+    
+    \pause{}
+    
     Which can then be used to define Abel's map
     \[u_i[p] = \int_{p_0}^p \omega_i = \frac{1}{2\pi i} \sum_{\gamma \in \Gamma/\Gamma_i} \ln \{p,\gamma(P_i'),p_0,\gamma(P_i)\}\]
     where
@@ -671,10 +713,18 @@
         \item Generalized Kronecker function should reduce to aforementioned genus 1 form
         \item Generalized Kronecker function should satisfy integrability in a particular way
     \end{enumerate}
+
+    \pause{}
+
     \[K(z,\{w_1,...,w_g\}|\Gamma) = \sum_{\gamma \in \Gamma} \frac{\gamma'(z)}{\gamma(z)-1} w_1^{\mathrm{ord}_1\gamma}...w_g^{\mathrm{ord}_g\gamma}\]
     
+    \pause{}
+
     At Genus 1, for $\gamma : z \mapsto \ee(\tau) z = qz$
     \[K(z,w|\Gamma) = \sum_{n \in \mathbb Z} \frac{q^n}{q^n z - 1} w^n = \cdots = \frac{1}{z} \left[\frac{z}{1-z} - \frac{1}{1-w} - \sum_{m,n > 0} q^{mn} (z^m w^n - z^{-m} w^{-n})\right]\]
+    
+    \pause{}
+    
     Recall
     \[F(\xi,\alpha) = -2\pi i \left(\frac{z}{1-z} + \frac{1}{1-w} + \sum_{m,n > 0} q^{mn}(z^m w^n - z^{-m} w^{-n}) \right) \quad , \quad \begin{pmatrix} z \\ w \\ q \end{pmatrix} = \ee \begin{pmatrix}z \\ \alpha \\ \tau\end{pmatrix}\]
 \end{frame}

@@ -12,15 +12,15 @@
 
 \section{Introduction}
 
-As seen in the previous two reports (\ref{rep:B10} and \ref{rep:B11}), the Theta and Kronecker functions are crucial to defining multiple elliptic polylogarithms. In this section we will analyze these mathematical tools in more detail, with the goal of considering open questions in generalizations to a higher genus can be approached.
+As seen in the previous two reports (\ref{rep:B10} and \ref{rep:B11}), the theta and Kronecker functions are crucial to defining multiple elliptic polylogarithms. In this section we will analyze these mathematical tools in more detail, with the goal of considering open questions in generalizations to a higher genus can be approached.
 
 In Section \ref{secB12:Abel}, we will start with a review of normalized holomorphic differentials on compact Riemann surfaces. These will be applied to define Abel's map, a function that takes assigns complex vectors to points on the Riemann surface, taking advantage of the differentials' properties to achieve an additively quasiperiodic result.
 
-Then in Section \ref{secB12:Theta}, Theta functions will discussed in detail as they can be defined at an arbitrary genus. These functions use Abel's map to assign complex numbers to a Riemann surface in a quasiperiodic way. In particular, we will find through an example that odd versions of the Theta functions are essentially elliptic/hyperelliptic analogues of the linear monomial $(z-z_0)$ at genus 0.
+Then in Section \ref{secB12:theta}, theta functions will discussed in detail as they can be defined at an arbitrary genus. These functions use Abel's map to assign complex numbers to a Riemann surface in a quasiperiodic way. In particular, we will find through an example that odd versions of the theta functions are essentially elliptic/hyperelliptic analogues of the linear monomial $(z-z_0)$ at genus 0.
 
-In Section \ref{secB12:Kronecker}, we will define the familiar Kronecker function can be defined as a ratio of Theta functions at genus 1. This can be used to define quasiperiodic holomorphic differentials with properties including the bilinear Fay relation, which allows us to relate products of the differentials to products that may be simpler to evaluate.
+In Section \ref{secB12:Kronecker}, we will define the familiar Kronecker function can be defined as a ratio of theta functions at genus 1. This can be used to define quasiperiodic holomorphic differentials with properties including the bilinear Fay identity, which allows us to relate products of the differentials to products that may be simpler to evaluate.
 
-Finally in Section \ref{secB12:Schottky}, we will take a look at a particular way used today to attempt generalizations of the Kronecker function to higher genus. Schottky covers use mobius transformations to define a recursive structure on the complex plane that can be chosen to be a cover of a Riemann surface. With such covers, properties of holomorphic differentials, Abel's map, and Theta functions are easier to investigate directly, and attempts at a Kronecker function can be made.
+Finally in Section \ref{secB12:Schottky}, we will take a look at a particular way used today to attempt generalizations of the Kronecker function to higher genus. Schottky covers use mobius transformations to define a recursive structure on the complex plane that can be chosen to be a cover of a Riemann surface. With such covers, properties of holomorphic differentials, Abel's map, and theta functions are easier to investigate directly, and attempts at a Kronecker function can be made.
 
 \begin{figure}
     \center
@@ -139,7 +139,7 @@ with this result being kept as the map is continued analytically along $a$-cycle
 
 Unfortunately, it is not so simple to define a fundamental domain and identify holomorphic differentials for higher genus. The resolution to this challenge is covered in Section \ref{secB12:SchottkyDifAndAbel}.
 
-\section{Theta functions}\label{secB12:Theta}
+\section{Theta functions}\label{secB12:theta}
 
 With Abel's map, we have derived a additively quasiperiodic function that takes us from the manifold to vectors in $\mathbb C^g$. We seek to take advantage of this definition to find a function that instead embodies multiplicative quasiperiodicity. Then, the location of zeros on the Riemann surface will be homotopically invariant, since moving along a cycle and multiplying by some factor will not change whether the function vanishes.
 
@@ -151,41 +151,41 @@ The multiplicative quasiperiodicity will be facilitated by using properties of t
 \subsection{Definition on $\mathbb C^g$}
 
 \begin{definition}[Theta function]
-    Given a $g \times g$ matrix $\tau$ that is symmetric $(\tau = \tau^T)$ and has positive definite imaginary part $(\vec n^T (\Im \tau) \vec n > 0 \forall \vec n \in \mathbb R^g \setminus \vec 0)$, we can define the associated Theta function
-    \begin{equation} \label{eqnB12:ThetaGeneralDefn}
+    Given a $g \times g$ matrix $\tau$ that is symmetric $(\tau = \tau^T)$ and has positive definite imaginary part $(\vec n^T (\Im \tau) \vec n > 0 \forall \vec n \in \mathbb R^g \setminus \vec 0)$, we can define the associated theta function
+    \begin{equation} \label{eqnB12:thetaGeneralDefn}
         \Theta(\vec z,\tau) := \sum_{\vec n \in \mathbb Z^g} \bolde\left(\frac{1}{2} \vec n^T \tau \vec n + \vec n^T \vec z\right)
     \end{equation}
-    where $\vec z \in \mathbb C^g$. From this point forward the Theta functions explicit dependence on $\tau$ will be omitted, since the Theta functions are almost always discussed in the context of a $\tau$ chosen to be a constant.
+    where $\vec z \in \mathbb C^g$. From this point forward the theta functions explicit dependence on $\tau$ will be omitted, since the theta functions are almost always discussed in the context of a $\tau$ chosen to be a constant.
 \end{definition}
 
-Though we will omit a formal proof thereof, it is apparent that the series will converge due to the matrix $\tau$ having a positive definite imaginary part supressing terms with large $\vec n$. As we will go on to see in the following section, the choices made for the Theta function are made to fit naturally with the formalism we developed for Riemann surfaces, as the matrix $\tau$ will be filled by the period matrix and the input $\vec z$ will be the output of Abel's map.
+Though we will omit a formal proof thereof, it is apparent that the series will converge due to the matrix $\tau$ having a positive definite imaginary part supressing terms with large $\vec n$. As we will go on to see in the following section, the choices made for the theta function are made to fit naturally with the formalism we developed for Riemann surfaces, as the matrix $\tau$ will be filled by the period matrix and the input $\vec z$ will be the output of Abel's map.
 
-\begin{lemma}[Properties of the Theta function]
-    \label{lemmaB12:ThetaGeneralProperties}
-    The Theta function satisfies the properties
-    \begin{equation} \label{eqnB12:ThetaGeneralEven}
+\begin{lemma}[Properties of the theta function]
+    \label{lemmaB12:thetaGeneralProperties}
+    The theta function satisfies the properties
+    \begin{equation} \label{eqnB12:thetaGeneralEven}
         \Theta(\vec z) = \Theta(-\vec z)
     \end{equation}
-    \begin{equation} \label{eqnB12:ThetaGeneralShift}
+    \begin{equation} \label{eqnB12:thetaGeneralShift}
         \Theta(\vec z+\vec \alpha) = \Theta(\vec z) \quad \forall \vec \alpha \in \mathbb Z^g
     \end{equation}
-    \begin{equation} \label{eqnB12:ThetaGeneralTauShift}
+    \begin{equation} \label{eqnB12:thetaGeneralTauShift}
         \Theta(\vec z + \tau \vec \beta) = \bolde\left(-\frac{1}{2}\vec \beta^T \tau \vec \beta - \vec \beta^T \vec z\right) \Theta(\vec z) \quad \forall \vec \beta \in \mathbb Z^g
     \end{equation}
 \end{lemma}
 
 \begin{proof} The simple proofs of the three properties are included for the convenience of the reader.
 
-    Proving that the Theta function is even (\ref{eqnB12:ThetaGeneralEven})
+    Proving that the theta function is even (\ref{eqnB12:thetaGeneralEven})
     \begin{align}
         \Theta(-\vec z) = \sum_{\vec n \in \mathbb Z^g} \bolde\left(\frac{1}{2} \vec n^T \tau \vec n + \vec n^T (-\vec z)\right) \overset{\vec n \mapsto -\vec m}{=} \sum_{\vec m \in \mathbb Z^g} \bolde\left(\frac{1}{2} \vec m^T \tau \vec m + \vec m^T \vec z\right) = \Theta(\vec z)
     \end{align}
-    Proving that the Theta function is invariant under integer shifts (\ref{eqnB12:ThetaGeneralShift})
+    Proving that the theta function is invariant under integer shifts (\ref{eqnB12:thetaGeneralShift})
     \begin{align}
         \Theta(\vec z + \vec \alpha) &= \sum_{\vec n \in \mathbb Z^g} \bolde\left(\frac{1}{2} \vec n^T \tau \vec n + \vec n^T (\vec z + \vec \alpha)\right) \\ &=
         \sum_{\vec n \in \mathbb Z^g} \underset{=1}{\underbrace{\bolde\left(\vec n^T \vec \alpha\right)}} \bolde\left(\frac{1}{2} \vec n^T \tau \vec n + \vec n^T \vec z\right) = \Theta(\vec z)
     \end{align}
-    Proving that the Theta function is invariant under period matrix shifts (\ref{eqnB12:ThetaGeneralTauShift})
+    Proving that the theta function is invariant under period matrix shifts (\ref{eqnB12:thetaGeneralTauShift})
     \begin{align}
         \Theta(\vec z + \tau \vec \beta) &= \sum_{\vec n \in \mathbb Z^g} \bolde\left(\frac{1}{2} \vec n^T \tau \vec n + \vec n^T (\vec z + \tau \vec \beta)\right) \\ &=
         \sum_{\vec n \in \mathbb Z^g}
@@ -195,19 +195,19 @@ Though we will omit a formal proof thereof, it is apparent that the series will 
 \end{proof}
 
 \subsection{Definition on compact Riemann surface}
-Now, we can combine Abel's map (\ref{defB12:AbelMap}) and the Theta function above (\ref{eqnB12:ThetaGeneralDefn}) to identify Theta functions directly on a compact Riemann surface. The properties of the two functions work perfectly together to produce desired quasiperiodic results on the Riemann surface.
+Now, we can combine Abel's map (\ref{defB12:AbelMap}) and the theta function above (\ref{eqnB12:thetaGeneralDefn}) to identify theta functions directly on a compact Riemann surface. The properties of the two functions work perfectly together to produce desired quasiperiodic results on the Riemann surface.
 
 \begin{definition}[Theta function on a compact Riemann surface]
-    Using Abel's map $\mathbf{u} : \mathcal M \mapsto \mathbb C^g$ with some basepoint $P_0 \in \mathcal M$, and the Theta function $\Theta : \mathbb C^g \mapsto \mathbb C$ with $\tau$ corresponding to the period matrix of $\mathcal M$, we identify
+    Using Abel's map $\mathbf{u} : \mathcal M \mapsto \mathbb C^g$ with some basepoint $P_0 \in \mathcal M$, and the theta function $\Theta : \mathbb C^g \mapsto \mathbb C$ with $\tau$ corresponding to the period matrix of $\mathcal M$, we identify
 
     \begin{equation}
         \theta(P) = \Theta(\mathbf{u}(P),\tau)
     \end{equation}
-    as a Theta function on the Riemann surface.
+    as a theta function on the Riemann surface.
 \end{definition}
 
-\begin{lemma}[Properties of Theta functions on a compact Riemann surface]
-    Using the analytic continuation provided by Abel's map and the quasiperiodic properties of the Theta function, we find that
+\begin{lemma}[Properties of theta functions on a compact Riemann surface]
+    Using the analytic continuation provided by Abel's map and the quasiperiodic properties of the theta function, we find that
     \begin{equation}
         \theta(P+a_i) = \theta(P),
     \end{equation}
@@ -216,22 +216,22 @@ Now, we can combine Abel's map (\ref{defB12:AbelMap}) and the Theta function abo
     \end{equation}
 \end{lemma}
 
-Recall that Abel's map on a genus 1 Riemann surface is simply $\mathbf{u}(z)=z$ (Equation \ref{eqnB12:AbelGenus1}). We can then easily see that the Theta function on a genus 1 Riemann surface is simply
+Recall that Abel's map on a genus 1 Riemann surface is simply $\mathbf{u}(z)=z$ (Equation \ref{eqnB12:AbelGenus1}). We can then easily see that the theta function on a genus 1 Riemann surface is simply
 \begin{equation}
     \theta(z) = \Theta(\mathbf{u}(z)) = \Theta(z) = \sum_{n \in \mathbb Z} \bolde\left(\frac{1}{2}n^2 \tau + n z\right),
 \end{equation}
-a plot of which is seen in Figure \ref{figB12:Genus1Theta}.
+a plot of which is seen in Figure \ref{figB12:Genus1theta}.
 
 \begin{figure}
     \center
     \includegraphics{assets/genus1theta.png}
-    \caption{Complex plot of the Theta function on a genus 1 surface with $\tau = 0.7+0.6i$. For $\theta(z)=r\exp(i\phi)$, the color represents the argument $\phi$. One can see the quasiperiodic properties: the plot is perfectly symmetric with respect to shifts by 1 ($a$-cycles), and quasiperiodic with respect to shifts by $\tau$ ($b$-cycles). The points around which the color wraps are simple zeros, the locations of which are proven in Theorem \ref{thmB12:OddLocations}.}
-    \label{figB12:Genus1Theta}
+    \caption{Complex plot of the theta function on a genus 1 surface with $\tau = 0.7+0.6i$. For $\theta(z)=r\exp(i\phi)$, the color represents the argument $\phi$. One can see the quasiperiodic properties: the plot is perfectly symmetric with respect to shifts by 1 ($a$-cycles), and quasiperiodic with respect to shifts by $\tau$ ($b$-cycles). The points around which the color wraps are simple zeros, the locations of which are proven in Theorem \ref{thmB12:OddLocations}.}
+    \label{figB12:Genus1theta}
 \end{figure}
 
 \subsection{Characteristics and zeros}
 \begin{definition}[Theta function with characteristics]
-    For vectors $\epsilon,\epsilon' \in \mathbb C^g$, the Theta function with characteristics is defined as
+    For vectors $\epsilon,\epsilon' \in \mathbb C^g$, the theta function with characteristics is defined as
     \begin{align}
         \Theta\begin{bmatrix} \epsilon \\  \epsilon'\end{bmatrix}(\vec z) :=& \ 
         \bolde\left(\frac{1}{8}\epsilon^T \tau \epsilon + \frac{1}{2}\epsilon^T \vec z + \frac{1}{4}\epsilon^T  \epsilon'\right)
@@ -242,10 +242,10 @@ a plot of which is seen in Figure \ref{figB12:Genus1Theta}.
     Note that many sources (e.g. \cite{Cha22} and \cite{ComputationalSchottky}) use $\epsilon,\epsilon' \mapsto \epsilon/2,\epsilon'/2$ instead to simplify parts of the notation.
 \end{definition}
 
-The choice of adding characteristics to the Theta functions in this way seems arbitrary, but it actually leads to a few key properties. First, it is apparent from the definition that the Theta function, and consequently its zeros, are shifted by some controlled amount. Second, the quasiperiodicity and parity properties of the Theta function will change in ways that we will be able to take advantage of.
+The choice of adding characteristics to the theta functions in this way seems arbitrary, but it actually leads to a few key properties. First, it is apparent from the definition that the theta function, and consequently its zeros, are shifted by some controlled amount. Second, the quasiperiodicity and parity properties of the theta function will change in ways that we will be able to take advantage of.
 
-\begin{lemma}[Properties of the Theta functions with characteristics]
-    The Theta function satisfies the properties
+\begin{lemma}[Properties of the theta functions with characteristics]
+    The theta function satisfies the properties
     \begin{equation}\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z + \vec \alpha + \tau \vec \beta) =
     \ee\left(\frac{1}{2}(\epsilon^T \vec \alpha - \vec \beta^T \epsilon') - \frac{1}{2} \beta^T \tau \beta - \vec \beta \vec z\right)
     \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z)
@@ -256,7 +256,7 @@ The choice of adding characteristics to the Theta functions in this way seems ar
     % \pause
     \begin{equation}\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(-\vec z) = \exp(\pi i \epsilon^T \epsilon') \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) , \quad \epsilon,\epsilon' \in \mathbb Z^g\end{equation}
 
-    The first property is analogous to the quasiperiodicity of the theta function before (\ref{eqnB12:ThetaGeneralShift} and \ref{eqnB12:ThetaGeneralTauShift}).
+    The first property is analogous to the quasiperiodicity of the theta function before (\ref{eqnB12:thetaGeneralShift} and \ref{eqnB12:thetaGeneralTauShift}).
     
     The second property shows that, up to a sign, the characteristics are equivalent modulo 2.
     
@@ -264,7 +264,7 @@ The choice of adding characteristics to the Theta functions in this way seems ar
 \end{lemma}
 
 \begin{proof}
-    The first and second properties are proved analogously to Lemma \ref{lemmaB12:ThetaGeneralProperties}.
+    The first and second properties are proved analogously to Lemma \ref{lemmaB12:thetaGeneralProperties}.
 
     The third property uses
     \begin{equation}
@@ -273,10 +273,10 @@ The choice of adding characteristics to the Theta functions in this way seems ar
     followed by applying the second property using $\eta=2\epsilon$ and $\eta=2\epsilon'$ to return to the original characteristics with a possible sign difference.
 \end{proof}
 
-The third property tells us that for characteristics $\epsilon,\epsilon' \in \mathbb Z^g$ such that $\epsilon^T\epsilon'$ is odd, the resulting Theta function will be odd. Since odd function vanish at the origin, this property can be used to identify the locations of zeros for the Theta function in general.
+The third property tells us that for characteristics $\epsilon,\epsilon' \in \mathbb Z^g$ such that $\epsilon^T\epsilon'$ is odd, the resulting theta function will be odd. Since odd function vanish at the origin, this property can be used to identify the locations of zeros for the theta function in general.
 
-\begin{theorem}[Location of zeros of the Theta function]\label{thmB12:OddLocations}
-    The zeros of the Theta function are
+\begin{theorem}[Location of zeros of the theta function]\label{thmB12:OddLocations}
+    The zeros of the theta function are
     \begin{equation}
         \Theta\left(\frac{\epsilon}{2} + \frac{\tau \epsilon'}{2}\right) = 0
     \end{equation}
@@ -288,7 +288,7 @@ The third property tells us that for characteristics $\epsilon,\epsilon' \in \ma
     \begin{equation}
         \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(-\vec z) = -\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) \implies \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(0) = 0.
     \end{equation}
-    Using the definition of the Theta function with characteristics
+    Using the definition of the theta function with characteristics
     \begin{equation}
         \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(0) = \overset{\neq 0}{\overbrace{\bolde( \cdots )}}\Theta\left(0+ \frac{\epsilon'}{2}+\frac{\tau\epsilon}{2}\right) = 0,
     \end{equation}
@@ -299,10 +299,10 @@ The third property tells us that for characteristics $\epsilon,\epsilon' \in \ma
     as desired.
 \end{proof}
 
-Depending on the genus, the number of possible odd characteristics changes. Indeed, one can prove that the precise number is $2^{g-1}(2^g-1)$ choices out of the $2^{2g}$ possible integer characteristics modulo 2. At genus 1, this leaves only a single function, known as \emph{the} odd Theta function at genus 1.
+Depending on the genus, the number of possible odd characteristics changes. Indeed, one can prove that the precise number is $2^{g-1}(2^g-1)$ choices out of the $2^{2g}$ possible integer characteristics modulo 2. At genus 1, this leaves only a single function, known as \emph{the} odd theta function at genus 1.
 
-\begin{definition}[The odd Theta function at genus 1]
-    The odd Theta function at genus 1 can be identified as
+\begin{definition}[The odd theta function at genus 1]
+    The odd theta function at genus 1 can be identified as
     \begin{equation}
         \theta_1(z) = -\Theta \begin{bmatrix}1 \\ 1\end{bmatrix} (z),
     \end{equation}
@@ -310,7 +310,7 @@ Depending on the genus, the number of possible odd characteristics changes. Inde
 \end{definition}
 
 \subsection{Decomposition of functions}\label{secB12:decomposition}
-To provide some intuition and illustration of the properties of Theta functions, this section will describe their use in the decomposition of meromorphic functions.
+To provide some intuition and illustration of the properties of theta functions, this section will describe their use in the decomposition of meromorphic functions.
 
 Parts of this proof have already been done in \ref{rep:A5}, with results for decompositions of meromorphic functions at genus 0 (Equation \ref{eqnA5:eqnA5:rational product}) and at genus 1 (Equation \ref{eqnA5:trans-theta-ratio}).
 
@@ -338,11 +338,11 @@ Consider decomposing a function $f$ with divisor $(f)$ (see \ref{rep:A9} for an 
     \end{equation}
 \end{lemma}
 
-Essentially, we can see the Theta functions as higher genus analogues of a linear monomial. This will come into play to inspire the choice of the Kronecker function in the next section.
+Essentially, we can see the theta functions as higher genus analogues of a linear monomial. This will come into play to inspire the choice of the Kronecker function in the next section.
 
 \section{Kronecker function}\label{secB12:Kronecker}
 
-With a better understanding and formalism of Theta functions, we can now return to the Kronecker function from prior reports (\ref{rep:B10} and \ref{rep:B11}). Rather than focusing on the consequences that the Kronecker function has for multiple elliptic polylogarithms \cite{BL13} or its applications to string theory \cite{Broedel_2022}, we will focus on the properties that it has and how those properties are inherited by the functions used in its expansion.
+With a better understanding and formalism of theta functions, we can now return to the Kronecker function from prior reports (\ref{rep:B10} and \ref{rep:B11}). Rather than focusing on the consequences that the Kronecker function has for multiple elliptic polylogarithms \cite{BL13} or its applications to string theory \cite{Broedel_2022}, we will focus on the properties that it has and how those properties are inherited by the functions used in its expansion.
 
 \subsection{Genus 0 analogy}
 
@@ -365,7 +365,7 @@ Furthermore, with some effort we can identify that
 \begin{equation}
     \tilde{F}(z_1,\alpha_1)\tilde{F}(z_2,\alpha_2) = \tilde{F}(z_1,\alpha_1+\alpha_2)\tilde{F}(z_2-z_1,\alpha_2) + \tilde{F}(z_2,\alpha_1+\alpha_2)\tilde{F}(z_1-z_2,\alpha_1),
 \end{equation}
-which is the titular \emph{bilinear relation}. In the next section with the actual Kronecker function, the analogous relation will be called the Fay Relation.
+which is the titular \emph{bilinear relation}. In the next section with the actual Kronecker function, the analogous relation will be called the Fay identity.
 
 Expanding this relation as done in Equation \ref{eqnB12:ExpandExample} and matching corresponding powers of $\alpha_i$ will give us the result
 \begin{equation}
@@ -381,10 +381,10 @@ Of course, proving this relation for partial fractions does not require the roun
 
 \subsection{Definition and properties of the Kronecker function}
 
-In section \label{secB12:decomposition}, we showed how Theta functions are analogous to linear monomials through the way meromorphic functions are decomposed at various genera. In the previous section, we used linear monomials in order to construct $\tilde F$ which generated differentials $g^{(i)}$ useful for multiple polylogarithms \cite{rep:B1}. Combining these ideas, we can define the Kronecker function $F$, using the odd Theta function at genus 1 instead of linear monomials.
+In section \label{secB12:decomposition}, we showed how theta functions are analogous to linear monomials through the way meromorphic functions are decomposed at various genera. In the previous section, we used linear monomials in order to construct $\tilde F$ which generated differentials $g^{(i)}$ useful for multiple polylogarithms \cite{rep:B1}. Combining these ideas, we can define the Kronecker function $F$, using the odd theta function at genus 1 instead of linear monomials.
 
-\begin{definition}
-    The Kronecker function $F(z,\alpha,\tau)$ has equivalent definitions \cite{BL13}
+\begin{definition}[The Kronecker function]
+    The Kronecker function $F(z,\alpha,\tau)$ has equivalent definitions
     \begin{enumerate}
         \item In terms of the odd theta function
         \begin{equation}\frac{\theta_1'(0)\theta_1(z+\alpha)}{\theta_1(z)\theta_1(\alpha)}\end{equation}
@@ -397,15 +397,31 @@ In section \label{secB12:decomposition}, we showed how Theta functions are analo
     \begin{equation}
         E_j(\xi,\tau) = \lim_{N,M\rightarrow \infty} \sum_{n=-N}^N \sum_{m=-M}^M \frac{1}{(\xi+m+n\tau)^j}, \quad e_j(\tau) = \lim_{N,M\rightarrow \infty} \underset{\mathrm{except \ }(m,n)=(0,0)}{\underbrace{\sum_{n=-N}^N \sum_{m=-M}^M}} \frac{1}{(m+n\tau)^j}.
     \end{equation}
+
+    The Kronecker function satisfies quasiperiodic relations in the first variable
+    \begin{equation}
+        F(z+1,\alpha)=F(z,\alpha),
+    \end{equation}
+    \begin{equation}
+        F(z+\tau,\alpha)=\bolde(-\alpha)F(z,\alpha).
+    \end{equation}
 \end{definition}
 
 \begin{proof}
     An complete outline of the proof of equivalence of the definitions is given in \cite{BL13}.
+
+    The quasiperiodicity can be proved using the first definition and the quasiperiodicity of the theta function
+    \begin{equation}
+        F(z+1,\alpha) = \frac{\theta'(0)\theta(z+\alpha+1)}{\theta(z+1)\theta(\alpha)} = \frac{\theta'(0)\theta(z+\alpha)}{\theta(z)\theta(\alpha)} = F(z,\alpha)
+    \end{equation}
+    \begin{equation}
+        F(z+\tau,\alpha) = \frac{\theta'(0)\theta(z+\alpha+\tau)}{\theta(z+\tau)\theta(\alpha)} = \frac{\bolde(-z-\alpha)\theta'(0)\theta(z+\alpha)}{\bolde(-z)\theta(z)\theta(\alpha)} = \bolde(-\alpha) F(z,\alpha)
+    \end{equation}
 \end{proof}
 
-\begin{lemma}[The Fay relation]
+\begin{lemma}[The Fay identity]
     The Kronecker function defined above satisfies
-    \begin{equation}
+    \begin{equation}\label{eqnB12:FayKronecker}
         {F}(z_1,\alpha_1){F}(z_2,\alpha_2) = {F}(z_1,\alpha_1+\alpha_2){F}(z_2-z_1,\alpha_2) + {F}(z_2,\alpha_1+\alpha_2){F}(z_1-z_2,\alpha_1).
     \end{equation}
 \end{lemma}
@@ -413,7 +429,7 @@ In section \label{secB12:decomposition}, we showed how Theta functions are analo
 \begin{proof}
     A complete outline of the proof is given in \cite{Mat19} and is paraphrased here.
 
-    Using the definition of the Kronecker function in terms of Theta functions, we can multiply by all the denominators.
+    Using the definition of the Kronecker function in terms of theta functions, we can multiply by all the denominators.
     This gives us three terms, each of which is a product of 4 theta functions. After a relabeling of their arguments, we reach
     \begin{align}
         & \theta_1(a_0)\theta_1(b_0)\theta_1(a_2+b_1)\theta_1(a_2-b_1) + \\
@@ -432,10 +448,10 @@ With the Kronecker function defined, we can now take an expansion in $\alpha$ to
     \begin{equation}
         \alpha F(z,\alpha) = \sum_{n=0}^{\infty} g^{(n)}(z) \alpha^n,
     \end{equation}
-    we find the functions $g^{(n)}(z)$, which are suitable integration kernels for elliptic polylogarithms (\ref{rep:B11}) \cite{Broedel_2022}.
+    we find the functions $g^{(n)}(z)$, which are suitable integration kernels for elliptic polylogarithms (\ref{rep:B10}) \cite{Broedel_2022}.
 \end{definition}
 
-The resulting differentials have power expansions in $q = \bolde(\tau)$ \cite{Broedel_2015}
+The resulting functions have power expansions in $q = \bolde(\tau)$ \cite{Broedel_2015}
 \begin{equation}
     g^{(0)}(z) = 1,
 \end{equation}
@@ -449,11 +465,96 @@ The resulting differentials have power expansions in $q = \bolde(\tau)$ \cite{Br
     g^{(k)}(z)\big|_{k=3,5,\ldots} = -2i \frac{(2\pi i)^k}{(k-1)!} \sum_{m=1}^\infty \sin(2\pi mz) \sum_{n=1}^\infty n^{k-1} q^{mn}.
 \end{equation}
 
-INDEPENDENCE OF DIFFERENTIALS
+Using the Fay identity for the Kronecker function (\ref{eqnB12:FayKronecker}), we can prove a relation for the functions that it expanded to.
 
-FAY RELATION FOR DIFFERENTIALS
+\begin{lemma}[Fay identity satisfied by expansion of the Kronecker function]
+    The functions $g^{(n)}$ from the expansion of the Kronecker function in the second variable satisfy
+    \begin{align}
+        g^{(m)}(z_1) g^{(n)}(z_2) = (-1)^{n+1} g^{(m+n)}(z_1-z_2)& \\
+         +\sum_{r=0}^n \begin{pmatrix} m+r-1 \\ r \end{pmatrix} g^{(m+r)}(z_1) g^{(n-r)}(z_2-z_1) & \\
+         +\sum_{r=0}^m \begin{pmatrix} n+r-1 \\ r \end{pmatrix} g^{(n+r)}(z_2) g^{(m-r)}(z_1-z_2) & .
+    \end{align}
+\end{lemma}
 
-BRIEFLY SHOWING PERFECTLY PERIODIC VERSION
+\begin{proof}
+    We begin by expanding each Kronecker function in their Fay identity
+    \begin{equation}
+        {F}(z_1,\alpha_1){F}(z_2,\alpha_2) = {F}(z_1,\alpha_1+\alpha_2){F}(z_2-z_1,\alpha_2) + {F}(z_2,\alpha_1+\alpha_2){F}(z_1-z_2,\alpha_1)
+    \end{equation}
+    \begin{align}
+        \implies & \left(\frac{1}{\alpha_1} \sum_{j=0}^{\infty} g^{(j)}(z_1) \alpha_1^j\right)
+        \left(\frac{1}{\alpha_2} \sum_{j=0}^{\infty} g^{(j)}(z_2) \alpha_2^j\right) =
+        \\ & \quad \quad \left(\frac{1}{\alpha_1+\alpha_2} \sum_{j=0}^{\infty} g^{(j)}(z_1) (\alpha_1+\alpha_2)^j\right)
+        \left(\frac{1}{\alpha_2} \sum_{j=0}^{\infty} g^{(j)}(z_2-z_1) \alpha_2^j\right) +
+        \\ & \quad \quad \left(\frac{1}{\alpha_1+\alpha_2} \sum_{j=0}^{\infty} g^{(j)}(z_2) (\alpha_1+\alpha_2)^j\right)
+        \left(\frac{1}{\alpha_1} \sum_{j=0}^{\infty} g^{(j)}(z_1-z_2) \alpha_1^j\right).
+    \end{align}
+
+    Then, multiplying through by $\alpha_1\alpha_2(\alpha_1+\alpha_2)$ to remove fractions, we can isolate the coefficients of $\alpha_1^n \alpha_2^m$ and find
+    \begin{align}
+        & g^{(n-1)}(z_1)g^{(m)}(z_2)+g^{(n)}(z_1)g^{(m-1)}(z_2) =
+        \\ & \quad \quad \sum_{j=0}^{m} \begin{pmatrix} n-1+j \\ j \end{pmatrix} g^{(n-1+j)}(z_1) g^{(m-j)}(z_2-z_1) +
+        \\ & \quad \quad \sum_{j=0}^{n} \begin{pmatrix} m-1+j \\ j \end{pmatrix} g^{(m-1+j)}(z_2) g^{(n-j)}(z_1-z_2),
+    \end{align}
+    as in Equation 3.29 of \cite{Broedel_2015}.
+
+    (?!?!?!?!?!?!?!?!?!?!?)
+
+    The rest is left as an exercise for the reader.
+\end{proof}
+
+\subsection{Perfectly periodic differentials and their independence}
+
+In some applications, it is more useful to have the expansion produce functions that are perfectly periodic, sacrificing holomorphicity.
+Recall that this sacrifice is necessary, since it is not possible to have non-constant holomorphic and perfectly periodic functions.
+
+\begin{definition}[Perfectly periodic differential and expansion]
+    We define a differential from the Kronecker function that is perfectly periodic in the first argument as
+    \begin{equation}
+        \Omega(z,\alpha) = \bolde\left( \alpha \frac{\Im(z)}{\Im(\tau)}\right) F(z,\alpha) dz.
+    \end{equation}
+
+    The exterior derivative of this differential is
+    \begin{equation}
+        d\Omega(z,\alpha) = \nu \alpha \wedge \Omega(z,\alpha),
+    \end{equation}
+    for $\nu = 2 \pi i \cdot d\!\left(\frac{\Im(z)}{\Im(\tau)}\right)$.
+
+    Analogously to the Kronecker function, we can do an expansion in $\alpha$
+    \begin{equation}
+        \alpha \Omega(z,\alpha) = \sum_{n=0}^\infty f^{(n)}(z) \alpha^n,
+    \end{equation}
+    giving perfectly periodic differentials $f^{(n)}(z)$.
+\end{definition}
+
+\begin{proof}[Proof of Periodicity of $\Omega$]
+    We easily see that
+    \begin{equation}
+        \Omega(z+1,\alpha) = \bolde\left( \alpha \frac{\Im(z+1)}{\Im(\tau)}\right) F(z+1,\alpha) dz = \bolde\left( \alpha \frac{\Im(z)}{\Im(\tau)}\right) F(z,\alpha) dz = \Omega(z,\alpha),
+    \end{equation}
+    \begin{equation}
+        \Omega(z+\tau,\alpha) = \bolde\left( \alpha \frac{\Im(z+\tau)}{\Im(\tau)} \right) F(z+\tau,\alpha) dz = \bolde\left( \alpha \frac{\Im(z)}{\Im(\tau)}\right) \bolde(\alpha) \bolde(-\alpha) F(z,\alpha) dz = \Omega(z,\alpha).
+    \end{equation}
+\end{proof}
+
+\begin{lemma}[Independence of differentials]
+    The differentials $\{f^{(n)}$ for $n \geq 0\}$ from the expansion of $\Omega$ are linearly independent over $\mathbb C$.
+\end{lemma}
+\begin{proof}
+    This proof is a paraphrased version of one found in \cite{BL13}.
+
+    The relation $d\Omega = \nu \wedge \Omega$ gives us that
+    \begin{equation}
+        df^{(n+1)} = \nu \wedge f^{(n)} \quad \forall n \geq 0,
+    \end{equation}
+    which can be completed by noting
+    \begin{equation}
+        df^{(0)} = d^2 z = 0.
+    \end{equation}
+
+    REST OF PROOF
+
+\end{proof}
 
 \section{Schottky Covers}\label{secB12:Schottky}
 
@@ -471,6 +572,52 @@ In order to create maps involving discs on the complex plane, we can use Mobius 
         \gamma : \mathbb C \cup \{\infty\} \rightarrow \mathbb C \cup \{\infty\} ; \ z \mapsto \frac{az+b}{cz+d}
     \end{equation}
     with $ad-bc \neq 0$. Since rescaling of the coefficients $a,b,c,d\mapsto \lambda a,\lambda b, \lambda c, \lambda d$ do not change the map, they can be normalized to $ad-bc=1$.
+\end{definition}
+
+These Mobius transformations can then be used to define the Schottky group.
+The group is defined by pairs of discs, such that there is a generator for each pair that sends the outside of one disc to the inside of another.
+Figure \ref{figB12:MobiusIllustration} depicts how one may construct such a Mobius transformation.
+
+We will find that this is a suitable group for describing a compact Riemann surface. The intuition for why this works may be gleaned from Figure \ref{figB12:SchottkyIntuition}, as the boundaries of the discs will represent $a$-cycles on our surface.
+
+\begin{figure}
+    \center
+    \includegraphics[width=\textwidth]{assets/ChanSchottkyGroup.png}
+    \caption{
+        An illustration for how a Mobius transformation can be chosen to map the outside of one disc to the inside of another.
+        From left to right, we iteratively transform the outside to the inside by:
+        shifting to the origin ($z \mapsto z-x_1$), inverting ($z \mapsto 1/z$), rescaling ($z \mapsto r_1r_2 z$), and shifting to the appropriate center ($z \mapsto z+x_2$), 
+        where $x_1,x_2$ are the centers and $r_1,r_2$ are the radii of the respective discs.
+    }
+    \label{figB12:MobiusIllustration}
+\end{figure}
+
+\begin{figure}
+    \center
+    \includegraphics{assets/ChanSchottkyCover.png}
+    \caption{
+        As we move past an $a$-cycle on the compact Riemann surface (right), we move inside the corresponding disc on the Riemann sphere (left).
+        On the Riemann surface, we continue past the $a$-cycle to the other half of the handle it is on.
+        On the sphere, this is equivalent to moving outside the other disc in the pair.
+        The Schottky group, mapping insides of one disc to the outside of another, puts the structure we expect on the Riemann surface onto the Riemann sphere with discs.
+    }
+    \label{figB12:SchottkyIntuition}
+\end{figure}
+
+\begin{definition}[Schottky group]
+    Choosing mutually disjoint discs $\{D_i,D_i'\}$ with interiors $\{\mathring{D}_i,\mathring{D}_i'\}$ on a Riemann sphere,
+    we can choose mobius transformations $\gamma_i$ such that the exterior of $D_i$ is mapped to the interior of $D_i'$
+    \begin{equation}
+        \gamma_i \in \text{PSL}_2(\mathbb C) , \quad \gamma_i : z \mapsto \frac{az+b}{cz+d}
+    \end{equation}
+    \begin{equation}
+        \gamma_i(\bar C \setminus \mathring{D}_i) = D_i'
+    \end{equation}
+    \begin{equation}
+        \gamma_i(\partial D_i) = \partial D_i'
+    \end{equation}
+
+    The transformations formed by composition of $\gamma_i$ form the Schottky group $\Gamma$.
 \end{definition}
 
 \subsection{Differentials and Abel's map}\label{secB12:SchottkyDifAndAbel}

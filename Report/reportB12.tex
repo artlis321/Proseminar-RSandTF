@@ -523,8 +523,8 @@ Recall that this sacrifice is necessary, since it is not possible to have non-co
     giving perfectly periodic differentials $f^{(n)}(z)$.
 \end{definition}
 
-\begin{proof}[Proof of Periodicity of $\Omega$]
-    We easily see that
+\begin{proof}
+    We can easily show the periodicity properties of $\Omega$,
     \begin{equation}
         \Omega(z+1,\alpha) = \bolde\left( \alpha \frac{\Im(z+1)}{\Im(\tau)}\right) F(z+1,\alpha) dz = \bolde\left( \alpha \frac{\Im(z)}{\Im(\tau)}\right) F(z,\alpha) dz = \Omega(z,\alpha),
     \end{equation}
@@ -636,7 +636,7 @@ This process is called the uniformization of a Riemann surface; unfortunately a 
 Though a step towards the intuition was already seen in Figure \ref{figB12:SchottkyIntuition}, with the proper definition in hand we can take another look.
 As we expect, the fundamental domain $F$ is the fundamental domain of the Riemann surface $\mathcal M$, bounded by several of the $a$-cycles.
 The Schottky group produces infinite copies of the fundamental domain inside of the discs, as in the formula for $\Omega$.
-These copies are entered by any path that crosses one of the chosen $a$-cycles, but is returned to the fundamental domain by the action of some element of $\Gamma$.
+These copies are entered by any path that crosses one of the chosen $a$-cycles, but is returned to the fundamental domain by the action of a generator of $\Gamma$.
 To aid in developing this intuition, Figure \ref{figB12:SchottkyIntuition2} shows the fundamental domain and one of its copies.
 
 \begin{figure}
@@ -652,10 +652,70 @@ To aid in developing this intuition, Figure \ref{figB12:SchottkyIntuition2} show
 \end{figure}
 
 \subsection{Differentials and Abel's map}\label{secB12:SchottkyDifAndAbel}
-\cite{ComputationalSchottky}
+
+Using the Schottky cover, we can now define the tools we used in Section \ref{secB12:Abel} at higher genus in a practical way.
+Though it is not demonstrated in this report, such a step is instructive as it allows us to see directly the consequences of our constructions at higher genera.
+
+In order to properly define the holomorphic differentials and Abel's map in a convergent manner, we must first analyze the fixed points of the generators $\gamma \in \Gamma$.
+
+\begin{definition}[Fixed points and cosets of a Schottky group]
+    Given a Schottky group $\Gamma$ with generators $\gamma_i$ corresponding to pairs of discs $\{D_i,D_i'\}$,
+    we can identify the fixed points
+    \begin{align}
+        P_i \in D_i & \text{ s.t. } \gamma_i(P_i)=P_i, \\
+        P_i' \in D_i' & \text{ s.t. } \gamma_i(P_i')=P_i'.
+    \end{align}
+
+    We will define right coset $\Gamma / \Gamma_i$ as
+    \begin{equation}
+        \Gamma / \Gamma_i = \{\gamma \in \Gamma | \gamma = \gamma_{j_1}^{n_1} \cdots \gamma_{j_k}^{n_k}, \ j_k \neq i\}.
+    \end{equation}
+\end{definition}
+
+The upcoming definitions will involve sums over generators of our group acting on the fixed points.
+By choosing to sum over only the corresponding cosets, we avoid divergences by adding up the same contributions from the fixed points infinite times.
+
+\begin{definition}[Holomorphic differentials on a Schottky cover]
+    Given a Schottky cover corresponding to a group $\Gamma$ and pairs of discs $\{D_i,D_i'\}$ with fixed points $\{P_i,P_i'\}$, we can identify holomorphic differentials
+    \begin{equation}
+        \omega_i = \frac{dz}{2\pi i} \sum_{\gamma \in \Gamma / \Gamma_i} \frac{1}{z - \gamma(P_i')} - \frac{1}{z - \gamma(P_i)}.
+    \end{equation}
+
+    The resulting differentials are normalized on the $a$-cycles as one would expect since
+    \begin{equation}
+        \int_{\partial D_i} \omega_j = \int_{\partial D_i'} \omega_j = \delta_{ij},
+    \end{equation}
+    provided the contours are chosen with the appropriate orientation. This statement is also true for images of the discs' boundaries from elements of the Schottky group.
+\end{definition}
+\begin{proof}
+    The normalization of the differentials is a consequence of the Cauchy residue theorem.
+
+    The images of fixed points $P_j$ and $P_j'$ always appear in pairs inside of discs (or images of discs) $D_i$ or $D_i'$ for $i \neq j$.
+    Consequently, integrating along the boundaries of these discs gives us
+    \begin{align}
+        & \int_{\partial D_i} \omega_j =
+        \int_{\partial D_i} \frac{dz}{2\pi i} \sum_{\gamma \in \Gamma / \Gamma_i} \frac{1}{z - \gamma(P_i')} - \frac{1}{z - \gamma(P_i)} = \\
+        & \quad \quad \sum_{\gamma \in \Gamma / \Gamma_i} \Res(\frac{1}{z - \gamma(P_i)},\gamma(P_i)) - \Res(\frac{1}{z - \gamma(P_i')},\gamma(P_i')) =
+        \sum_{\gamma \in \Gamma / \Gamma_i} 0 = 0.
+    \end{align}
+
+    One can show that, when $i = j$ instead, then there is an extra fixed point contained besides all the infinite pairs, which gives a residue of 1 for the integral.
+\end{proof}
+
+In particular, these normalized holomorphic differentials can be used to identify Abel's map, the period matrix, and then theta functions at corresponding genera.
+For conciseness, only the Abel's map is shown here.
+
+\begin{definition}[Abel's map on a Schottky cover]
+    Given a Schottky cover corresponding to a group $\Gamma$ and pairs of discs $\{D_i,D_i'\}$ with fixed points $\{P_i,P_i'\}$, we can identify the Abel's map with some basepoint $p_0$ as
+    \begin{equation}
+        \mathbf{u}_i(p) = \int_{p_0}^p \omega_i = \frac{1}{2\pi i } \sum_{\gamma \in \Gamma/\Gamma_i} \log\left(\frac{(p-\gamma(P_i'))(p_0-\gamma(P_i))}{(p-\gamma(P_i))(p_0-\gamma(P_i'))}\right).
+    \end{equation}
+\end{definition}
 
 \subsection{Attempt at a Kronecker function}
 \cite{Cha22}
+
+\section{Outlook}
 
 \bibliography{reportB12}
 \bibliographystyle{alphaurl}

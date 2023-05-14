@@ -215,7 +215,7 @@
 
             \[\theta(z)=\theta(-z)\]
             \[\theta(z+1)=\theta(z)\]
-            \[\theta(z+\tau)=\ee\left(-\frac{1}{2}\tau-\xi\right)\theta(z)\]
+            \[\theta(z+\tau)=\ee\left(-\frac{1}{2}\tau-z\right)\theta(z)\]
         \end{column}
         \begin{column}{0.45\textwidth}
             \center{}
@@ -253,7 +253,7 @@
 
     \[\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z + \vec \alpha + \tau \vec \beta) =
     \ee\left(\frac{1}{2}(\epsilon^T \vec \alpha - \vec \beta^T \epsilon') - \frac{1}{2} \beta^T \tau \beta - \vec \beta \vec z\right)
-    \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z)\]
+    \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z), \quad \alpha,\beta \in \mathbb Z^g\]
     \[\Theta\begin{bmatrix}\epsilon + 2\eta \\ \epsilon' + 2\eta' \end{bmatrix}(\vec z) = \exp(\pi i \epsilon^T \eta')
     \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) , \quad \eta,\eta' \in \mathbb Z^g\]
     \[\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(-\vec z) = \exp(\pi i \epsilon^T \epsilon') \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) , \quad \epsilon,\epsilon' \in \mathbb Z^g\]
@@ -323,39 +323,6 @@
         It has equivalent definition
         \[\theta_1(z) = 2iq^{1/8} \sin(\pi z) \prod_{j>0} (1-q^j) (1-wq^j)(1-w^{-1}q^j) , \quad q=\ee(\tau),w=\ee(z)\]
     \end{block}
-
-    \pause{}
-
-    \emph{Jacobi Triple Product:}
-    % https://en.wikipedia.org/wiki/Jacobi_triple_product
-    % https://en.wikipedia.org/wiki/Theta_function
-    \[f(x,y) = \prod_{m>0} (1-x^{2m})(1+x^{2m-1}y^2)(1+x^{2m-1}y^{-2})\]
-    \[f(x,xy) = \prod_{m>0} (1-x^{2m})(1+x^{2m+1}y^2)(1+x^{2m-3}y^{-2}) = \frac{1+x^{-1}y^{-2}}{1+xy^2} f(x,y) = x^{-1}y^{-2}f(x,y)\]
-\end{frame}
-
-\begin{frame}{Odd theta function at genus 1}
-    \[f(x,y) = \prod_{m>0} (1-x^{2m})(1+x^{2m-1}y^2)(1+x^{2m-1}y^{-2})\]
-    \[f(x,xy) = \prod_{m>0} (1-x^{2m})(1+x^{2m+1}y^2)(1+x^{2m-3}y^{-2}) = \frac{1+x^{-1}y^{-2}}{(1+xy^2)}f(x,y) = x^{-1}y^{-2}f(x,y)\]
-    
-    \pause{}
-
-    \[f(x,y) = \sum_{n=-\infty}^\infty c_n(x) y^{2n} \implies f(x,y) = xy^2 f(x,xy) = \sum_n c_n(x) x^{2n+1}y^{2n+2}\]
-    \[\implies c_{n+1}(x) = x^{2n+1}c_n(x) \implies c_{n}(x) = c_0(x) x^{n^2} \implies f(x,y) = c_0(x) \sum_n x^{n^2} y^{2n}\]
-
-    This relates the two forms of the theta function : $\prod_j (1-q^j) (1-wq^j)(1-w^{-1}q^j) \simeq \sum_n \ee(\tau)^{n^2} \ee(z)^{n}$
-
-    \pause{}
-
-    {
-        % \setbeamercolor{block body}
-        \setbeamercolor{block title}{bg=ETHBlue}
-        \setbeamercolor{block body}{bg=ETHBlue!25!white}
-        \begin{block}{What about higher genus?}
-            \begin{itemize}
-                \item Are there similar Jacobi formulas for higher genus theta functions?
-            \end{itemize}
-        \end{block}
-    }
 \end{frame}
 
 \begin{frame}{(Application) Decomposing meromorphic functions}{\tiny \cite{Cha22} Section 3.4 \& \cite{Ber06} Chapter 6}
@@ -399,7 +366,7 @@
 
 \section{Kronecker function}
 
-\begin{frame}{Analogous function for Genus 0}
+\begin{frame}{Analogous function for genus 0}
     \[\tilde F(z,\alpha) = \frac{(z+\alpha)}{(z)(\alpha)}\]
 
     \pause{}
@@ -519,7 +486,7 @@
         \[\Omega(z,\alpha) = \ee\left(\alpha \frac{\Im(z)}{\Im(\tau)}\right) F(z,\alpha)\]
         \vspace{+1em}
         \[\Omega(z+1,\alpha) = \ee\left(\alpha \frac{\Im(z+1)}{\Im(\tau)}\right) F(z+1,\alpha) = \Omega(z+1,\alpha)\]
-        \[\Omega(z+\tau,\alpha) = \ee\left(\alpha \frac{\Im(z+\tau)}{\Im(\tau)}\right) F(z+1,\alpha) = \ee(\alpha) \ee\left(\alpha \frac{\Im(z)}{\Im(\tau)}\right) \ee(-\alpha) F(z,\alpha) = \Omega(z,\alpha)\]
+        \[\Omega(z+\tau,\alpha) = \ee\left(\alpha \frac{\Im(z+\tau)}{\Im(\tau)}\right) F(z+\tau,\alpha) = \ee(\alpha) \ee\left(\alpha \frac{\Im(z)}{\Im(\tau)}\right) \ee(-\alpha) F(z,\alpha) = \Omega(z,\alpha)\]
     \end{block}
     
     Similarly, we find
@@ -529,7 +496,7 @@
 \end{frame}
 
 \begin{frame}{Independence of the differentials}{\tiny \cite{BL13} Lemma 8}
-    \[d(f^{(k+1)}(z)dz) = \nu \wedge (f^{(k)}(z)dz), \quad \nu = 2\pi i d\left(\frac{\Im(z)}{\Im(\tau)}\right)\]
+    \[d(f^{(k+1)}(z)dz) = \nu \wedge (f^{(k)}(z)dz), \quad \nu = 2\pi i \cdot d\left(\frac{\Im(z)}{\Im(\tau)}\right)\]
 
     \pause{}
 
@@ -539,7 +506,7 @@
     \pause{}
 
     Then, we find that
-    \[ d\left(\sum_{k\leq w} c_{k} f^{(k)}(z) dz\right) = \nu \wedge \left(\sum_{k\leq w-1} c_{k} f^{(k)}(z) dz\right) = 0 \implies \sum_{k\leq w-1} c_{k} f^{(k)}(z) dz = 0 \]
+    \[ d\left(\sum_{k\leq w} c_{k} f^{(k)}(z) dz\right) = \nu \wedge \left(\sum_{k\leq w-1} c_{k+1} f^{(k)}(z) dz\right) = 0 \implies \sum_{k\leq w-1} c_{k} f^{(k)}(z) dz = 0 \]
 
     \pause{}
 
@@ -605,7 +572,6 @@
                 \item What consequences does this have for Abel's map?
                 \item What does the Theta function look like at higher genus?
                 \item Which of the zeros located by odd characteristics are actually reached by Abel's map on compact Riemann surfaces of higher genus?
-                \item Are there similar Jacobi formulas for higher genus theta functions?
                 \item How can we define the Kronecker function at higher genus?
                 \item What does the Fay identity look like at higher genus when theta functions are more complicated?
             \end{itemize}
@@ -750,6 +716,32 @@
 
 \begin{frame}{References}
     \printbibliography{}
+\end{frame}
+
+\begin{frame}{Odd theta function at genus 1}
+    \emph{Jacobi Triple Product:}
+    \[f(x,y) = \prod_{m>0} (1-x^{2m})(1+x^{2m-1}y^2)(1+x^{2m-1}y^{-2})\]
+    \[f(x,xy) = \prod_{m>0} (1-x^{2m})(1+x^{2m+1}y^2)(1+x^{2m-3}y^{-2}) = \frac{1+x^{-1}y^{-2}}{(1+xy^2)}f(x,y) = x^{-1}y^{-2}f(x,y)\]
+    
+    \pause{}
+
+    \[f(x,y) = \sum_{n=-\infty}^\infty c_n(x) y^{2n} \implies f(x,y) = xy^2 f(x,xy) = \sum_n c_n(x) x^{2n+1}y^{2n+2}\]
+    \[\implies c_{n+1}(x) = x^{2n+1}c_n(x) \implies c_{n}(x) = c_0(x) x^{n^2} \implies f(x,y) = c_0(x) \sum_n x^{n^2} y^{2n}\]
+
+    This relates the two forms of the theta function : $\prod_j (1-q^j) (1-wq^j)(1-w^{-1}q^j) \simeq \sum_n \ee(\tau)^{n^2} \ee(z)^{n}$
+
+    \pause{}
+
+    {
+        % \setbeamercolor{block body}
+        \setbeamercolor{block title}{bg=ETHBlue}
+        \setbeamercolor{block body}{bg=ETHBlue!25!white}
+        \begin{block}{What about higher genus?}
+            \begin{itemize}
+                \item Are there similar Jacobi formulas for higher genus theta functions?
+            \end{itemize}
+        \end{block}
+    }
 \end{frame}
 
 \end{document}

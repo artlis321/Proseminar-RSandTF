@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: reportB12.aux
+The top-level auxiliary file: .\reportB12.aux
 Reallocating 'name_of_file' (item size: 1) to 10 items.
 Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: alphaurl.bst
@@ -17,7 +17,7 @@ Reallocating 'wiz_functions' (item size: 4) to 6000 items.
 Warning--empty publisher in Ber06
 You've used 8 entries,
             3368 wiz_defined-function locations,
-            747 strings with 6736 characters,
+            748 strings with 6749 characters,
 and the built_in function-call counts, 3437 in all, are:
 = -- 330
 > -- 132

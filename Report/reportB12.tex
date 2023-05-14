@@ -552,7 +552,7 @@ Recall that this sacrifice is necessary, since it is not possible to have non-co
         df^{(0)} = d^2 z = 0.
     \end{equation}
 
-    REST OF PROOF
+    TO DO: REST OF PROOF
 
 \end{proof}
 
@@ -620,11 +620,44 @@ We will find that this is a suitable group for describing a compact Riemann surf
     The transformations formed by composition of $\gamma_i$ form the Schottky group $\Gamma$.
 \end{definition}
 
+The Schottky group can then be used to represent a Riemann surface.
+This process is called the uniformization of a Riemann surface; unfortunately a closer look at this process is beyond the scope of this report.
+
+\begin{definition}[Schottky cover]
+    Given a Schottky group $\Gamma$ corresponding to $g$ pairs of discs $\{D_i,D_i'\}$, we can denote
+    \begin{equation}
+        F = \mathbb C \cup \{\infty\} \setminus \bigcup_i \left( \mathring{D}_i,\mathring{D}_i' \right),
+    \end{equation}
+    \begin{equation}
+        \Omega = \bigcup_{\gamma \in \Gamma} \gamma(F).
+    \end{equation}
+
+    Then, $\mathcal M = \Omega / \Gamma$ is a Riemann surface of genus $g$, with fundamental domain $F$.
+\end{definition}
+
+Though a step towards the intuition was already seen in Figure \ref{figB12:SchottkyIntuition}, with the proper definition in hand we can take another look.
+As we expect, the fundamental domain $F$ is the fundamental domain of the Riemann surface $\mathcal M$, bounded by several of the $a$-cycles.
+The Schottky group produces infinite copies of the fundamental domain inside of the discs, as in the formula for $\Omega$.
+These copies are entered by any path that crosses one of the chosen $a$-cycles, but is returned to the fundamental domain by the action of some element of $\Gamma$.
+To aid in developing this intuition, Figure \ref{figB12:SchottkyIntuition2} shows the fundamental domain and one of its copies.
+
+\begin{figure}
+    \center
+    \includegraphics[width=0.4\textwidth]{assets/Genus2SchottkyOuter.png}
+    \includegraphics[width=0.4\textwidth]{assets/Genus2SchottkyInner.png}
+    \caption{
+        Two images of the same Schottky cover for some genus 2 Riemann surface.
+        On the left, the fundamental domain is highlighted.
+        On the right, an image of the fundamental domain after the action of some element of the Schottky group is highlighted.
+    }
+    \label{figB12:SchottkyIntuition2}
+\end{figure}
+
 \subsection{Differentials and Abel's map}\label{secB12:SchottkyDifAndAbel}
 \cite{Cha22}
 \cite{ComputationalSchottky}
 
-\subsection{Attepmts at a Kronecker function}
+\subsection{Attempt at a Kronecker function}
 \cite{Cha22}
 
 \bibliography{reportB12}

@@ -474,7 +474,7 @@ Using the Fay identity for the Kronecker function (\ref{eqnB12:FayKronecker}), w
 \begin{lemma}[Fay identity satisfied by expansion of the Kronecker function]
     The functions $g^{(n)}$ from the expansion of the Kronecker function in the second variable satisfy
     \begin{align}
-        g^{(m)}(z_1) g^{(n)}(z_2) = (-1)^{n+1} g^{(m+n)}(z_1-z_2)& \\
+        g^{(m)}(z_1) g^{(n)}(z_2) = (-1)^{n-1} g^{(m+n)}(z_1-z_2)& \\
          +\sum_{r=0}^n \begin{pmatrix} m+r-1 \\ r \end{pmatrix} g^{(m+r)}(z_1) g^{(n-r)}(z_2-z_1) & \\
          +\sum_{r=0}^m \begin{pmatrix} n+r-1 \\ r \end{pmatrix} g^{(n+r)}(z_2) g^{(m-r)}(z_1-z_2) & .
     \end{align}
@@ -504,7 +504,7 @@ Using the Fay identity for the Kronecker function (\ref{eqnB12:FayKronecker}), w
 
     By relabeling $m \mapsto m+1$, and isolating the resulting $g^{(m)}(z_1)g^{(n)}(z_2)$ term, we can use a careful proof by induction involving combinatorics to show that
     \begin{align}
-        g^{(m)}(z_1) g^{(n)}(z_2) = (-1)^{n+1} g^{(m+n)}(z_1-z_2)& \\
+        g^{(m)}(z_1) g^{(n)}(z_2) = (-1)^{n-1} g^{(m+n)}(z_1-z_2)& \\
          +\sum_{r=0}^n \begin{pmatrix} m+r-1 \\ r \end{pmatrix} g^{(m+r)}(z_1) g^{(n-r)}(z_2-z_1) & \\
          +\sum_{r=0}^m \begin{pmatrix} n+r-1 \\ r \end{pmatrix} g^{(n+r)}(z_2) g^{(m-r)}(z_1-z_2) & .
     \end{align}
@@ -800,20 +800,18 @@ where the first term was $\begin{pmatrix} m+r-1 \\ -1 \end{pmatrix}=0$, intermed
 Similarly, for line \ref{eqnB12:kernelFaySUB}, we can define $r=j-k-1$ such that
 \begin{align}
     \sum_{k=0}^{n-1} (-1)^k \sum_{j=0}^{m+k+1} \begin{pmatrix} n+j-k-1 \\ j \end{pmatrix} g^{(n+j-k-1)}(z_2) g^{(m-j+k+1)}(z_1-z_2) = \\
-    \sum_{r=-n}^m g^{(n+r)}(z_2) g^{(m-r)}(z_1-z_2) \sum_{j=r}^{n+r} (-1)^{j-r+1} \begin{pmatrix}n+r \\ j\end{pmatrix}.
+    \underset{r=-n, k=n-1, j=0}{\underbrace{(-1)^{n-1} g^{(0)}(z_2) g^{(m+n)}(z_1-z_2)}} + \sum_{r=-n+1}^m g^{(n+r)}(z_2) g^{(m-r)}(z_1-z_2) \sum_{j=r}^{n+r} (-1)^{j-r+1} \begin{pmatrix}n+r \\ j\end{pmatrix}.
 \end{align}
 
 Again, we can focus on just simplifying the combinatoric sum, starting with $j \mapsto n+r-j$
 \begin{align}
     \sum_{j=r}^{n+r-1} (-1)^{j-r+1} \begin{pmatrix}n+r \\ j\end{pmatrix} = \sum_{j=0}^{n-1} (-1)^{n-j+1} \begin{pmatrix}n+r \\ j\end{pmatrix} = \begin{pmatrix} n+r-1 \\ n-1 \end{pmatrix} = \begin{pmatrix} n+r-1 \\ r \end{pmatrix},
 \end{align}
-which restricts the sum $\sum_{r=-n}^m$ to only non-negative values of $r$.
-
-\newpage
+where choose functions with negative arguments are 0, restricting our sum over $r$ to only take non-negative values.
 
 Thus, combining all the results we find
 \begin{align}
-    & g^{(m)}(z_1)g^{(n)}(z_2) = \\
+    & g^{(m)}(z_1)g^{(n)}(z_2) = (-1)^{n-1} g^{(m+n)}(z_1-z_2) \\
     & \quad \quad \sum_{r=0}^n \begin{pmatrix} m+r-1 \\ r \end{pmatrix} g^{(m+r)}(z_1) g^{(n-r)}(z_2-z_1) \\
     & \quad \quad \sum_{r=0}^m \begin{pmatrix} n+r-1 \\ r \end{pmatrix} g^{(n+r)}(z_2) g^{(m-r)}(z_1-z_2).
 \end{align}

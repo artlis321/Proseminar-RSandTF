@@ -561,8 +561,32 @@ Recall that this sacrifice is necessary, since it is not possible to have non-co
         df^{(0)} = d^2 z = 0.
     \end{equation}
 
-    TO DO: REST OF PROOF
+    We now have the tools necessary to approach a proof by contradiction using induction.
 
+    Let us assume that there exists some $w > 0$ we have non-independent $\{f^{(n)} \forall n < w\}$, that is we have
+    \begin{equation}
+        \sum_{k=0}^{w-1} c_{k} f^{(k)} = 0
+    \end{equation}
+    for some non-trivial $\{c_{k}\}$.
+
+    Then, by taking the exterior derivative we find
+    \begin{equation}
+        d\left(\sum_{k=0}^{w-1} c_{k} f^{(k)}\right) = \nu \wedge \sum_{k=0}^{w-2} c_{k+1} f^{(k)} = 0.
+    \end{equation}
+
+    If the remaining coefficients $\{c_{k+1}\}$ were trivial, then it would mean that our original assumption was simply
+    \begin{equation}
+        c_0 f^{(0)} = 0,
+    \end{equation}
+    which is not true.
+
+    Thus, the remaining coefficient are still non-trivial, and we have shown that $\{f^{(n)} \forall n < w-1\}$ are not independent either.
+
+    By induction, we see that
+    \begin{equation}
+        \{f^{(n)} \text{ for } n \leq w\} \text{ not independent} \implies \{f^{(0)}\} \text{ not independent},
+    \end{equation}
+    which reaches a contradiction. Thus, our initial assumption that there exists some $w$ for which differentials of lesser weight are not independent was false.
 \end{proof}
 
 \section{Schottky Covers}\label{secB12:Schottky}

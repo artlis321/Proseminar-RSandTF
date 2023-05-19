@@ -15,45 +15,45 @@ Warning--entry type for "Cha22" isn't style-file defined
 Warning--I didn't find a database entry for "rep:B1"
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
 Warning--empty publisher in Ber06
-You've used 8 entries,
+You've used 10 entries,
             3368 wiz_defined-function locations,
-            748 strings with 6749 characters,
-and the built_in function-call counts, 3437 in all, are:
-= -- 330
-> -- 132
-< -- 4
-+ -- 39
-- -- 38
-* -- 163
-:= -- 526
-add.period$ -- 23
-call.type$ -- 8
-change.case$ -- 44
-chr.to.int$ -- 8
-cite$ -- 9
-duplicate$ -- 110
-empty$ -- 320
-format.name$ -- 50
-if$ -- 864
+            758 strings with 6963 characters,
+and the built_in function-call counts, 4184 in all, are:
+= -- 401
+> -- 150
+< -- 6
++ -- 43
+- -- 42
+* -- 193
+:= -- 628
+add.period$ -- 29
+call.type$ -- 10
+change.case$ -- 53
+chr.to.int$ -- 10
+cite$ -- 11
+duplicate$ -- 137
+empty$ -- 401
+format.name$ -- 58
+if$ -- 1061
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 8
-newline$ -- 42
-num.names$ -- 24
-pop$ -- 97
+missing$ -- 10
+newline$ -- 52
+num.names$ -- 30
+pop$ -- 125
 preamble$ -- 1
-purify$ -- 54
+purify$ -- 66
 quote$ -- 0
-skip$ -- 255
+skip$ -- 314
 stack$ -- 0
-substring$ -- 84
-swap$ -- 8
-text.length$ -- 4
-text.prefix$ -- 4
+substring$ -- 98
+swap$ -- 12
+text.length$ -- 6
+text.prefix$ -- 6
 top$ -- 0
-type$ -- 56
+type$ -- 68
 warning$ -- 1
-while$ -- 22
-width$ -- 11
-write$ -- 97
+while$ -- 26
+width$ -- 14
+write$ -- 121
 (There were 3 warnings)

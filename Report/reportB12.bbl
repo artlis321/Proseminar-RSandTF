@@ -34,6 +34,17 @@ Nils Matthes.
 \newblock An algebraic characterization of the kronecker function.
 \newblock {\em Research in the Mathematical Sciences}, 6(3):24, 2019.
 
+\bibitem[Mum94]{Mumford_1994}
+Mumford.
+\newblock {\em Tata Lectures on theta I ..}
+\newblock Birkhäuser Boston, MA, 1994.
+
+\bibitem[Tsu22]{tsuchiya2022formula}
+A.~G. Tsuchiya.
+\newblock On a formula of spin sums, eisenstein-kronecker series in higher
+  genus riemann surfaces, 2022.
+\newblock \href {https://arxiv.org/abs/2209.14633} {\path{arXiv:2209.14633}}.
+
 \bibitem[Zag91]{Zagier1991}
 Don Zagier.
 \newblock Periods of modular forms and jacobi theta functions.

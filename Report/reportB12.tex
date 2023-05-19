@@ -387,7 +387,7 @@ In section \label{secB12:decomposition}, we showed how theta functions are analo
         \item In terms of the odd theta function
         \begin{equation}\frac{\theta_1'(0)\theta_1(z+\alpha)}{\theta_1(z)\theta_1(\alpha)}\end{equation}
         \item In terms of a sum over exponentials
-        \begin{equation}-2\pi i \left(\frac{z}{1-z} + \frac{1}{1-w} + \sum_{m,n > 0} (z^m w^n - z^{-m} w^{-n}) q^{mn}\right) , \quad \begin{pmatrix} z \\ w \\ q \end{pmatrix} = \bolde \begin{pmatrix}\xi \\ \alpha \\ \tau\end{pmatrix}\end{equation}
+        \begin{equation} 2\pi i \left(\frac{\tilde z}{1-\tilde z} + \frac{1}{1-w} + \sum_{m,n > 0} (\tilde z^m w^n - \tilde z^{-m} w^{-n}) q^{mn}\right) , \quad \begin{pmatrix} \tilde z \\ w \\ q \end{pmatrix} = \bolde \begin{pmatrix}z \\ \alpha \\ \tau\end{pmatrix} \label{eqnB12:KroneckerSecondDef} \end{equation}
         \item In terms of a sum over Eisenstein functions and series
         \begin{equation}\frac{1}{\alpha} \exp\left(-\sum_{j > 0} \frac{(-\alpha)^j}{j} (E_j(z,\tau) - e_j(\tau))\right)\end{equation}
     \end{enumerate}
@@ -750,13 +750,38 @@ For conciseness, only the Abel's map is shown here.
 \end{definition}
 
 \subsection{Attempt at a Kronecker function}
-\cite{Cha22}
-SHOULD I EVEN INCLUDE THIS?
-IT CANNOT BE MADE TO HAVE ENOUGH DETAIL FOR ANY UNDERSTANDING BESIDES "SOMEONE TRIED TO DEFINE A KRONECKER FUNCTION AND IT ALMOST WORKED".
+
+In order to understand what it means to attempt a generalization of the Kronecker function to higher genus,
+we will take a look at a particular approach taken by \cite{Cha22}.
+In this thesis, the author used an existing connection on a Schottky group to define the Bernard-Kronecker function as
+\begin{equation}
+    K(z,\{w_1,\ldots,w_g\}|\Gamma) := \sum_{\gamma \in \Gamma} \frac{\gamma'(z)}{\gamma(z)-1} w_1^{\ord_1(\gamma)} w_1^{\ord_1(\gamma)} \cdots w_g^{\ord_g(\gamma)},
+\end{equation}
+where $\ord_i(\gamma)$ counts the sum of all powers of $\gamma_i$ in $\gamma$.
+
+At genus 1, choosing a simple Schottky cover with cocentric discs and $\gamma(z) = \bolde(\tau) z = qz$,
+\begin{equation}
+    K(z,w|\Gamma) = \sum_{n \in \mathbb Z} \frac{q^n}{q^n z - 1} w^{n},
+\end{equation}
+which, reexpressing the sums over positive and negative $n$, can be written as
+\begin{equation}
+    K(z,w|\Gamma) = \frac{1}{z}\left[ \frac{z}{1-z} - \frac{1}{1-w} - \sum_{m,n > 0} (z^m w^n - z^{-m} w^{-n}) q^{mn} \right].
+\end{equation}
+
+This is similar to the second definition of the Kronecker function from Equation \ref{eqnB12:KroneckerSecondDef}
+\begin{equation} F(\xi,\alpha) = 2\pi i \left(\frac{z}{1-z} + \frac{1}{1-w} + \sum_{m,n > 0} (z^m w^n - z^{-m} w^{-n}) q^{mn}\right) , \quad \begin{pmatrix} z \\ w \\ q \end{pmatrix} = \bolde \begin{pmatrix}\xi \\ \alpha \\ \tau\end{pmatrix} \end{equation},
+off by only a factor of $2 \pi i z$. Unfortunately, a closer inspection of the behavior of the Bernard-Kronecker function at higher genus reveals that it would not be properly quasi-periodic at higher genus.
 
 \section{Outlook}
-SIMILAR QUESTIONS TO THE LAST SLIDE OF THE PRESENTATION AND THE OUTLOOK OF CHAN'S PAPER?
-WILL DO AFTER PRESENTATION.
+With the tools from this report in mind, we can go on to ask questions about how we may generalize the Kronecker function at higher genus.
+There are many directions in which such questions can be asked, and here is a list of a few directions that one could take them
+\begin{itemize}
+    \item Theta functions at higher genus are well-defined, and could be investigated analytically or numerically.
+    It is likely that with the appropriate choice of characters and correction factors, we could identify Kronecker function at higher genus as ratios of theta functions.
+    Attempts at this have already been made \cite{tsuchiya2022formula}, and symmetries of theta functions \cite{Mumford_1994} could be used to prove Fay identities\cite{Mat19}.
+    \item The description and approach in terms of the Schottky cover could be analyzed further. Open questions for the Schottky cover description include finding appropriate cutting proceduresand improving the approach using the Bernard connection\cite{Cha22}.
+    \item Riemann surfaces can also be constructed form algebraic curves, as was done in \ref{rep:B10}. Despite the differences in the languages of algebraic curves, Schottky covers, and other representations, they should all lead to equivalent results.
+\end{itemize}
 
 \bibliography{reportB12}
 \bibliographystyle{alphaurl}

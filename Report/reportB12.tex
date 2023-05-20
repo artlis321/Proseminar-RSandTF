@@ -14,20 +14,20 @@
 
 \section{Introduction}
 
-As seen in the previous two reports (\ref{rep:B10} and \ref{rep:B11}), the theta and Kronecker functions are crucial to defining multiple elliptic polylogarithms. In this section we will analyze these mathematical tools in more detail, with the goal of considering open questions in generalizations to a higher genus can be approached.
+As seen in the previous two reports (Report \ref{rep:B10} and Report \ref{rep:B11}), the theta and Kronecker functions are crucial to defining multiple elliptic polylogarithms. In this report we will analyze these mathematical tools in more detail, with the goal of considering how open questions related to generalizations to a higher genus can be approached.
 
 In Section \ref{secB12:Abel}, we will start with a review of normalized holomorphic differentials on compact Riemann surfaces. These will be applied to define Abel's map, a function that takes assigns complex vectors to points on the Riemann surface, taking advantage of the differentials' properties to achieve an additively quasiperiodic result.
 
-Then in Section \ref{secB12:theta}, theta functions will discussed in detail as they can be defined at an arbitrary genus. These functions use Abel's map to assign complex numbers to a Riemann surface in a quasiperiodic way. In particular, we will find through an example that odd versions of the theta functions are essentially elliptic/hyperelliptic analogues of the linear monomial $(z-z_0)$ at genus 0.
+Then in Section \ref{secB12:theta}, theta functions will discussed in detail as they can be defined at an arbitrary genus. These functions use Abel's map to assign complex numbers to a Riemann surface in a quasiperiodic way. In particular, we will find through an example that theta functions can act as elliptic/hyperelliptic analogues of the linear term $(z-z_0)$ at genus 0.
 
-In Section \ref{secB12:Kronecker}, we will define the familiar Kronecker function can be defined as a ratio of theta functions at genus 1. This can be used to define quasiperiodic holomorphic differentials with properties including the bilinear Fay identity, which allows us to relate products of the differentials to products that may be simpler to evaluate.
+In Section \ref{secB12:Kronecker}, we will define the familiar Kronecker function as a ratio of theta functions at genus 1. This can be used to define quasiperiodic holomorphic differentials with properties including the bilinear Fay identity, which allows us to relate products of the differentials to products that may be simpler to evaluate.
 
 Finally in Section \ref{secB12:Schottky}, we will take a look at a particular way used today to attempt generalizations of the Kronecker function to higher genus. Schottky covers use mobius transformations to define a recursive structure on the complex plane that can be chosen to be a cover of a Riemann surface. With such covers, properties of holomorphic differentials, Abel's map, and theta functions are easier to investigate directly, and attempts at a Kronecker function can be made.
 
 \section{Abel's Map}\label{secB12:Abel}
 
 \subsection{Holomorphic differentials}
-Holomorphic and harmonic differentials are described in detail in \ref{rep:A6} and \ref{rep:A7}. However, for the readers convenience they will again be defined and their existence briefly shown here.
+Holomorphic and harmonic differentials are described in detail in Report \ref{rep:A6} and Report \ref{rep:A7}. However, for the readers convenience they will again be defined and their existence briefly shown here.
 
 For more detail on the definitions and proofs shown, one may refer to \cite{Ber06}.
 
@@ -55,7 +55,7 @@ For more detail on the definitions and proofs shown, one may refer to \cite{Ber0
 
     Let us start with the lower bound, $\dim \mathcal H^1 \geq g$.
 
-    As was described in \ref{defA6:ass_diff} and is illustrated in Figure \ref{figB12:Harmonic}, we are able to construct harmonic differentials from arbitrary cycles $\gamma$ on a compact Riemann surface. Since there are $2g$ independent cycles, there are at least $2g$ harmonic one-forms
+    As was described in Definition \ref{defA6:ass_diff} and is illustrated in Figure \ref{figB12:Harmonic}, we are able to construct harmonic differentials from arbitrary cycles $\gamma$ on a compact Riemann surface. Since there are $2g$ independent cycles, there are at least $2g$ harmonic one-forms
     \begin{equation}
         \dim H \geq 2g.
     \end{equation}
@@ -96,7 +96,7 @@ For more detail on the definitions and proofs shown, one may refer to \cite{Ber0
 
 \subsection{Definition of Abel's map}
 
-Now that the normalized holomorphic differentials are identified, we can all $g$ of them to produce a function that outputs a $\mathbb C^g$ vector. Since the differentials have known integrals on $a$-cycles and $b$-cycles, the definition of the function can just be made on the fundamental domain, with further points being identified through the cycles.
+Now that the normalized holomorphic differentials are identified, we can use all $g$ of them to produce a function that outputs a $\mathbb C^g$ vector. Since the differentials have known integrals on $a$-cycles and $b$-cycles, the definition of the function can just be made on the fundamental domain, with further points being identified through the cycles.
 
 \begin{definition}[Abel's map]\label{defB12:AbelMap}
     Given the normalized differentials $\omega_i$ for a Riemann surface $\mathcal M$ of genus $g$, we can define Abel's map on the fundamental domain $\mathcal L$ for some chosen basepoint $P_0$
@@ -147,12 +147,12 @@ The multiplicative quasiperiodicity will be facilitated by using properties of t
 
 \subsection{Definition on $\mathbb C^g$}
 
-\begin{definition}[Theta function]
+\begin{definition}[Theta function]\label{defB12:thetaGeneralDefn}
     Given a $g \times g$ matrix $\tau$ that is symmetric $(\tau = \tau^T)$ and has positive definite imaginary part $(\vec n^T (\Im \tau) \vec n > 0 \forall \vec n \in \mathbb R^g \setminus \vec 0)$, we can define the associated theta function
-    \begin{equation} \label{eqnB12:thetaGeneralDefn}
+    \begin{equation}
         \Theta(\vec z,\tau) := \sum_{\vec n \in \mathbb Z^g} \bolde\left(\frac{1}{2} \vec n^T \tau \vec n + \vec n^T \vec z\right)
     \end{equation}
-    where $\vec z \in \mathbb C^g$. From this point forward the theta functions explicit dependence on $\tau$ will be omitted, since the theta functions are almost always discussed in the context of a $\tau$ chosen to be a constant.
+    where $\vec z \in \mathbb C^g$. From this point forward the theta functions' explicit dependence on $\tau$ will be omitted, since the theta functions are almost always discussed in the context of a $\tau$ chosen to be a constant.
 \end{definition}
 
 Though we will omit a formal proof thereof, it is apparent that the series will converge due to the matrix $\tau$ having a positive definite imaginary part supressing terms with large $\vec n$. As we will go on to see in the following section, the choices made for the theta function are made to fit naturally with the formalism we developed for Riemann surfaces, as the matrix $\tau$ will be filled by the period matrix and the input $\vec z$ will be the output of Abel's map.
@@ -192,7 +192,7 @@ Though we will omit a formal proof thereof, it is apparent that the series will 
 \end{proof}
 
 \subsection{Definition on compact Riemann surface}
-Now, we can combine Abel's map (\ref{defB12:AbelMap}) and the theta function above (\ref{eqnB12:thetaGeneralDefn}) to identify theta functions directly on a compact Riemann surface. The properties of the two functions work perfectly together to produce desired quasiperiodic results on the Riemann surface.
+Now, we can combine Abel's map (Definition \ref{defB12:AbelMap}) and the theta function above (Definition \ref{defB12:thetaGeneralDefn}) to identify theta functions directly on a compact Riemann surface. The properties of the two functions work perfectly together to produce desired quasiperiodic results on the Riemann surface.
 
 \begin{definition}[Theta function on a compact Riemann surface]
     Using Abel's map $\mathbf{u} : \mathcal M \mapsto \mathbb C^g$ with some basepoint $P_0 \in \mathcal M$, and the theta function $\Theta : \mathbb C^g \mapsto \mathbb C$ with $\tau$ corresponding to the period matrix of $\mathcal M$, we identify
@@ -254,7 +254,7 @@ The choice of adding characteristics to the theta functions in this way seems ar
     % \pause
     \begin{equation}\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(-\vec z) = \exp(\pi i \epsilon^T \epsilon') \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z) , \quad \epsilon,\epsilon' \in \mathbb Z^g\end{equation}
 
-    The first property is analogous to the quasiperiodicity of the theta function before (\ref{eqnB12:thetaGeneralShift} and \ref{eqnB12:thetaGeneralTauShift}).
+    The first property is analogous to the quasiperiodicity of the theta function before (Equation \ref{eqnB12:thetaGeneralShift} and Equation \ref{eqnB12:thetaGeneralTauShift}).
     
     The second property shows that, up to a sign, the characteristics are equivalent modulo 2.
     
@@ -271,7 +271,7 @@ The choice of adding characteristics to the theta functions in this way seems ar
     followed by applying the second property using $\eta=2\epsilon$ and $\eta=2\epsilon'$ to return to the original characteristics with a possible sign difference.
 \end{proof}
 
-The third property tells us that for characteristics $\epsilon,\epsilon' \in \mathbb Z^g$ such that $\epsilon^T\epsilon'$ is odd, the resulting theta function will be odd. Since odd function vanish at the origin, this property can be used to identify the locations of zeros for the theta function in general.
+The third property tells us that for characteristics $\epsilon,\epsilon' \in \mathbb Z^g$ such that $\epsilon^T\epsilon'$ is odd, the resulting theta function will be odd. Since odd functions vanish at the origin, this property can be used to identify the locations of zeros for the theta function in general.
 
 \begin{theorem}[Location of zeros of the theta function]\label{thmB12:OddLocations}
     The zeros of the theta function are
@@ -310,9 +310,9 @@ Depending on the genus, the number of possible odd characteristics changes. Inde
 \subsection{Decomposition of functions}\label{secB12:decomposition}
 To provide some intuition and illustration of the properties of theta functions, this section will describe their use in the decomposition of meromorphic functions.
 
-Parts of this proof have already been done in \ref{rep:A5}, with results for decompositions of meromorphic functions at genus 0 (Equation \ref{eqnA5:eqnA5:rational product}) and at genus 1 (Equation \ref{eqnA5:trans-theta-ratio}).
+Some of results were already shown in Report \ref{rep:A5}, specifically at genus 0 (Equation \ref{eqnA5:eqnA5:rational product}) and at genus 1 (Equation \ref{eqnA5:trans-theta-ratio}).
 
-Consider decomposing a function $f$ with divisor $(f)$ (see \ref{rep:A9} for an overview of divisors). We can approach this by constructing a function $g$ such that $(g)=(f)$. Then, the function $f/g$ has divisor $(f/g)=(f)-(g)=0$, and is thus constant by Liouville's theorem (Theorem \ref{thrmA9:1_Liouville_compact_surface}). Consequently, the desired function $f$ is off from our constructed function $g$ by a constant.
+Consider decomposing a function $f$ with divisor $(f)$ (see Report \ref{rep:A9} for an overview of divisors). We can approach this by constructing a function $g$ such that $(g)=(f)$. Then, the function $f/g$ has divisor $(f/g)=(f)-(g)=0$, and is thus constant by Liouville's theorem (Theorem \ref{thrmA9:1_Liouville_compact_surface}). Consequently, the desired function $f$ is off from our constructed function $g$ by a constant.
 
 \begin{lemma}[Decomposition at genus 0]
     Given a function $f$ on the Riemann sphere, with divisor $(f)=\sum_i n_i z_i$, it can be decomposed as
@@ -336,11 +336,11 @@ Consider decomposing a function $f$ with divisor $(f)$ (see \ref{rep:A9} for an 
     \end{equation}
 \end{lemma}
 
-Essentially, we can see the theta functions as higher genus analogues of a linear monomial. This will come into play to inspire the choice of the Kronecker function in the next section.
+Essentially, we can see the theta functions as higher genus analogues of a linear term. This will come into play to inspire the choice of the Kronecker function in the next section.
 
 \section{Kronecker function}\label{secB12:Kronecker}
 
-With a better understanding and formalism of theta functions, we can now return to the Kronecker function from prior reports (\ref{rep:B10} and \ref{rep:B11}). Rather than focusing on the consequences that the Kronecker function has for multiple elliptic polylogarithms \cite{BL13} or its applications to string theory \cite{Broedel_2022}, we will focus on the properties that it has and how those properties are inherited by the functions used in its expansion.
+With a better understanding and formalism of theta functions, we can now return to the Kronecker function from prior reports (Report \ref{rep:B10} and Report \ref{rep:B11}). Rather than focusing on the consequences that the Kronecker function has for multiple elliptic polylogarithms \cite{BL13} or its applications to string theory \cite{Broedel_2022}, we will focus on the properties that it has and how those properties are inherited by the functions used in its expansion.
 
 \subsection{Genus 0 analogy}
 
@@ -365,7 +365,7 @@ Furthermore, with some effort we can identify that
 \end{equation}
 which is the titular \emph{bilinear relation}. In the next section with the actual Kronecker function, the analogous relation will be called the Fay identity.
 
-Expanding this relation as done in Equation \ref{eqnB12:ExpandExample} and matching corresponding powers of $\alpha_i$ will give us the result
+Expanding this relation using Equation \ref{eqnB12:ExpandExample} and matching corresponding powers of $\alpha_i$ will give us the result
 \begin{equation}
     g^{(1)}(z_1)g^{(1)}(z_2) = g^{(1)}(z_1)g^{(1)}(z_2-z_1) + g^{(1)}(z_2)g^{(1)}(z_1-z_2),
 \end{equation}
@@ -375,11 +375,11 @@ which is more easily recognized as a partial fraction identity with $z_1 \mapsto
 \end{equation}
 which has uses for evaluating integral representations of multiple polylogarithms \cite{Broedel_2015}.
 
-Of course, proving this relation for partial fractions does not require the roundabout way using the function $\tilde F$. However, this example is representative of what is done for genus 1.
+Of course, proving this relation for partial fractions does not require the roundabout way using the function $\tilde F$. However, this example is instructive for what is done for genus 1.
 
 \subsection{Definition and properties of the Kronecker function}
 
-In section \label{secB12:decomposition}, we showed how theta functions are analogous to linear monomials through the way meromorphic functions are decomposed at various genera. In the previous section, we used linear monomials in order to construct $\tilde F$ which generated differentials $g^{(i)}$ useful for multiple polylogarithms \cite{rep:B1}. Combining these ideas, we can define the Kronecker function $F$, using the odd theta function at genus 1 instead of linear monomials.
+In section \label{secB12:decomposition}, we showed how theta functions are analogous to linear terms through the way meromorphic functions are decomposed at various genera. In the previous section, we used linear terms in order to construct $\tilde F$ which generated differentials $g^{(i)}$ useful for multiple polylogarithms \cite{rep:B1}. Combining these ideas, we can define the Kronecker function $F$, using the odd theta function at genus 1 instead of linear terms.
 
 \begin{definition}[The Kronecker function]
     The Kronecker function $F(z,\alpha,\tau)$ has equivalent definitions
@@ -410,19 +410,19 @@ In section \label{secB12:decomposition}, we showed how theta functions are analo
 
     The quasiperiodicity can be proved using the first definition and the quasiperiodicity of the theta function
     \begin{equation}
-        F(z+1,\alpha) = \frac{\theta'(0)\theta(z+\alpha+1)}{\theta(z+1)\theta(\alpha)} = \frac{\theta'(0)\theta(z+\alpha)}{\theta(z)\theta(\alpha)} = F(z,\alpha)
+        F(z+1,\alpha) = \frac{\theta_1'(0)\theta_1(z+\alpha+1)}{\theta_1(z+1)\theta_1(\alpha)} = \frac{\theta_1'(0)\theta_1(z+\alpha)}{\theta_1(z)\theta_1(\alpha)} = F(z,\alpha)
     \end{equation}
     \begin{equation}
-        F(z+\tau,\alpha) = \frac{\theta'(0)\theta(z+\alpha+\tau)}{\theta(z+\tau)\theta(\alpha)} = \frac{\bolde(-z-\alpha)\theta'(0)\theta(z+\alpha)}{\bolde(-z)\theta(z)\theta(\alpha)} = \bolde(-\alpha) F(z,\alpha)
+        F(z+\tau,\alpha) = \frac{\theta_1'(0)\theta_1(z+\alpha+\tau)}{\theta_1(z+\tau)\theta_1(\alpha)} = \frac{\bolde(-z-\alpha)\theta_1'(0)\theta_1(z+\alpha)}{\bolde(-z)\theta_1(z)\theta_1(\alpha)} = \bolde(-\alpha) F(z,\alpha)
     \end{equation}
 \end{proof}
 
-\begin{lemma}[The Fay identity]
+\begin{theorem}[The Fay identity]
     The Kronecker function defined above satisfies
     \begin{equation}\label{eqnB12:FayKronecker}
         {F}(z_1,\alpha_1){F}(z_2,\alpha_2) = {F}(z_1,\alpha_1+\alpha_2){F}(z_2-z_1,\alpha_2) + {F}(z_2,\alpha_1+\alpha_2){F}(z_1-z_2,\alpha_1).
     \end{equation}
-\end{lemma}
+\end{theorem}
 
 \begin{proof}
     A complete outline of the proof is given in \cite{Mat19} and is paraphrased here.
@@ -446,7 +446,7 @@ With the Kronecker function defined, we can now take an expansion in $\alpha$ to
     \begin{equation}
         \alpha F(z,\alpha) = \sum_{n=0}^{\infty} g^{(n)}(z) \alpha^n,
     \end{equation}
-    we find the functions $g^{(n)}(z)$, which are suitable integration kernels for elliptic polylogarithms (\ref{rep:B10}) \cite{Broedel_2022}.
+    we find the functions $g^{(n)}(z)$, which are suitable integration kernels for elliptic polylogarithms (Report \ref{rep:B10}) \cite{Broedel_2022}.
 \end{definition}
 
 The resulting functions have power expansions in $q = \bolde(\tau)$ \cite{Broedel_2015}
@@ -469,16 +469,16 @@ We can also easily deduce the parity of these functions,
 \end{equation}
 
 
-Using the Fay identity for the Kronecker function (\ref{eqnB12:FayKronecker}), we can prove a relation for the functions that it expanded to.
+Using the Fay identity for the Kronecker function (Equation \ref{eqnB12:FayKronecker}), we can prove a relation for the functions that it expanded to.
 
-\begin{lemma}[Fay identity satisfied by expansion of the Kronecker function]
+\begin{theorem}[Fay identity satisfied by expansion of the Kronecker function]
     The functions $g^{(n)}$ from the expansion of the Kronecker function in the second variable satisfy
     \begin{align}
         g^{(m)}(z_1) g^{(n)}(z_2) = (-1)^{n-1} g^{(m+n)}(z_1-z_2)& \\
          +\sum_{r=0}^n \begin{pmatrix} m+r-1 \\ r \end{pmatrix} g^{(m+r)}(z_1) g^{(n-r)}(z_2-z_1) & \\
          +\sum_{r=0}^m \begin{pmatrix} n+r-1 \\ r \end{pmatrix} g^{(n+r)}(z_2) g^{(m-r)}(z_1-z_2) & .
     \end{align}
-\end{lemma}
+\end{theorem}
 
 \begin{proof}
     We begin by expanding each Kronecker function in their Fay identity
@@ -489,7 +489,7 @@ Using the Fay identity for the Kronecker function (\ref{eqnB12:FayKronecker}), w
         \implies & \left(\frac{1}{\alpha_1} \sum_{j=0}^{\infty} g^{(j)}(z_1) \alpha_1^j\right)
         \left(\frac{1}{\alpha_2} \sum_{j=0}^{\infty} g^{(j)}(z_2) \alpha_2^j\right) =
         \\ & \quad \quad \left(\frac{1}{\alpha_1+\alpha_2} \sum_{j=0}^{\infty} g^{(j)}(z_1) (\alpha_1+\alpha_2)^j\right)
-        \left(\frac{1}{\alpha_2} \sum_isolate {j=0}^{\infty} g^{(j)}(z_2-z_1) \alpha_2^j\right) +
+        \left(\frac{1}{\alpha_2} \sum_{j=0}^{\infty} g^{(j)}(z_2-z_1) \alpha_2^j\right) +
         \\ & \quad \quad \left(\frac{1}{\alpha_1+\alpha_2} \sum_{j=0}^{\infty} g^{(j)}(z_2) (\alpha_1+\alpha_2)^j\right)
         \left(\frac{1}{\alpha_1} \sum_{j=0}^{\infty} g^{(j)}(z_1-z_2) \alpha_1^j\right).
     \end{align}
@@ -515,7 +515,7 @@ Using the Fay identity for the Kronecker function (\ref{eqnB12:FayKronecker}), w
 \subsection{Perfectly periodic differentials and their independence}
 
 In some applications, it is more useful to have the expansion produce functions that are perfectly periodic, sacrificing holomorphicity.
-Recall that this sacrifice is necessary, since it is not possible to have non-constant holomorphic and perfectly periodic functions.
+Recall that this tradeoff is necessary, since it is not possible to have non-constant holomorphic and perfectly periodic functions.
 
 \begin{definition}[Perfectly periodic differential and expansion]
     We define a differential from the Kronecker function that is perfectly periodic in the first argument as
@@ -527,7 +527,7 @@ Recall that this sacrifice is necessary, since it is not possible to have non-co
     \begin{equation}
         d\Omega(z,\alpha) = \nu \alpha \wedge \Omega(z,\alpha),
     \end{equation}
-    for $\nu = 2 \pi i \cdot d\!\left(\frac{\Im(z)}{\Im(\tau)}\right)$.
+    with $\nu = 2 \pi i \cdot d\!\left(\frac{\Im(z)}{\Im(\tau)}\right)$.
 
     Analogously to the Kronecker function, we can do an expansion in $\alpha$
     \begin{equation}
@@ -547,44 +547,44 @@ Recall that this sacrifice is necessary, since it is not possible to have non-co
 \end{proof}
 
 \begin{lemma}[Independence of differentials]
-    The differentials $\{f^{(n)}$ for $n \geq 0\}$ from the expansion of $\Omega$ are linearly independent over $\mathbb C$.
+    The differentials $\{f^{(n)}\}_{n=0}^{\infty}$ from the expansion of $\Omega$ are linearly independent over $\mathbb C$.
 \end{lemma}
 \begin{proof}
     This proof is a paraphrased version of one found in \cite{BL13}.
 
     The relation $d\Omega = \nu \wedge \Omega$ gives us that
     \begin{equation}
-        df^{(n+1)} = \nu \wedge f^{(n)} \quad \forall n > 0,
+        df^{(n+1)} = \nu \wedge f^{(n)} \quad \forall n \geq 0,
     \end{equation}
-    which can be completed by noting
+    where we note that in the case of $n=-1$ we have
     \begin{equation}
         df^{(0)} = d^2 z = 0.
     \end{equation}
 
     We now have the tools necessary to approach a proof by contradiction using induction.
 
-    Let us assume that there exists some $w > 0$ we have non-independent $\{f^{(n)} \forall n < w\}$, that is we have
+    Let us assume that there exists some $w > 0$ for which we have non-independent $\{f^{(n)} \}_{n=0}^w$. That is we have
     \begin{equation}
-        \sum_{k=0}^{w-1} c_{k} f^{(k)} = 0
+        \sum_{k=0}^{w} c_{k} f^{(k)} = 0
     \end{equation}
-    for some non-trivial $\{c_{k}\}$.
+    for some non-trivial $\{c_{k}\}_{k=0}^w$.
 
     Then, by taking the exterior derivative we find
     \begin{equation}
-        d\left(\sum_{k=0}^{w-1} c_{k} f^{(k)}\right) = \nu \wedge \sum_{k=0}^{w-2} c_{k+1} f^{(k)} = 0.
+        d\left(\sum_{k=0}^{w} c_{k} f^{(k)}\right) = \nu \wedge \sum_{k=0}^{w-1} c_{k+1} f^{(k)} = 0.
     \end{equation}
 
-    If the remaining coefficients $\{c_{k+1}\}$ were trivial, then it would mean that our original assumption was simply
+    If the remaining coefficients $\{c_{k+1}\}_{k=0}^{w-1}$ were trivial, then it would mean that our original assumption was simply
     \begin{equation}
         c_0 f^{(0)} = 0,
     \end{equation}
     which is not true.
 
-    Thus, the remaining coefficient are still non-trivial, and we have shown that $\{f^{(n)} \forall n < w-1\}$ are not independent either.
+    Thus, the remaining coefficient are still non-trivial, and we have shown that $\{f^{(n)}\}_{n=0}^{w-1}$ are not independent either, lowering $w$ by 1 from our assumption.
 
     By induction, we see that
     \begin{equation}
-        \{f^{(n)} \text{ for } n \leq w\} \text{ not independent} \implies \{f^{(0)}\} \text{ not independent},
+        \{f^{(n)}\}_{n=0}^w \text{ not independent} \implies \{f^{(n)}\}_{n=0} \text{ not independent},
     \end{equation}
     which reaches a contradiction. Thus, our initial assumption that there exists some $w$ for which differentials of lesser weight are not independent was false.
 \end{proof}
@@ -732,7 +732,7 @@ By choosing to sum over only the corresponding cosets, we avoid divergences by a
     \begin{align}
         & \int_{\partial D_i} \omega_j =
         \int_{\partial D_i} \frac{dz}{2\pi i} \sum_{\gamma \in \Gamma / \Gamma_i} \frac{1}{z - \gamma(P_i')} - \frac{1}{z - \gamma(P_i)} = \\
-        & \quad \quad \sum_{\gamma \in \Gamma / \Gamma_i} \Res(\frac{1}{z - \gamma(P_i)},\gamma(P_i)) - \Res(\frac{1}{z - \gamma(P_i')},\gamma(P_i')) =
+        & \quad \quad \sum_{\gamma \in \Gamma / \Gamma_i} \Res\left(\frac{1}{z - \gamma(P_i)},\gamma(P_i)\right) - \Res\left(\frac{1}{z - \gamma(P_i')},\gamma(P_i')\right) =
         \sum_{\gamma \in \Gamma / \Gamma_i} 0 = 0.
     \end{align}
 
@@ -752,7 +752,7 @@ For conciseness, only the Abel's map is shown here.
 \subsection{Attempt at a Kronecker function}
 
 In order to understand what it means to attempt a generalization of the Kronecker function to higher genus,
-we will take a look at a particular approach taken by \cite{Cha22}.
+we will take a look at a particular approach taken in \cite{Cha22}.
 In this thesis, the author used an existing connection on a Schottky group to define the Bernard-Kronecker function as
 \begin{equation}
     K(z,\{w_1,\ldots,w_g\}|\Gamma) := \sum_{\gamma \in \Gamma} \frac{\gamma'(z)}{\gamma(z)-1} w_1^{\ord_1(\gamma)} w_1^{\ord_1(\gamma)} \cdots w_g^{\ord_g(\gamma)},
@@ -780,7 +780,7 @@ There are many directions in which such questions can be asked, and here is a li
     It is likely that with the appropriate choice of characters and correction factors, we could identify Kronecker function at higher genus as ratios of theta functions.
     Attempts at this have already been made \cite{tsuchiya2022formula}, and symmetries of theta functions \cite{Mumford_1994} could be used to prove Fay identities\cite{Mat19}.
     \item The description and approach in terms of the Schottky cover could be analyzed further. Open questions for the Schottky cover description include finding appropriate cutting proceduresand improving the approach using the Bernard connection\cite{Cha22}.
-    \item Riemann surfaces can also be constructed form algebraic curves, as was done in \ref{rep:B10}. Despite the differences in the languages of algebraic curves, Schottky covers, and other representations, they should all lead to equivalent results.
+    \item Riemann surfaces can also be constructed form algebraic curves, as was done in Report \ref{rep:B10}. Despite the differences in the languages of algebraic curves, Schottky covers, and other representations, they should all lead to equivalent results.
 \end{itemize}
 
 \bibliography{reportB12}
@@ -790,7 +790,7 @@ There are many directions in which such questions can be asked, and here is a li
 
 \chapter{Final step for Fay relation of kernels}\label{appB12:kernelFay}
 
-\begin{proof}[Proving equivalence of \ref{eqnB12:kernelFaySTART} and \ref{eqnB12:kernelFayEND}]
+\begin{proof}[Proving equivalence of Equations \ref{eqnB12:kernelFaySTART} and \ref{eqnB12:kernelFayEND}]
 
 Starting with Equation \ref{eqnB12:kernelFaySTART}, relabeling $m$ to $m+1$, we find
 \begin{align}

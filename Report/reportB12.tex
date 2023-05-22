@@ -16,13 +16,13 @@
 
 As seen in the previous two reports (Report \ref{rep:B10} and Report \ref{rep:B11}), the theta and Kronecker functions are crucial to defining multiple elliptic polylogarithms. In this report we will analyze these mathematical tools in more detail, with the goal of considering how open questions related to generalizations to a higher genus can be approached.
 
-In Section \ref{secB12:Abel}, we will start with a review of normalized holomorphic differentials on compact Riemann surfaces. These will be applied to define Abel's map, a function that takes assigns complex vectors to points on the Riemann surface, taking advantage of the differentials' properties to achieve an additively quasiperiodic result.
+In Section \ref{secB12:Abel}, we will start with a review of normalized holomorphic differentials on compact Riemann surfaces. These will be applied to define Abel's map, a function that assigns complex vectors to points on the Riemann surface, taking advantage of the differentials' properties to achieve an additively quasiperiodic result.
 
-Then in Section \ref{secB12:theta}, theta functions will discussed in detail as they can be defined at an arbitrary genus. These functions use Abel's map to assign complex numbers to a Riemann surface in a quasiperiodic way. In particular, we will find through an example that theta functions can act as elliptic/hyperelliptic analogues of the linear term $(z-z_0)$ at genus 0.
+Then in Section \ref{secB12:theta}, theta functions will discussed in detail as they can be defined at an arbitrary genus. These functions use Abel's map to assign complex numbers to a Riemann surface in a quasiperiodic way. In particular, we will find through an example that theta functions can act as higher genus analogues of the linear term $(z-z_0)$ at genus 0.
 
 In Section \ref{secB12:Kronecker}, we will define the familiar Kronecker function as a ratio of theta functions at genus 1. This can be used to define quasiperiodic holomorphic differentials with properties including the bilinear Fay identity, which allows us to relate products of the differentials to products that may be simpler to evaluate.
 
-Finally in Section \ref{secB12:Schottky}, we will take a look at a particular way used today to attempt generalizations of the Kronecker function to higher genus. Schottky covers use mobius transformations to define a recursive structure on the complex plane that can be chosen to be a cover of a Riemann surface. With such covers, properties of holomorphic differentials, Abel's map, and theta functions are easier to investigate directly, and attempts at a Kronecker function can be made.
+Finally in Section \ref{secB12:Schottky}, we will take a look at a particular way used today to attempt generalizations to higher genus. Schottky covers use mobius transformations to define a recursive structure on the complex plane that can be chosen to be a cover of a Riemann surface. With such covers, properties of holomorphic differentials, Abel's map, and theta functions are easier to investigate directly, and attempts at a Kronecker function can be made.
 
 \section{Abel's Map}\label{secB12:Abel}
 
@@ -88,7 +88,7 @@ For more detail on the definitions and proofs shown, one may refer to \cite{Ber0
 
 \begin{figure}
     \center
-    \includegraphics{assets/HarmonicDifferential.png}
+    \includegraphics{assetsB12/HarmonicDifferential.png}
     \caption{Source: Figure 3.1 from \cite{Ber06}.
     The black curve $\gamma$ is an arbitrary cycle used to define a harmonic differential. We can define a function $f_\gamma$ that is 1 on the blue belt, 0 outside of the colored belts, and smoothly connects 0 to 1 on the green belt. The exterior derivative $df_\gamma=dh+\eta_\gamma$ lets us identify the harmonic differential $\eta_\gamma$ corresponding to the cycle $\gamma$.}
     \label{figB12:Harmonic}
@@ -130,7 +130,7 @@ with this result being kept as the map is continued analytically along $a$-cycle
 
 \begin{figure}
     \center
-    \includegraphics[width=0.6\textwidth]{assets/Domain.png}
+    \includegraphics[width=0.6\textwidth]{assetsB12/Domain.png}
     \caption{The fundamental domain at genus 1. Due to the trivial differential $\omega = dz$, we find that Abel's map at genus 1 is simply $\mathbf{u}(z)=z$, justifying the choice of cover.}
 \end{figure}
 
@@ -148,11 +148,11 @@ The multiplicative quasiperiodicity will be facilitated by using properties of t
 \subsection{Definition on $\mathbb C^g$}
 
 \begin{definition}[Theta function]\label{defB12:thetaGeneralDefn}
-    Given a $g \times g$ matrix $\tau$ that is symmetric $(\tau = \tau^T)$ and has positive definite imaginary part $(\vec n^T (\Im \tau) \vec n > 0 \forall \vec n \in \mathbb R^g \setminus \vec 0)$, we can define the associated theta function
+    Given a $g \times g$ matrix $\tau$ that is symmetric $(\tau = \tau^T)$ and has positive definite imaginary part $(\vec n^T (\Im \tau) \vec n > 0 \forall \vec n \in \mathbb R^g \setminus \{\vec 0\})$, we can define the associated theta function
     \begin{equation}
         \Theta(\vec z,\tau) := \sum_{\vec n \in \mathbb Z^g} \bolde\left(\frac{1}{2} \vec n^T \tau \vec n + \vec n^T \vec z\right)
     \end{equation}
-    where $\vec z \in \mathbb C^g$. From this point forward the theta functions' explicit dependence on $\tau$ will be omitted, since the theta functions are almost always discussed in the context of a $\tau$ chosen to be a constant.
+    where $\vec z \in \mathbb C^g$. From this point forward the theta functions' explicit dependence on $\tau$ will be omitted, since in the context of this report, $\tau$ is chosen to be a constant.
 \end{definition}
 
 Though we will omit a formal proof thereof, it is apparent that the series will converge due to the matrix $\tau$ having a positive definite imaginary part supressing terms with large $\vec n$. As we will go on to see in the following section, the choices made for the theta function are made to fit naturally with the formalism we developed for Riemann surfaces, as the matrix $\tau$ will be filled by the period matrix and the input $\vec z$ will be the output of Abel's map.
@@ -221,7 +221,7 @@ a plot of which is seen in Figure \ref{figB12:Genus1theta}.
 
 \begin{figure}
     \center
-    \includegraphics{assets/genus1theta.png}
+    \includegraphics{assetsB12/genus1theta.png}
     \caption{Source: \cite{Cha22}.
     Complex plot of the theta function on a genus 1 surface with $\tau = 0.7+0.6i$. For $\theta(z)=r\exp(i\phi)$, the color represents the argument $\phi$. One can see the quasiperiodic properties: the plot is perfectly symmetric with respect to shifts by 1 ($a$-cycles), and quasiperiodic with respect to shifts by $\tau$ ($b$-cycles). The points around which the color wraps are simple zeros, the locations of which are proven in Theorem \ref{thmB12:OddLocations}.}
     \label{figB12:Genus1theta}
@@ -243,7 +243,7 @@ a plot of which is seen in Figure \ref{figB12:Genus1theta}.
 The choice of adding characteristics to the theta functions in this way seems arbitrary, but it actually leads to a few key properties. First, it is apparent from the definition that the theta function, and consequently its zeros, are shifted by some controlled amount. Second, the quasiperiodicity and parity properties of the theta function will change in ways that we will be able to take advantage of.
 
 \begin{lemma}[Properties of the theta functions with characteristics]
-    The theta function satisfies the properties
+    The theta function with characteristics satisfies the properties
     \begin{equation}\Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z + \vec \alpha + \tau \vec \beta) =
     \ee\left(\frac{1}{2}(\epsilon^T \vec \alpha - \vec \beta^T \epsilon') - \frac{1}{2} \beta^T \tau \beta - \vec \beta \vec z\right)
     \Theta\begin{bmatrix}\epsilon \\ \epsilon'\end{bmatrix}(\vec z)
@@ -262,7 +262,7 @@ The choice of adding characteristics to the theta functions in this way seems ar
 \end{lemma}
 
 \begin{proof}
-    The first and second properties are proved analogously to Lemma \ref{lemmaB12:thetaGeneralProperties}.
+    The first and second properties are proved using similar strategies to those used for Lemma \ref{lemmaB12:thetaGeneralProperties}.
 
     The third property uses
     \begin{equation}
@@ -274,7 +274,7 @@ The choice of adding characteristics to the theta functions in this way seems ar
 The third property tells us that for characteristics $\epsilon,\epsilon' \in \mathbb Z^g$ such that $\epsilon^T\epsilon'$ is odd, the resulting theta function will be odd. Since odd functions vanish at the origin, this property can be used to identify the locations of zeros for the theta function in general.
 
 \begin{theorem}[Location of zeros of the theta function]\label{thmB12:OddLocations}
-    The zeros of the theta function are
+    The theta function vanishes at
     \begin{equation}
         \Theta\left(\frac{\epsilon}{2} + \frac{\tau \epsilon'}{2}\right) = 0
     \end{equation}
@@ -349,11 +349,11 @@ At genus 0, the multiple polylogarithms are generated using the differentials
     g^{(0)}(z)dz = 1 dz , \quad g^{(1)}(z)dz = \frac{1}{z} dz.
 \end{equation}
 
-One way to make them appear is by noting that from the function
+Consider the function
 \begin{equation}
-    \tilde F(z,\alpha) = \frac{z+\alpha}{z\alpha},
+    \tilde F(z,\alpha) = \frac{z+\alpha}{z\alpha}.
 \end{equation}
-once it is expanded in $\alpha$
+Once it is expanded in $\alpha$
 \begin{equation}\label{eqnB12:ExpandExample}
     \alpha \tilde{F}(z,\alpha) = \alpha^0 g^{(0)}(z) + \alpha^1 g^{(1)}(z),
 \end{equation}
@@ -379,7 +379,7 @@ Of course, proving this relation for partial fractions does not require the roun
 
 \subsection{Definition and properties of the Kronecker function}
 
-In section \label{secB12:decomposition}, we showed how theta functions are analogous to linear terms through the way meromorphic functions are decomposed at various genera. In the previous section, we used linear terms in order to construct $\tilde F$ which generated differentials $g^{(i)}$ useful for multiple polylogarithms \cite{rep:B1}. Combining these ideas, we can define the Kronecker function $F$, using the odd theta function at genus 1 instead of linear terms.
+In section \ref{secB12:decomposition}, we showed how theta functions are analogous to linear terms through the way meromorphic functions are decomposed at various genera. In the previous section, we used linear terms in order to construct $\tilde F$ which generated differentials $g^{(i)}$ useful for multiple polylogarithms \cite{rep:B1}. Combining these ideas, we can define the Kronecker function $F$, using the odd theta function at genus 1 instead of linear terms.
 
 \begin{definition}[The Kronecker function]
     The Kronecker function $F(z,\alpha,\tau)$ has equivalent definitions
@@ -502,7 +502,7 @@ Using the Fay identity for the Kronecker function (Equation \ref{eqnB12:FayKrone
     \end{align}
     as in Equation 3.29 of \cite{Broedel_2015}.
 
-    By relabeling $m \mapsto m+1$, and isolating the resulting $g^{(m)}(z_1)g^{(n)}(z_2)$ term, we can use a careful proof by induction involving combinatorics to show that
+    By relabeling $m \mapsto m+1$, and isolating the resulting $g^{(m)}(z_1)g^{(n)}(z_2)$ term, we can use a careful proof involving combinatorics to show that
     \begin{align}\label{eqnB12:kernelFayEND}
         g^{(m)}(z_1) g^{(n)}(z_2) = (-1)^{n-1} g^{(m+n)}(z_1-z_2) &   \\
          +\sum_{r=0}^n \begin{pmatrix} m+r-1 \\ r \end{pmatrix} g^{(m+r)}(z_1) g^{(n-r)}(z_2-z_1) & \\
@@ -615,11 +615,11 @@ We will find that this is a suitable group for describing a compact Riemann surf
 
 \begin{figure}
     \center
-    \includegraphics[width=\textwidth]{assets/ChanSchottkyGroup.png}
+    \includegraphics[width=\textwidth]{assetsB12/ChanSchottkyGroup.png}
     \caption{
         Source: \cite{Cha22}.
         An illustration for how a Mobius transformation can be chosen to map the outside of one disc to the inside of another.
-        From left to right, we iteratively transform the outside to the inside by:
+        From left to right, we iteratively transform the outside of the top right disc to the inside of the bottom left disc by:
         shifting to the origin ($z \mapsto z-x_1$), inverting ($z \mapsto 1/z$), rescaling ($z \mapsto r_1r_2 z$), and shifting to the appropriate center ($z \mapsto z+x_2$), 
         where $x_1,x_2$ are the centers and $r_1,r_2$ are the radii of the respective discs.
     }
@@ -628,7 +628,7 @@ We will find that this is a suitable group for describing a compact Riemann surf
 
 \begin{figure}
     \center
-    \includegraphics{assets/ChanSchottkyCover.png}
+    \includegraphics{assetsB12/ChanSchottkyCover.png}
     \caption{
         Source: \cite{Cha22}.
         As we move past an $a$-cycle on the compact Riemann surface (right), we move inside the corresponding disc on the Riemann sphere (left).
@@ -678,8 +678,8 @@ To aid in developing this intuition, Figure \ref{figB12:SchottkyIntuition2} show
 
 \begin{figure}
     \center
-    \includegraphics[width=0.4\textwidth]{assets/Genus2SchottkyOuter.png}
-    \includegraphics[width=0.4\textwidth]{assets/Genus2SchottkyInner.png}
+    \includegraphics[width=0.4\textwidth]{assetsB12/Genus2SchottkyOuter.png}
+    \includegraphics[width=0.4\textwidth]{assetsB12/Genus2SchottkyInner.png}
     \caption{
         Two images of the same Schottky cover for some genus 2 Riemann surface.
         On the left, the fundamental domain is highlighted.
@@ -710,7 +710,7 @@ In order to properly define the holomorphic differentials and Abel's map in a co
 \end{definition}
 
 The upcoming definitions will involve sums over generators of our group acting on the fixed points.
-By choosing to sum over only the corresponding cosets, we avoid divergences by adding up the same contributions from the fixed points infinite times.
+By choosing to sum over only the corresponding cosets, we avoid divergences that would've appeared from adding up the same contributions from the fixed points infinite times.
 
 \begin{definition}[Holomorphic differentials on a Schottky cover]
     Given a Schottky cover corresponding to a group $\Gamma$ and pairs of discs $\{D_i,D_i'\}$ with fixed points $\{P_i,P_i'\}$, we can identify holomorphic differentials
